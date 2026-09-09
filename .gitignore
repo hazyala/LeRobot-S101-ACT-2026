@@ -19,6 +19,7 @@ wandb/
 outputs/
 checkpoints/
 runs/
+notes/realsense_D405_test/
 
 .DS_Store
 Thumbs.db
