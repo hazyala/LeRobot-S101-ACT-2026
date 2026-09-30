@@ -1,0 +1,81 @@
+{
+  "rig": {
+    "schema_version": 1,
+    "leader_port": "COM4",
+    "follower_port": "COM3",
+    "top_serial": "352122273503",
+    "side_index": 0,
+    "fps": 30,
+    "width": 640,
+    "height": 480,
+    "top_exposure": 10000,
+    "top_gain": 16,
+    "depth_raw_to_mm": 0.1,
+    "depth_max_m": 2.0,
+    "queue_frames": 300,
+    "min_free_gb": 20,
+    "max_frame_gap_s": 0.2,
+    "min_effective_fps": 27,
+    "prepare_seconds": 5,
+    "home_stable_seconds": 2,
+    "min_episode_seconds": 8,
+    "home_pose": {
+      "shoulder_pan.pos": -5.8,
+      "shoulder_lift.pos": -99.3,
+      "elbow_flex.pos": 101.05,
+      "wrist_flex.pos": 74.86,
+      "gripper.pos": 1.32
+    },
+    "home_tolerance": {
+      "shoulder_pan.pos": 12,
+      "shoulder_lift.pos": 12,
+      "elbow_flex.pos": 12,
+      "wrist_flex.pos": 18,
+      "gripper.pos": 20
+    }
+  },
+  "tasks": [
+    {
+      "id": 0,
+      "key": "pick_doll",
+      "group": "pick_place",
+      "instruction": "Pick up the doll and place it in the container.",
+      "max_seconds": 90
+    },
+    {
+      "id": 1,
+      "key": "pick_paper_cup",
+      "group": "pick_place",
+      "instruction": "Pick up the paper cup and place it in the container.",
+      "max_seconds": 90
+    },
+    {
+      "id": 2,
+      "key": "sort_doll_cup",
+      "group": "sorting",
+      "instruction": "Sort the doll and the paper cup into their containers.",
+      "max_seconds": 150
+    },
+    {
+      "id": 3,
+      "key": "stack_two",
+      "group": "stacking",
+      "instruction": "Stack two boxes.",
+      "max_seconds": 150
+    },
+    {
+      "id": 4,
+      "key": "stack_three",
+      "group": "stacking",
+      "instruction": "Stack three boxes.",
+      "max_seconds": 210
+    },
+    {
+      "id": 5,
+      "key": "stack_four",
+      "group": "stacking",
+      "instruction": "Stack four boxes.",
+      "max_seconds": 270
+    }
+  ]
+}

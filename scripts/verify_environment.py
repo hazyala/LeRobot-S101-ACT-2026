@@ -84,8 +84,8 @@ def save_image_tensor(value: Any, path: Path) -> dict[str, Any]:
 
 
 def main() -> None:
-    # Hugging Face가 데이터를 다운로드/캐시할 위치를 프로젝트 안의 datasets로 고정합니다.
-    os.environ["HF_HOME"] = str(ROOT / "datasets")
+    # 공개 Pick & Place 참조 데이터와 Hugging Face 캐시를 자체 수집 데이터와 분리합니다.
+    os.environ["HF_HOME"] = str(ROOT / "hf_pickplace_reference")
 
     # 현재 실행 중인 PowerShell 세션에서도 FFmpeg를 찾을 수 있게 PATH 앞에 추가합니다.
     os.environ["PATH"] = f"{FFMPEG_BIN};{os.environ.get('PATH', '')}"

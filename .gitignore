@@ -1,5 +1,5 @@
 .venv/
-datasets/
+hf_pickplace_reference/
 lerobot/
 experiments/
 
@@ -19,7 +19,15 @@ wandb/
 outputs/
 checkpoints/
 runs/
-notes/realsense_D405_test/
 
 .DS_Store
 Thumbs.db
+
+# Shared collection assets: keep configuration/code in Git, large recordings local.
+# notes/ and robot_calibration/ are versioned alongside the code.
+robot_datasets/
+.cache/
+datasets/
+collection/reports/
+episode_sample_dataset/auto_home_collection/auto_home_dataset*/
+episode_sample_dataset/manual_data_collection/dataset/

@@ -1,0 +1,17 @@
+{
+  "verdict": "REVIEW — 실제 구동 전에 아래 실패 항목 확인 필요",
+  "checks": {
+    "checkpoint_complete": true,
+    "model_and_processors_loaded": true,
+    "predictions_are_finite": true,
+    "training_loss_improved": true,
+    "prediction_range_sane": false,
+    "in_sample_reconstruction_sane": true
+  },
+  "final_logged_loss": 0.198,
+  "mean_joint_mae": 4.980861186981201,
+  "mean_normalized_mae_pct": 3.518465531058484,
+  "outside_training_range_pct": 7.333333333333333,
+  "checkpoint": "D:\\lerobot-2026\\episode_sample_dataset\\doll_pickplace_act\\outputs\\act_100ep_20k\\checkpoints\\020000",
+  "limitation": "All 100 episodes were used for training; this is not a held-out generalization score."
+}
