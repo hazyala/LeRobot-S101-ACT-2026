@@ -71,6 +71,6 @@ Windows Python 3.12 개발환경을 기준으로 작성했다. LeRobot editable 
 | `scripts/` | 환경·카메라 검사 |
 | `notes/doll_pickplace_act_testreport/` | 학습, 모델 평가, 실제 실행 분석 |
 
-[학습 기록](notes/doll_pickplace_act_testreport/01_model_training.md)은 100개 시연·20,000 step 실행을 기록한다. 수치와 그래프는 해당 실험의 기록이며 현재 장비에서 다시 측정한 결과가 아니다. [평가](notes/doll_pickplace_act_testreport/02_model_evaluation.md)와 [실행 분석](notes/doll_pickplace_act_testreport/03_execution_analysis.md)을 함께 읽어 오프라인 예측과 실제 작업 결과를 구분한다.
+[학습 기록](notes/doll_pickplace_act_testreport/01_model_training.md)은 100개 시연·20,000 step 실행을 기록한다. 수치와 그래프는 해당 실험의 기록이다. [평가](notes/doll_pickplace_act_testreport/02_model_evaluation.md)와 [실행 분석](notes/doll_pickplace_act_testreport/03_execution_analysis.md)을 함께 읽어 오프라인 예측과 실제 작업 결과를 구분한다.
 
 수집 테스트는 `collection/tests/`에 있으며 장비 연동 검사는 별도로 구분되어 있다. SmolVLA·Isaac·GR00T 구현이나 REST API 서버는 이 저장소에 없다.
