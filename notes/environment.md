@@ -1,5 +1,7 @@
 # LeRobot Windows 개발환경 정리
 
+> 초기 설치 당시의 환경 기록이다. 이후 ACT 학습과 실제 실행이 진행됐으며 현재 상태는 [루트 README](../README.md)와 [학습 보고서](doll_pickplace_act_testreport/01_model_training.md)를 기준으로 본다. 아래의 “아직 학습하지 않음”은 당시 시점의 기록이다. 현재 D405 검사는 `scripts/camera_test.py`를 사용한다.
+
 이 문서는 `D:\lerobot-2026` 폴더가 무엇인지, 어떤 프로그램이 설치됐는지, Pick & Place 데이터가 실제로 열렸는지를 짧게 정리한 기록입니다.
 
 처음 볼 때는 아래 세 군데만 보면 됩니다.
@@ -191,7 +193,7 @@ python -c "from lerobot.motors.feetech import FeetechMotorsBus; print(FeetechMot
 - Serial number: `352122273503`
 - Firmware: `5.15.1.55`
 - USB: `3.2`
-- 테스트 스크립트: `D:\lerobot-2026\scripts\realsense_D405_test.py`
+- 테스트 스크립트: `D:\lerobot-2026\scripts\camera_test.py`
 - 저장된 컬러 이미지:
   `D:\lerobot-2026\notes\realsense_D405_test\d405_top_color.png`
 - 저장된 Depth 원본 이미지:
@@ -211,14 +213,14 @@ python -c "from lerobot.motors.feetech import FeetechMotorsBus; print(FeetechMot
 
 ```powershell
 cd D:\lerobot-2026
-.\.venv\Scripts\python.exe .\scripts\realsense_D405_test.py
+.\.venv\Scripts\python.exe .\scripts\camera_test.py
 ```
 
-미리보기 창까지 보고 싶으면:
+현재 camera_test.py는 기본적으로 미리보기 창을 연다. 옵션은 코드의 argparse 정의를 확인한다:
 
 ```powershell
 cd D:\lerobot-2026
-.\.venv\Scripts\python.exe .\scripts\realsense_D405_test.py --preview
+.\.venv\Scripts\python.exe .\scripts\camera_test.py --help
 ```
 
 ## 발생한 문제와 해결

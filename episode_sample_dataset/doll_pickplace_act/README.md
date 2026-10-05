@@ -1,6 +1,6 @@
 # SO-101 Doll Pick-and-Place ACT
 
-현재 로컬 SO-101 인형 픽앤플레이스 데이터셋으로 LeRobot ACT 정책을 학습하는 샘플이다.
+로컬 SO-101 인형 픽앤플레이스 데이터셋으로 LeRobot ACT 정책을 학습·검증·실행하는 샘플이다. 데이터와 checkpoint는 Git에 포함되지 않는다. 아래 데이터 수치는 [학습 기록](../../notes/doll_pickplace_act_testreport/01_model_training.md)의 실험 결과다.
 
 ## 검증된 데이터
 
