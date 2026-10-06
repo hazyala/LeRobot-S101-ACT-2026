@@ -1,6 +1,6 @@
 # LeRobot Windows 개발환경 정리
 
-> 초기 설치 당시의 환경 기록이다. 이후 ACT 학습과 실제 실행이 진행됐으며 현재 상태는 [루트 README](../README.md)와 [학습 보고서](doll_pickplace_act_testreport/01_model_training.md)를 기준으로 본다. 아래의 “아직 학습하지 않음”은 당시 시점의 기록이다. 현재 D405 검사는 `scripts/camera_test.py`를 사용한다.
+> 초기 설치 당시의 환경 기록이다. 이후 ACT 학습과 실제 실행이 진행됐으며 현재 상태는 [루트 README](../README.md)와 [학습 보고서](doll_pickplace_act_testreport/01_model_training.md)를 기준으로 본다. 현재 D405 검사는 `scripts/camera_test.py`를 사용한다.
 
 이 문서는 `D:\lerobot-2026` 폴더가 무엇인지, 어떤 프로그램이 설치됐는지, Pick & Place 데이터가 실제로 열렸는지를 짧게 정리한 기록입니다.
 
