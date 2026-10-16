@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SO-101 ACT Pick &amp; Place — 실물 실행 영상</title>
+<meta name="description" content="SO-101 Leader–Follower 시연으로 학습한 ACT 정책(B200 · checkpoint 047000)의 인형 Pick & Place 실물 실행 영상">
+<style>
+  :root{--ink:#0B1A33;--navy:#0F2A5C;--blue:#2563EB;--sky:#0EA5E9;--pale:#93C5FD;--slate:#5B6B82;--tint:#DBEAFE;--bg:#F3F6FB;--line:#C9D6EA}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",system-ui,sans-serif;line-height:1.55}
+  header{background:var(--navy);color:#fff;padding:40px 20px 36px}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 4px}
+  .kicker{font-family:ui-monospace,Consolas,monospace;font-size:12px;letter-spacing:.14em;color:var(--pale)}
+  h1{font-size:clamp(26px,5vw,40px);line-height:1.2;margin:10px 0 12px}
+  h1 em{font-style:normal;color:var(--pale)}
+  header p{margin:0;color:#D6E2F5;max-width:720px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+  .chip{font-size:13px;background:#16336B;color:#fff;border-radius:999px;padding:6px 12px}
+  main{padding:28px 20px 48px}
+  .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+  .card{background:#fff;border:1px solid var(--tint);border-radius:14px;overflow:hidden}
+  .card.wide{grid-column:1/-1}
+  video{display:block;width:100%;background:#000}
+  .portrait video{aspect-ratio:9/16;max-height:78vh;object-fit:contain}
+  .wide video{aspect-ratio:8/3}
+  .meta{padding:14px 16px 16px}
+  .meta .kicker{color:var(--blue)}
+  .meta h2{font-size:17px;margin:4px 0 6px}
+  .meta p{margin:0;color:var(--slate);font-size:14px}
+  .facts{margin-top:28px;background:#fff;border:1px solid var(--tint);border-radius:14px;padding:18px 18px 8px}
+  .facts h3{margin:0 0 10px;font-size:16px}
+  .facts dl{display:grid;grid-template-columns:150px 1fr;gap:8px 16px;margin:0 0 10px;font-size:14px}
+  .facts dt{color:var(--slate)} .facts dd{margin:0}
+  footer{padding:0 20px 40px;font-size:14px;color:var(--slate)}
+  a{color:var(--blue)}
+  @media (max-width:720px){.grid{grid-template-columns:1fr}.facts dl{grid-template-columns:1fr}.facts dt{font-weight:600;color:var(--ink)}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="kicker">SO-101 · LEROBOT · ACT IMITATION LEARNING</div>
+    <h1>인형 Pick &amp; Place<br><em>실물 실행 영상</em></h1>
+    <p>Leader–Follower 시연 499개로 학습한 ACT 정책을 NVIDIA B200에서 50,000단계 학습하고, 50개 체크포인트 중 검증 오차가 가장 낮은 047000 모델을 로컬 로봇 실행기에 적용한 결과입니다. 별도 재시도 없이 한 번에 집어 상자에 넣었습니다.</p>
+    <div class="chips"><span class="chip">B200 · 50,000 steps</span><span class="chip">checkpoint 047000</span><span class="chip">입력: TOP·SIDE RGB + 관절 6축</span><span class="chip">출력: 100×6 action chunk</span></div>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <div class="grid">
+      <section class="card portrait">
+        <video src="videos/robot_view_b.mp4" poster="img/poster_b.jpg" controls muted playsinline preload="metadata"></video>
+        <div class="meta"><div class="kicker">RUN 01</div><h2>서 있는 인형 — 한 번에 파지 · 운반 · 안착</h2><p>접근 후 첫 시도에 인형을 집어 들어 상자 안에 내려놓고 HOME 자세로 복귀합니다.</p></div>
+      </section>
+      <section class="card portrait">
+        <video src="videos/robot_view_a.mp4" poster="img/poster_a.jpg" controls muted playsinline preload="metadata"></video>
+        <div class="meta"><div class="kicker">RUN 02</div><h2>누워 있는 인형 — 한 번에 파지 · 운반 · 안착</h2><p>누운 자세의 인형도 첫 시도에 집어 상자에 넣습니다.</p></div>
+      </section>
+      <section class="card wide">
+        <video src="videos/runner_top_side.mp4" poster="img/poster_runner.jpg" controls muted playsinline preload="metadata"></video>
+        <div class="meta"><div class="kicker">RUNNER VIEW</div><h2>로봇 실행기 화면 — 정책이 보는 TOP · SIDE 카메라</h2><p>왼쪽은 D405 TOP, 오른쪽은 SIDE 웹캠 영상입니다. 상단 표시줄은 실행 상태와 키 조작(SPACE 시작, P 일시정지, Q HOME 후 정지, E 긴급 토크 해제)입니다.</p></div>
+      </section>
+    </div>
+    <section class="facts">
+      <h3>실행 조건</h3>
+      <dl>
+        <dt>데이터</dt><dd>인형 시연 499개 · 291,869프레임 (학습 449 / 검증 50)</dd>
+        <dt>학습</dt><dd>공식 LeRobot ACT · NVIDIA B200 · batch 64 · FP32 · 50,000단계</dd>
+        <dt>모델 선택</dt><dd>번호 체크포인트 50개를 동일한 검증 관측 500개로 비교해 047000 선택</dd>
+        <dt>실행</dt><dd>로컬 RTX 3080 · 60프레임 비동기 재계획 · 관절 범위·속도·추종 제한</dd>
+      </dl>
+    </section>
+  </div>
+</main>
+<footer>
+  <div class="wrap">코드와 연구 기록: <a href="https://github.com/hazyala/LeRobot-S101-ACT-2026">github.com/hazyala/LeRobot-S101-ACT-2026</a> · 김해민 (<a href="https://github.com/hazyala">github.com/hazyala</a>)</div>
+</footer>
+</body>
+</html>
