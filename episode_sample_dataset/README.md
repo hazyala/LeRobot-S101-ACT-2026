@@ -1,5 +1,7 @@
 # Episode Sample Dataset
 
+현재 작업별 수집 진입점은 [collection](../collection/README.md)이다. 이 폴더는 초기 수집 코드와 기존 데이터 기반 [ACT 학습·실행](doll_pickplace_act/README.md)을 보관한다. dataset과 outputs는 로컬 파일이며 clone에 포함되지 않는다. 아래 5 episode 조작 설명은 초기 수동 수집에 해당한다.
+
 SO-101으로 첫 Pick & Place 샘플 데이터를 수집하기 위한 폴더입니다.
 
 ## 폴더 구조
