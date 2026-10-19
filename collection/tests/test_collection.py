@@ -11,6 +11,17 @@ import core as recovery
 
 
 class CollectionTests(unittest.TestCase):
+    def test_recovery_cancel_preserves_original_and_pending_journal(self):
+        with tempfile.TemporaryDirectory() as d, patch.object(common, 'STORE', Path(d)):
+            task = common.task_for(0)
+            root = common.data_root(task)
+            common.atomic_json(root / 'meta/info.json', {'total_episodes': 1})
+            common.atomic_json(root.parent / 'pending_episode.json', {'episode': 1})
+            with self.assertRaises(common.RecoveryCancelled):
+                common.recover(task, cancelled=lambda: True)
+            self.assertTrue((root / 'meta/info.json').exists())
+            self.assertTrue((root.parent / 'pending_episode.json').exists())
+
     def test_exact_task_sentences_and_order(self):
         self.assertEqual([t["instruction"] for t in common.registry()], [
             "Pick up the doll and place it in the container.",
@@ -55,10 +66,56 @@ class CollectionTests(unittest.TestCase):
                 with self.assertRaisesRegex(RuntimeError, "changed"):
                     common.ensure_manifest(task)
 
+    def test_clean_empty_dataset_can_upgrade_manifest_without_deleting_records(self):
+        with tempfile.TemporaryDirectory() as d, patch.object(common, "STORE", Path(d)):
+            task = common.task_for(0)
+            root = common.data_root(task)
+            common.atomic_json(root / "meta/info.json", {"total_episodes": 0, "total_frames": 0})
+            manifest = root.parent / "collection_manifest.json"
+            common.atomic_json(manifest, {"schema_version": 3})
+            common.atomic_json(root.parent / "sessions/rejected.json", {"status": "discarded"})
+            with patch.object(common, "fingerprint", return_value={"schema_version": 4}):
+                common.ensure_manifest(task)
+            self.assertEqual(common.read_json(manifest), {"schema_version": 4})
+            self.assertTrue((root.parent / "sessions/rejected.json").exists())
+            self.assertEqual(len(list((root.parent / "sessions").glob("previous_manifest_*.json"))), 1)
+
+    def test_quality_limit_change_keeps_saved_dataset_resumable(self):
+        with tempfile.TemporaryDirectory() as d, patch.object(common, "STORE", Path(d)):
+            task = common.task_for(0)
+            root = common.data_root(task)
+            common.atomic_json(root / "meta/info.json", {"total_episodes": 4, "total_frames": 1200})
+            previous = {"schema_version": 4, "rig": {"fps": 30, "max_camera_skew_s": 0.05}}
+            expected = {"schema_version": 4, "rig": {"fps": 30, "max_camera_skew_s": 0.1}}
+            common.atomic_json(root.parent / "collection_manifest.json", previous)
+            with patch.object(common, "fingerprint", return_value=expected):
+                common.ensure_manifest(task)
+            self.assertEqual(common.read_json(root / "meta/info.json")["total_episodes"], 4)
+            self.assertEqual(common.read_json(root.parent / "collection_manifest.json"), expected)
+
     def test_recovery_paths_cannot_escape(self):
         with tempfile.TemporaryDirectory() as d:
             with self.assertRaises(RuntimeError):
                 recovery.safe_child(Path(d), "../../outside")
+
+    def test_completed_save_with_pending_quality_is_rolled_back(self):
+        with tempfile.TemporaryDirectory() as d, patch.object(common, "STORE", Path(d)):
+            task = common.task_for(0)
+            root = common.data_root(task)
+            common.atomic_json(root / "meta/info.json", {"total_episodes": 1})
+            (root / "data").mkdir()
+            (root / "data/file.parquet").write_bytes(b"accepted")
+            recovery.snapshot(task)
+            common.atomic_json(root.parent / "pending_episode.json",
+                               {"episode": 1, "quality_pending": True})
+            common.atomic_json(root / "meta/info.json", {"total_episodes": 2})
+            (root / "data/file.parquet").write_bytes(b"unverified")
+            with patch("core.require_valid"), patch("core.shutil.disk_usage") as disk:
+                disk.return_value.free = 10**12
+                recovery.recover(task)
+            self.assertEqual(common.read_json(root / "meta/info.json")["total_episodes"], 1)
+            self.assertEqual((root / "data/file.parquet").read_bytes(), b"accepted")
+            self.assertFalse((root.parent / "pending_episode.json").exists())
 
     def test_snapshot_preserves_previous_video_and_numerical_metadata(self):
         with tempfile.TemporaryDirectory() as d, patch.object(common, "STORE", Path(d)):

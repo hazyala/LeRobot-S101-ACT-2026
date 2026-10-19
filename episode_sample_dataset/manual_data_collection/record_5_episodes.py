@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import shutil
 import threading
 import time
@@ -78,7 +79,9 @@ def main() -> None:
         max_relative_target=5.0,
         cameras={
             "top": RealSenseCameraConfig(
-                serial_number_or_name="352122273503",
+                serial_number_or_name=json.loads(
+                    (SCRIPT_DIR.parents[1] / "collection" / "settings.json").read_text(encoding="utf-8")
+                )["rig"]["top_serial"],
                 width=640,
                 height=480,
                 fps=30,

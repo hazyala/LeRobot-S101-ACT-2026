@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+import json
 
 import numpy as np
 from PIL import Image
@@ -15,7 +16,9 @@ OUTPUT_PATH = SCRIPT_DIR / "top_exposure_test.png"
 def main() -> None:
     camera = RealSenseCamera(
         RealSenseCameraConfig(
-            serial_number_or_name="352122273503",
+            serial_number_or_name=json.loads(
+                (SCRIPT_DIR.parent / "collection" / "settings.json").read_text(encoding="utf-8")
+            )["rig"]["top_serial"],
             width=640,
             height=480,
             fps=30,

@@ -13,6 +13,10 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor
+from types import SimpleNamespace
+
+from quality import (TIMING_NAMES, EpisodeQuality, capture_observation, convert_depth,
+                     research_features, send_control_action, verify_encoded_episode)
 
 # Configuration and dataset locks
 
@@ -22,6 +26,40 @@ ROOT = BASE.parent
 STORE = ROOT / "robot_datasets"
 LEGACY = ROOT / "episode_sample_dataset/auto_home_collection/auto_home_record.py"
 _DLL_HANDLES = []
+
+
+def wait_capture_tick(deadline, period):
+    """Use an absolute clock and release the GIL while cameras and encoders run."""
+    target = deadline + period
+    now = time.perf_counter()
+    if now < target:
+        time.sleep(target - now)
+    elif now - target > period:
+        # Do not emit a burst of repeated camera frames after a long stall.
+        target = now
+    return target
+
+# Raw servo feedback is research data, not an automatic policy input or N.m torque.
+MOTOR_FEEDBACK = {
+    "research.motor_load_raw": "Present_Load",
+    "research.motor_current_raw": "Present_Current",
+    "research.motor_torque_limit_raw": "Torque_Limit",
+}
+
+
+def motor_feedback_features(motors):
+    names = list(motors)
+    return {key: {"dtype": "float32", "shape": (len(names),), "names": names}
+            for key in MOTOR_FEEDBACK}
+
+
+def read_motor_feedback(robot, np, snapshot=None):
+    frame = {}
+    for key, register in MOTOR_FEEDBACK.items():
+        values = snapshot[register] if snapshot is not None else robot.bus.sync_read(
+            register, normalize=False, num_retry=robot.config.num_read_retries)
+        frame[key] = np.array([values[motor] for motor in robot.bus.motors], dtype=np.float32)
+    return frame
 
 
 def read_json(path):
@@ -69,7 +107,8 @@ def rig_config():
         raise ValueError("This schema requires 30 FPS, 640x480 and depth_max_m=2.0")
     if set(rig["home_pose"]) != set(rig["home_tolerance"]):
         raise ValueError("HOME pose and tolerance joints must match")
-    for field in ("min_free_gb", "max_frame_gap_s", "min_effective_fps", "queue_frames", "home_stable_seconds", "min_episode_seconds"):
+    for field in ("min_free_gb", "max_frame_gap_s", "min_effective_fps", "queue_frames", "home_stable_seconds", "min_episode_seconds",
+                  "max_camera_skew_s", "max_sample_span_s", "max_camera_age_s"):
         if rig[field] <= 0:
             raise ValueError(f"{field} must be positive")
     if rig["leader_port"] == rig["follower_port"]:
@@ -109,8 +148,11 @@ def load_engine(task=None, root=None):
     module.FPS = rig["fps"]
     module.HOME_POSE = rig["home_pose"]
     module.HOME_TOLERANCE = rig["home_tolerance"]
-    module.TOP_DEPTH_RAW_TO_MM = rig["depth_raw_to_mm"]
     module.TOP_DEPTH_MAX_M = rig["depth_max_m"]
+    rgb = read_json(BASE / "settings.json").get("rgb_encoder")
+    if rgb:
+        module.RGB_ENCODER = module.RGBEncoderConfig(**rgb)
+    module.DEPTH_ENCODER.preset = read_json(BASE / "settings.json").get("depth_encoder_preset", "fast")
     if root is not None:
         module.DATASET_ROOT = Path(root)
     elif task:
@@ -121,23 +163,74 @@ def load_engine(task=None, root=None):
     return module
 
 
-def fingerprint(task):
+def fingerprint(task, depth_scale=None):
     calibration = {}
     for name, rel in {"leader": "teleoperators/so_leader/leader.json", "follower": "robots/so_follower/follower.json"}.items():
         calibration[name] = hashlib.sha256((ROOT / "robot_calibration" / rel).read_bytes()).hexdigest()
-    return {"schema_version": 1, "task": task, "rig": rig_config(),
+    return {"schema_version": 4, "task": task, "rig": rig_config(),
+            "rgb_encoder": read_json(BASE / "settings.json").get("rgb_encoder"),
+            "acquisition": {"camera_sampling": "latest_available_on_control_clock",
+                            "motor_sampling": "contiguous_feedback_block",
+                            "source_skips_and_repeats": "record_only",
+                            "encoder_drops": "reject_episode"},
+            "depth": {"depth_scale_m_per_unit": depth_scale, "stored_unit": "mm",
+                      "valid_range_mm": [0, 2000], "quantization": "linear_12bit",
+                      "out_of_range": "clip", "roundtrip_check": "every_frame_codes_and_mm"},
+            "capture_timing": {"clock": "host_perf_counter_relative_to_episode_start",
+                               "camera_timestamp": "host_receipt_after_capture",
+                               "frame_numbers": ["top_rgb_device", "top_depth_device", "side_host_sequence"],
+                               "fields": TIMING_NAMES},
+            "motor_feedback": {"registers": MOTOR_FEEDBACK, "units": "raw_register_units",
+                               "policy_input": False, "load_is_measured_torque_nm": False},
             "calibration_sha256": calibration,
             "legacy_collector_sha256": hashlib.sha256(LEGACY.read_bytes()).hexdigest(),
-            "action_semantics": "absolute_leader_targets_degrees_gripper_0_100",
+            "action_semantics": "final_follower_command_degrees_gripper_0_100",
             "cameras": ["observation.images.top", "observation.images.side", "observation.images.top_depth"]}
 
 
-def ensure_manifest(task):
-    expected = fingerprint(task)
+def ensure_manifest(task, depth_scale=None):
+    expected = fingerprint(task, depth_scale=depth_scale)
     path = task_dir(task) / "collection_manifest.json"
     if path.exists():
         if read_json(path) != expected:
-            raise RuntimeError("Task/rig/calibration changed. Use a new dataset version; do not mix configurations.")
+            previous = read_json(path)
+            # Quality acceptance limits may change without changing recorded features or hardware.
+            limits = {"max_camera_skew_s", "max_sample_span_s", "max_camera_age_s",
+                      "max_frame_gap_s", "min_effective_fps"}
+            def without_limits(manifest):
+                return {**manifest, "rig": {key: value for key, value in manifest.get("rig", {}).items()
+                                             if key not in limits}}
+            only_limits_changed = without_limits(previous) == without_limits(expected)
+            # CPU RGB lossless and NVENC RGB lossless both store H.264 GBRP.
+            # Permit this backend change only; retain all rig/calibration checks.
+            rgb_profiles = [previous.get("rgb_encoder", {}), expected.get("rgb_encoder", {})]
+            def lossless_h264(profile):
+                return ((profile.get("vcodec") == "libx264rgb"
+                         and profile.get("pix_fmt") == "rgb24" and profile.get("crf") == 0)
+                        or (profile.get("vcodec") == "h264_nvenc"
+                            and profile.get("pix_fmt") == "gbrp" and profile.get("crf") is None
+                            and profile.get("extra_options", {}).get("tune") == "lossless"))
+            only_rgb_backend_changed = (
+                all(isinstance(profile, dict) and lossless_h264(profile) for profile in rgb_profiles)
+                and {key: value for key, value in previous.items() if key != "rgb_encoder"}
+                == {key: value for key, value in expected.items() if key != "rgb_encoder"})
+            root = data_root(task)
+            info_path = root / "meta/info.json"
+            clean_empty = (info_path.exists() and read_json(info_path)["total_episodes"] == 0
+                           and read_json(info_path)["total_frames"] == 0
+                           and not list(root.glob("data/**/*.parquet"))
+                           and not list(root.glob("videos/**/*.mp4"))
+                           and not (task_dir(task) / "pending_episode.json").exists())
+            if only_rgb_backend_changed and info_path.exists():
+                video_features = read_json(info_path)["features"]
+                only_rgb_backend_changed = all(
+                    video_features[key]["info"].get("video.codec") == "h264"
+                    and video_features[key]["info"].get("video.pix_fmt") == "gbrp"
+                    for key in ("observation.images.top", "observation.images.side"))
+            if not clean_empty and not only_limits_changed and not only_rgb_backend_changed:
+                raise RuntimeError("Task/rig/calibration changed. Use a new dataset version; do not mix configurations.")
+            atomic_json(task_dir(task) / "sessions" / f"previous_manifest_{datetime.now():%Y%m%d_%H%M%S_%f}.json", read_json(path))
+            atomic_json(path, expected)
     elif data_root(task).exists():
         raise RuntimeError("Existing dataset has no collection manifest; refusing to adopt it implicitly")
     else:
@@ -184,6 +277,10 @@ def exclusive(path):
 
 
 def pending_guard(task):
+    if (task_dir(task) / 'full_verification_failed.json').exists():
+        raise RuntimeError('Full verification failed; inspect the failed episode before collecting')
+    if (task_dir(task) / "rgb_migration_pending.json").exists():
+        raise RuntimeError("Unfinished RGB migration; finish migration before collecting")
     path = task_dir(task) / "pending_episode.json"
     if path.exists():
         raise RuntimeError(f"Unfinished episode detected: {path}. Run inspect/recover before collecting.")
@@ -210,6 +307,22 @@ def validate(task=None, root=None, deep=False, expected_tasks=None):
         feature = info["features"].get(key, {})
         if feature.get("shape") != [6] or feature.get("names") != expected_names:
             errors.append(f"{key}: incompatible joint order/shape")
+    feedback_keys = [key for key in MOTOR_FEEDBACK if key in info["features"]]
+    if feedback_keys:
+        for key in MOTOR_FEEDBACK:
+            feature = info["features"].get(key, {})
+            if (feature.get("shape") != [6] or feature.get("dtype") != "float32"
+                    or feature.get("names") != [name.removesuffix(".pos") for name in expected_names]):
+                errors.append(f"{key}: incompatible motor feedback schema")
+    provenance_keys = []
+    for key, specification in research_features([name.removesuffix(".pos") for name in expected_names]).items():
+        if key in info["features"]:
+            provenance_keys.append(key)
+            feature = info["features"][key]
+            if (feature.get("shape") != list(specification["shape"])
+                    or feature.get("dtype") != specification["dtype"]
+                    or feature.get("names") != specification["names"]):
+                errors.append(f"{key}: incompatible capture provenance schema")
     for key, channels in [("top", 3), ("side", 3), ("top_depth", 1)]:
         feature = info["features"].get("observation.images." + key, {})
         if feature.get("shape") != [480, 640, channels]:
@@ -226,9 +339,13 @@ def validate(task=None, root=None, deep=False, expected_tasks=None):
     if sum(int(ep["length"]) for ep in rows) != info["total_frames"]:
         errors.append("Episode lengths do not sum to total_frames")
     frames = m.pq.read_table(sorted(root.glob("data/chunk-*/file-*.parquet")))
-    for key in ["action", "observation.state"]:
+    for key in ["action", "observation.state", *feedback_keys, *provenance_keys]:
+        if key not in frames.column_names:
+            errors.append(f"{key}: missing numerical data")
+            continue
         arr = m.np.asarray(frames[key].to_pylist())
-        if arr.shape != (info["total_frames"], 6) or not m.np.isfinite(arr).all():
+        size = info["features"][key]["shape"][0]
+        if arr.shape != (info["total_frames"], size) or not m.np.isfinite(arr).all():
             errors.append(f"{key}: non-finite or malformed numeric data")
     episode_ids = frames["episode_index"].to_numpy()
     task_ids = frames["task_index"].to_numpy()
@@ -261,6 +378,61 @@ def require_valid(**kwargs):
     errors = validate(**kwargs)
     if errors:
         raise RuntimeError("Dataset validation failed:\n" + "\n".join(errors))
+
+
+def verify_pending_episodes(task, cancelled=None):
+    """Full read-only video/depth audit after devices disconnect, resumable on restart."""
+    pending = task_dir(task) / 'verification_pending'
+    def checkpoint():
+        if cancelled and cancelled():
+            raise RecoveryCancelled('Verification stopped; pending checks retained')
+    checkpoint()
+    references = sorted(path for path in pending.glob('episode_*.json')
+                        if not path.name.endswith('.verified.json'))
+    if not references:
+        return
+    m = load_engine(task)
+    m.DEPTH_ENCODER.use_log = False
+    verification = read_json(BASE / 'settings.json').get('verification', {})
+    fixed_samples = verification.get('exit_video_samples')
+    if fixed_samples is not None and (not isinstance(fixed_samples, int) or fixed_samples < 2):
+        raise ValueError('exit_video_samples must be an integer >= 2')
+    fraction = verification.get('exit_check_fraction', 1.0)
+    if not 0 < fraction <= 1:
+        raise ValueError('exit_check_fraction must be in (0, 1]')
+    coverage = f'up to {fixed_samples} frames' if fixed_samples else f'{fraction:.0%} coverage'
+    print(f'Deferred depth verification: {len(references)} episodes pending, {coverage}.', flush=True)
+    for path in references:
+        checkpoint()
+        reference = read_json(path)
+        session_path = task_dir(task) / 'sessions' / path.name
+        if not session_path.exists():
+            continue  # A save interrupted before commit must be recovered first.
+        session = read_json(session_path)
+        if session.get('status') not in ('saved', 'recovered_completed_save'):
+            continue
+        quality = SimpleNamespace(
+            rig=reference['rig'], times=list(range(reference['frames'])),
+            code_hashes=reference['code_hashes'], mm_hashes=reference['mm_hashes'],
+            summary=lambda dropped=0: dict(session['quality']), errors=lambda *args, **kwargs: [])
+        samples = fixed_samples if fixed_samples is not None else (
+            max(2, int(reference['frames'] * fraction + 0.999999)) if fraction < 1 else None)
+        report, errors = verify_encoded_episode(m, data_root(task), reference['episode'], quality,
+                                               m.DEPTH_ENCODER, video_samples=samples, checkpoint=checkpoint)
+        checked = min(samples, reference['frames']) if samples is not None else reference['frames']
+        report.update(full_depth_verified=not errors and checked == reference['frames'],
+                      depth_frames_checked=checked, deferred_verification_complete=not errors)
+        session.update(quality=report, full_verification_pending=False,
+                       full_verification_errors=errors)
+        if errors:
+            session['status'] = 'full_verification_failed'
+            atomic_json(session_path, session)
+            atomic_json(task_dir(task) / 'full_verification_failed.json', {
+                'episode': reference['episode'], 'errors': errors})
+            raise RuntimeError(f'Full verification failed for episode {reference["episode"]}: ' + '; '.join(errors))
+        atomic_json(session_path, session)
+        path.rename(path.with_suffix('.verified.json'))
+        print(f'Episode {reference["episode"] + 1}: depth verification passed ({checked}/{reference["frames"]} frames).', flush=True)
 
 
 # Interrupted-save recovery
@@ -298,9 +470,17 @@ def safe_child(root, relative):
     return path
 
 
-def recover(task):
+class RecoveryCancelled(RuntimeError):
+    pass
+
+
+def recover(task, *, already_locked=False, cancelled=None):
+    def checkpoint():
+        if cancelled and cancelled():
+            raise RecoveryCancelled('Recovery cancelled; original data and journal retained')
     folder, root = task_dir(task), data_root(task)
-    with exclusive(folder / "access.lock"):
+    with contextlib.nullcontext() if already_locked else exclusive(folder / "access.lock"):
+        checkpoint()
         journal = folder / "pending_episode.json"
         if not journal.exists():
             raise RuntimeError("No unfinished episode to recover")
@@ -309,32 +489,54 @@ def recover(task):
         # If the last save actually completed, preserve it rather than rolling it back.
         try:
             info = read_json(root / "meta/info.json")
-            require_valid(task=task, deep=True)
-            if info["total_episodes"] == snapshot_info["episodes"] + 1:
+            if (info["total_episodes"] == snapshot_info["episodes"] + 1
+                    and not read_json(journal).get("quality_pending", False)):
+                print('Recovery: validating a previously committed save.', flush=True)
+                require_valid(task=task, deep=False)
+                checkpoint()
                 atomic_json(folder / "sessions" / f"episode_{snapshot_info['episodes']:06d}.json",
                             read_json(journal) | {"status": "recovered_completed_save"})
                 journal.rename(folder / f"recovered_journal_{datetime.now():%Y%m%d_%H%M%S_%f}.json")
                 print("Completed episode validated; preserved the save and cleared the pending marker.")
                 return
+        except RecoveryCancelled:
+            raise
         except Exception:
             pass
+        checkpoint()
         required = sum(snapshot_info["videos"].values()) + sum(p.stat().st_size for p in backup.rglob("*") if p.is_file())
         if shutil.disk_usage(ROOT).free < required + 20_000_000_000:
             raise RuntimeError("Recovery requires space for a complete copy plus 20 GB reserve")
         suffix = datetime.now().strftime("%Y%m%d_%H%M%S_%f")
         candidate = folder / ("recovered_" + suffix)
+        print(f'Recovery: restoring {snapshot_info["episodes"]} accepted episodes; preserving interrupted data.', flush=True)
         if snapshot_info["episodes"]:
             for name in ("meta", "data"):
+                checkpoint()
                 shutil.copytree(backup / name, candidate / name)
-            for relative, size in snapshot_info["videos"].items():
+            for index, (relative, size) in enumerate(snapshot_info["videos"].items(), 1):
+                checkpoint()
                 saved = safe_child(backup, relative)
                 source = saved if saved.exists() else safe_child(root, relative)
                 if source.stat().st_size != size:
                     raise RuntimeError(f"Baseline video changed: {source}. Original data retained")
                 target = safe_child(candidate, relative)
                 target.parent.mkdir(parents=True, exist_ok=True)
-                shutil.copy2(source, target)
-            require_valid(task=task, root=candidate, deep=True)
+                if saved.exists():
+                    # The last file can be appended during a save: use its independent snapshot.
+                    shutil.copy2(source, target)
+                else:
+                    # Earlier files are immutable. Hard links avoid copying the entire history.
+                    try:
+                        os.link(source, target)
+                    except OSError:
+                        shutil.copy2(source, target)
+                if index == 1 or index % 100 == 0:
+                    print(f'Recovery: restored video paths {index}/{len(snapshot_info["videos"])}.', flush=True)
+            checkpoint()
+            print('Recovery: checking restored numerics and metadata.', flush=True)
+            require_valid(task=task, root=candidate, deep=False)
+            checkpoint()
         # Keep the entire failed state, including any newly written videos, for inspection.
         quarantine = folder / ("interrupted_" + suffix)
         if root.resolve().parent != folder.resolve() or quarantine.parent.resolve() != folder.resolve():
@@ -369,9 +571,9 @@ def configs(m, rig):
 class AutoHomeCycle:
     """The legacy reset/start/record cycle, independent of cameras and disk I/O."""
     def __init__(self, now, episodes=0, prepare=5, start=1, discard=10,
-                 minimum=8, stable=2, maximum=90):
+                 minimum=8, stable=2):
         self.prepare, self.start_delay, self.discard_delay = prepare, start, discard
-        self.minimum, self.stable, self.maximum = minimum, stable, maximum
+        self.minimum, self.stable = minimum, stable
         self.episode = episodes
         self.state, self.changed, self.delay = "PREP", now, prepare
         self.started = self.home_since = None
@@ -406,9 +608,8 @@ class AutoHomeCycle:
                 self.home_since = now
             elapsed = now - self.started
             stable = 0 if self.home_since is None else now - self.home_since
-            timed_out = elapsed >= self.maximum
-            if timed_out or (self.left_home and elapsed >= self.minimum and stable >= self.stable):
-                discarded = self.failed or timed_out
+            if self.left_home and elapsed >= self.minimum and stable >= self.stable:
+                discarded = self.failed
                 self.reset(now, discarded=discarded)
                 return "discard" if discarded else "save"
         return None
@@ -442,15 +643,23 @@ def finish_collection(dataset, future, saving, journal):
 
 
 def run(task, session_label, commands=None, notify=None):
+    def verification_cancelled():
+        if commands is None:
+            return False
+        with commands.mutex:
+            return 'q' in commands.queue
     with exclusive(STORE / "rig.lock"), exclusive(task_dir(task) / "access.lock"):
         pending_guard(task)
+        if read_json(BASE / 'settings.json').get('verification', {}).get('full_check_on_exit', False):
+            if notify:
+                notify('VALIDATING')
+            verify_pending_episodes(task, cancelled=verification_cancelled)
         if notify:
             notify("LOADING")
         m = load_engine(task)
         if notify:
             notify("VALIDATING")
         m.validate_calibration_files()
-        ensure_manifest(task)
         check_space()
         root = data_root(task)
         if root.exists():
@@ -463,6 +672,10 @@ def run(task, session_label, commands=None, notify=None):
         features = m.combine_feature_dicts(
             m.aggregate_pipeline_dataset_features(pipeline=ap, initial_features=m.create_initial_features(action=robot.action_features), use_videos=True),
             m.aggregate_pipeline_dataset_features(pipeline=op, initial_features=m.create_initial_features(observation=robot.observation_features), use_videos=True))
+        features.update(motor_feedback_features(robot.bus.motors))
+        features.update(research_features(robot.bus.motors))
+        # Linear 12-bit coding over 0..2000 mm preserves all integer mm values.
+        m.DEPTH_ENCODER.use_log = False
         journal = task_dir(task) / "pending_episode.json"
         dataset = None
         future = None
@@ -472,6 +685,9 @@ def run(task, session_label, commands=None, notify=None):
         frame_count, max_gap = 0, 0.0
         reported_state = None
         pending_key = None
+        previous_camera = {}
+        quality = EpisodeQuality(rig)
+        dropped = 0
 
         def incoming():
             if commands is None:
@@ -488,29 +704,77 @@ def run(task, session_label, commands=None, notify=None):
                     return result
 
         def open_dataset():
-            kwargs = dict(root=root, image_writer_processes=0, image_writer_threads=12,
+            # Keep CPU headroom for camera reads while the three encoders run.
+            kwargs = dict(root=root, image_writer_processes=0, image_writer_threads=0,
                           rgb_encoder=m.RGB_ENCODER, depth_encoder=m.DEPTH_ENCODER,
+                          encoder_threads=2,
                           streaming_encoding=True, encoder_queue_maxsize=rig["queue_frames"])
             if root.exists():
                 return m.LeRobotDataset.resume(repo_id(task), **kwargs)
             return m.LeRobotDataset.create(repo_id(task), rig["fps"], robot_type="so101_follower",
                                           features=features, use_videos=True, video_files_size_in_mb=1, **kwargs)
 
-        def save_and_reopen(writer, details):
+        def save_and_reopen(writer, details, episode_quality):
             # Only this thread touches the writer until the main loop collects its result.
+            started = time.perf_counter()
+            details["rgb_encoder"] = read_json(BASE / "settings.json")["rgb_encoder"]
+            details["depth_encoder_preset"] = m.DEPTH_ENCODER.preset
             try:
                 writer.save_episode(parallel_encoding=True)
-            finally:
+                writer.checkpoint_recording()
+            except BaseException:
                 writer.finalize()
-            require_valid(task=task)
+                raise
+            flushed = time.perf_counter()
+            video_samples = read_json(BASE / 'settings.json').get('verification', {}).get('video_samples')
+            try:
+                report, errors = verify_encoded_episode(m, root, details["episode"], episode_quality, m.DEPTH_ENCODER,
+                                                       details["quality"]["dropped_frames"], video_samples=video_samples)
+            except Exception as exc:
+                report, errors = episode_quality.summary(), [f"Encoded episode verification failed: {exc}"]
+            details["quality"] = report
+            if errors:
+                writer.finalize()
+                details.update(status="quality_rejected", quality_errors=errors)
+                atomic_json(journal, details)
+                atomic_json(task_dir(task) / "sessions" / f"rejected_{datetime.now():%Y%m%d_%H%M%S_%f}.json", details)
+                recover(task, already_locked=True)
+                reopened = open_dataset()
+                reopened.collection_quality_rejected = True
+                print("Episode discarded after encoded frame/depth quality checks: " + "; ".join(errors), flush=True)
+                return reopened
+            # History was validated before collection under the exclusive task lock.
+            # verify_encoded_episode checks the newly appended numerics, metadata and all video pixels.
+            verified = time.perf_counter()
+            details["quality_pending"] = False
+            details['full_verification_pending'] = video_samples is not None
+            if video_samples is not None:
+                atomic_json(task_dir(task) / 'verification_pending' / f"episode_{details['episode']:06d}.json", {
+                    'episode': details['episode'], 'frames': len(episode_quality.times), 'rig': rig,
+                    'code_hashes': episode_quality.code_hashes, 'mm_hashes': episode_quality.mm_hashes,
+                })
+            reopened = writer
+            details["save_seconds"] = {"flush": flushed - started, "verify": verified - flushed,
+                                       "reopen": time.perf_counter() - verified,
+                                       "total": time.perf_counter() - started}
+            details["dataset_writer_reused"] = True
             atomic_json(task_dir(task) / "sessions" / f"episode_{details['episode']:06d}.json", details | {"status": "saved"})
             journal.unlink()
-            print(f"Episode {details['episode'] + 1}: saved and validated.", flush=True)
-            return open_dataset()
+            timing = details['save_seconds']
+            print(f"Episode {details['episode'] + 1}: saved and validated. "
+                  f"Save {timing['flush']:.2f}s, verify {timing['verify']:.2f}s, "
+                  f"total {timing['total']:.2f}s (writer reused).", flush=True)
+            return reopened
+
+        last_preview = 0.0
 
         def render(obs, now):
+            nonlocal last_preview
             nonlocal reported_state
             visible = "SAVING" if saving else cycle.state
+            if visible == reported_state and now - last_preview < 1 / 15:
+                return
+            last_preview = now
             if visible != reported_state:
                 if notify:
                     notify(visible)
@@ -548,13 +812,15 @@ def run(task, session_label, commands=None, notify=None):
             if incoming() == "q":
                 return
             scale = robot.cameras["top"].rs_profile.get_device().first_depth_sensor().get_depth_scale()
-            if abs(scale * 1000 - rig["depth_raw_to_mm"]) > 1e-6:
-                raise RuntimeError(f"D405 depth scale changed: {scale} m/unit")
+            if not m.np.isfinite(scale) or scale <= 0:
+                raise RuntimeError(f"Invalid D405 depth scale: {scale}")
+            ensure_manifest(task, depth_scale=scale)
             dataset = open_dataset()
             cycle = AutoHomeCycle(time.perf_counter(), dataset.num_episodes,
                                   prepare=rig["prepare_seconds"], start=m.START_TIME_S,
                                   discard=m.DISCARD_RESET_TIME_S, minimum=rig["min_episode_seconds"],
-                                  stable=rig["home_stable_seconds"], maximum=task["max_seconds"])
+                                  stable=rig["home_stable_seconds"])
+            capture_deadline = time.perf_counter()
             while True:
                 command = incoming()
                 if command == "q" or pending_key == "q":
@@ -563,14 +829,20 @@ def run(task, session_label, commands=None, notify=None):
                 pending_key = None
                 if future is not None and future.done():
                     dataset = future.result()  # Raises before any next episode if save/validation failed.
+                    if getattr(dataset, "collection_quality_rejected", False):
+                        cycle.episode -= 1
+                        cycle.delay = m.DISCARD_RESET_TIME_S
+                        cycle.changed = time.perf_counter()
                     future = None
                     saving = False
-                tick = time.perf_counter()
-                obs = robot.get_observation()
-                m.convert_top_depth_to_mm(obs)
-                action = ap((leader.get_action(), obs))
-                robot.send_action(rp((action, obs)))
+                obs, timings, camera_numbers, motor_snapshot = capture_observation(
+                    robot, previous_camera, cycle.state == "RECORDING" and command != "f", list(MOTOR_FEEDBACK.values()),
+                    max_camera_age_s=max(0.001, rig['max_camera_age_s'] - 0.02))
+                feedback = read_motor_feedback(robot, m.np, snapshot=motor_snapshot) if cycle.state == "RECORDING" and command != "f" else {}
+                obs["top_depth"], clipped = convert_depth(obs["top_depth"], scale, m.np)
+                leader_raw, sent_action = send_control_action(robot, leader, ap, rp, obs, timings)
                 now = time.perf_counter()
+                timings["frame_complete"] = now
                 at_home = m.is_home(obs, rig["home_pose"])
                 render(obs, now)
                 key = key_command(m.cv2.waitKeyEx(1))
@@ -586,19 +858,33 @@ def run(task, session_label, commands=None, notify=None):
                     max_gap = max(max_gap, gap)
                     previous_frame = now
                     observation = m.build_dataset_frame(dataset.features, op(obs), prefix=m.OBS_STR)
-                    action_frame = m.build_dataset_frame(dataset.features, action, prefix=m.ACTION)
-                    dataset.add_frame({**observation, **action_frame, "task": task["instruction"]})
+                    action_frame = m.build_dataset_frame(dataset.features, sent_action, prefix=m.ACTION)
+                    provenance = {
+                        "research.leader_action_raw": m.np.array([leader_raw[name + ".pos"] for name in robot.bus.motors], dtype=m.np.float32),
+                        "research.capture_timing_s": m.np.array([timings[name] - cycle.started for name in TIMING_NAMES], dtype=m.np.float32),
+                        "research.camera_frame_numbers": m.np.array(camera_numbers, dtype=m.np.int64),
+                    }
+                    dataset.add_frame({**observation, **action_frame, **feedback, **provenance, "task": task["instruction"]})
                     frame_count += 1
-                    effective_fps = (frame_count - 1) / elapsed if elapsed > 0 else 0
-                    failed = (gap > rig["max_frame_gap_s"] or any(dataset.writer._streaming_encoder._dropped_frames.values())
-                              or (elapsed >= rig["min_episode_seconds"] and effective_fps < rig["min_effective_fps"]))
+                    quality.add(timings, obs["top_depth"], m.DEPTH_ENCODER, m.np, clipped, camera_numbers)
+                    dropped = sum(dataset.writer._streaming_encoder._dropped_frames.values())
+                    effective_fps = quality.summary(dropped)["actual_fps"]
+                    failed = bool(quality.errors(dropped))
                     if failed and not cycle.failed:
-                        print("Frame loss/slow capture detected: this episode will be discarded at HOME or timeout.", flush=True)
+                        print(f"Capture quality failed ({effective_fps:.1f} FPS): "
+                              + "; ".join(quality.errors(dropped))
+                              + ". This episode will be discarded at HOME or with f.", flush=True)
                 old_state = cycle.state
                 outcome = cycle.step(now, at_home, command, save_busy=saving, failed=failed)
                 if old_state == "PREP" and cycle.state == "START":
                     check_space()
                     snapshot(task)
+                    streaming = dataset.writer._streaming_encoder
+                    streaming.start_episode(
+                        video_keys=list(dataset.meta.video_keys),
+                        depth_video_keys=list(dataset.meta.depth_keys), temp_dir=root,
+                        frame_shapes={key: dataset.features[key]["shape"] for key in dataset.meta.video_keys},
+                    )
                     cycle.changed = time.perf_counter()  # Show the full START second after disk preparation.
                 if outcome == "begin":
                     atomic_json(journal, {"episode": cycle.episode - 1, "status": "recording",
@@ -607,23 +893,34 @@ def run(task, session_label, commands=None, notify=None):
                     cycle.started = time.perf_counter()
                     cycle.home_since = cycle.started if at_home else None
                     previous_frame, frame_count, max_gap = None, 0, 0.0
+                    previous_camera = {}
+                    quality = EpisodeQuality(rig)
+                    dropped = 0
                     print(f"Episode {cycle.episode}: recording.", flush=True)
                 elif outcome == "discard":
                     # Show the same 10-second PREP screen immediately, before encoder cleanup.
                     render(obs, time.perf_counter())
                     pending_key = key_command(m.cv2.waitKeyEx(1))
+                    if journal.exists():
+                        rejected = read_json(journal)
+                        rejected.update(status="discarded", quality=quality.summary(dropped),
+                                        quality_errors=quality.errors(dropped),
+                                        reason="manual" if command == "f" else "capture_quality")
+                        atomic_json(task_dir(task) / "sessions" / f"rejected_{datetime.now():%Y%m%d_%H%M%S_%f}.json", rejected)
                     dataset.clear_episode_buffer()
                     journal.unlink(missing_ok=True)
                     print(f"Episode {cycle.episode + 1}: discarded; retry after 10s.", flush=True)
                     previous_frame, frame_count, max_gap = None, 0, 0.0
                 elif outcome == "save":
                     details = read_json(journal)
-                    details.update(status="saving", frames=frame_count, max_gap_s=max_gap, effective_fps=effective_fps)
+                    details.update(status="saving", quality_pending=True, frames=frame_count,
+                                   max_gap_s=max_gap, effective_fps=effective_fps,
+                                   quality=quality.summary(dropped))
                     atomic_json(journal, details)
                     saving = True
                     render(obs, time.perf_counter())
-                    future = executor.submit(save_and_reopen, dataset, details)
-                m.precise_sleep(max(1 / rig["fps"] - (time.perf_counter() - tick), 0))
+                    future = executor.submit(save_and_reopen, dataset, details, quality)
+                capture_deadline = wait_capture_tick(capture_deadline, 1 / rig['fps'])
         except KeyboardInterrupt:
             print("Stopping collection...", flush=True)
         finally:
@@ -641,3 +938,8 @@ def run(task, session_label, commands=None, notify=None):
                     with contextlib.suppress(Exception):
                         if device.bus.is_connected:
                             device.bus.disconnect()
+            if read_json(BASE / 'settings.json').get('verification', {}).get('full_check_on_exit', False):
+                if notify:
+                    notify('AUDITING')
+                # The first q stops recording; another q can stop the deferred audit.
+                verify_pending_episodes(task, cancelled=verification_cancelled)

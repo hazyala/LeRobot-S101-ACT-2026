@@ -1,18 +1,22 @@
+# Local environments and external source/data copies
 .venv/
+venv/
 hf_pickplace_reference/
 lerobot/
 experiments/
 
 __pycache__/
 *.py[cod]
-*.pyo
 .pytest_cache/
 .ruff_cache/
 .mypy_cache/
+.ipynb_checkpoints/
 
 .env
 .env.*
 !.env.example
+*.pem
+*.key
 
 *.log
 wandb/
@@ -22,6 +26,9 @@ runs/
 
 .DS_Store
 Thumbs.db
+Desktop.ini
+*.tmp
+*.swp
 
 # Shared collection assets: keep configuration/code in Git, large recordings local.
 # notes/ and robot_calibration/ are versioned alongside the code.
@@ -31,3 +38,6 @@ datasets/
 collection/reports/
 episode_sample_dataset/auto_home_collection/auto_home_dataset*/
 episode_sample_dataset/manual_data_collection/dataset/
+
+# Temporary dataset transfer inventory (regenerate when transferring).
+/doll_transfer_manifest.json

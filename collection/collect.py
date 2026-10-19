@@ -1,4 +1,4 @@
-"""실행 버튼 또는 '수집 실행' 바로가기로 여는 수집 창."""
+"""collect.py 파일을 직접 실행해 여는 수집 창."""
 from __future__ import annotations
 
 import os
@@ -11,7 +11,7 @@ import traceback
 from datetime import datetime
 
 BASE = Path(__file__).resolve().parent
-PYTHON = BASE.parent / ".venv/Scripts/pythonw.exe"
+PYTHON = BASE.parent / ".venv/Scripts/python.exe"
 LABELS = ["인형 집어 담기", "종이컵 집어 담기", "인형·종이컵 분류", "상자 2개 쌓기", "상자 3개 쌓기", "상자 4개 쌓기"]
 STATES = {"CONNECTING": "환경 확인 및 장비 연결 중…", "RECOVERING": "이전 중단 기록 복구 중…",
           "LOADING": "수집 라이브러리 불러오는 중…",
@@ -90,9 +90,18 @@ def worker(task_id, session):
     try:
         if (core.task_dir(task) / "pending_episode.json").exists():
             notify("RECOVERING")
-            core.recover(task)
+            def recovery_cancelled():
+                with commands.mutex:
+                    return 'q' in commands.queue
+            core.recover(task, cancelled=recovery_cancelled)
+            if recovery_cancelled():
+                print('@DONE', flush=True)
+                return 0
         core.run(task, session, commands=commands, notify=notify)
         print("@DONE", flush=True)
+        return 0
+    except core.RecoveryCancelled:
+        print('Recovery stopped; data preserved.\n@DONE', flush=True)
         return 0
     except BaseException as exc:
         traceback.print_exc()
@@ -238,6 +247,11 @@ class CollectionWindow:
                 self.refresh()
             elif value.startswith("@STATE:"):
                 state = value.partition(":")[2]
+                if state == 'AUDITING':
+                    self.stopping = False
+                    self.stop_button.configure(state='normal')
+                    self.status.set('종료 후 검사 중 · 종료 버튼을 누르면 남은 검사를 다음 실행으로 미룹니다.')
+                    continue
                 if not self.stopping:
                     self.status.set(STATES.get(state, state))
                     self.discard_button.configure(state="normal" if state == "RECORDING" else "disabled")
@@ -271,9 +285,9 @@ class CollectionWindow:
 def main():
     # Editor Run buttons can use a different interpreter; select this project's venv.
     if Path(sys.prefix).resolve() != PYTHON.parent.parent.resolve():
-        subprocess.Popen([str(PYTHON), str(Path(__file__).resolve()), *sys.argv[1:]], cwd=BASE,
-                         creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
-        return 0
+        process = subprocess.Popen([str(PYTHON), str(Path(__file__).resolve()), *sys.argv[1:]], cwd=BASE,
+                                   creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
+        return process.wait()
     if len(sys.argv) > 1 and sys.argv[1] == "--worker":
         return worker(int(sys.argv[2]), sys.argv[3])
     import tkinter as tk

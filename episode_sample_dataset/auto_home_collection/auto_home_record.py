@@ -552,7 +552,9 @@ def make_configs() -> tuple[SOLeaderTeleopConfig, SOFollowerRobotConfig]:
         max_relative_target=5.0,
         cameras={
             "top": RealSenseCameraConfig(
-                serial_number_or_name="352122273503",
+                serial_number_or_name=json.loads(
+                    (PROJECT_ROOT / "collection" / "settings.json").read_text(encoding="utf-8")
+                )["rig"]["top_serial"],
                 width=640,
                 height=480,
                 fps=30,

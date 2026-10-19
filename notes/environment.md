@@ -188,9 +188,10 @@ python -c "from lerobot.motors.feetech import FeetechMotorsBus; print(FeetechMot
 - 목적: SO-101 Pick & Place 작업대를 위에서 내려다보는 탑뷰 카메라로 사용
 - Python SDK 패키지: `pyrealsense2==2.58.4`
 - 확인된 장치: `RealSense D405`
-- Serial number: `352122273503`
-- Firmware: `5.15.1.55`
-- USB: `3.2`
+- 현재 Serial number: `262422273645` (2026-10-14 교체 장치 열거 확인)
+- 기존 수집·테스트 장치 Serial number: `352122273503`
+- 기존 장치 테스트 당시 Firmware: `5.15.1.55` (교체 장치 값은 별도 확인 필요)
+- 기존 장치 테스트 당시 USB: `3.2`
 - 테스트 스크립트: `D:\lerobot-2026\scripts\realsense_D405_test.py`
 - 저장된 컬러 이미지:
   `D:\lerobot-2026\notes\realsense_D405_test\d405_top_color.png`

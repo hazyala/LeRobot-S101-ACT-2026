@@ -80,10 +80,18 @@ class AutoHomeTests(unittest.TestCase):
         self.assertEqual(c.step(14, True), "discard")
         self.assertEqual(c.remaining(14), 10)
 
-    def test_timeout_discards_even_without_leaving_home(self):
+    def test_no_timeout_even_without_leaving_home(self):
         c = self.recording()
-        self.assertEqual(c.step(96, True), "discard")
-        self.assertEqual(c.episode, 10)
+        self.assertIsNone(c.step(36006, True))
+        self.assertEqual(c.state, "RECORDING")
+        self.assertEqual(c.episode, 11)
+
+    def test_long_episode_still_saves_on_home_return(self):
+        c = self.recording()
+        c.step(7, False)
+        self.assertIsNone(c.step(36006, False))
+        c.step(36007, True)
+        self.assertEqual(c.step(36009, True), "save")
 
     def test_quit_waits_for_save_without_clearing_writer_concurrently(self):
         writing, reopened, journal = Mock(), Mock(), Mock()

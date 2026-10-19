@@ -27,6 +27,17 @@ class WindowTests(unittest.TestCase):
         self.assertFalse(hasattr(self.app, "save_button"))
         self.assertIn("Pick up the doll", self.app.sentence.get())
 
+    def test_direct_file_execution_opens_window_without_starting_worker(self):
+        with patch.object(collect.sys, 'argv', [str(Path(collect.__file__))]), \
+             patch.object(collect.sys, 'prefix', str(collect.PYTHON.parent.parent)), \
+             patch('tkinter.Tk', return_value=self.root), \
+             patch.object(self.root, 'mainloop'), \
+             patch.object(collect, 'CollectionWindow') as window, \
+             patch.object(collect, 'worker') as worker:
+            self.assertEqual(collect.main(), 0)
+        window.assert_called_once_with(self.root)
+        worker.assert_not_called()
+
     def test_task_selection_updates_sentence_and_destination(self):
         self.app.choice.current(5)
         self.app.refresh()
@@ -65,6 +76,8 @@ class WindowTests(unittest.TestCase):
             self.app.choice.current(2)
             self.app.start()
         args, kwargs = launch.call_args
+        self.assertEqual(Path(args[0][0]).name, 'python.exe')
+        self.assertEqual(kwargs.get('creationflags'), getattr(collect.subprocess, 'CREATE_NO_WINDOW', 0))
         self.assertEqual(args[0][3:5], ["--worker", "2"])
         self.assertFalse(kwargs.get("shell", False))
         self.assertEqual(str(self.app.start_button["state"]), "disabled")

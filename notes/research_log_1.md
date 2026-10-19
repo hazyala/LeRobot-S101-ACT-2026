@@ -1,4 +1,4 @@
-# LeRobot SO101 Research Log
+# LeRobot SO101 Research Log 1 — 환경 구축 및 테스트
 
 ## 2026-09-08 : Robot Hardware & Teleoperation Check
 
@@ -524,3 +524,15 @@ LeRobot 공식 ACT tutorial과 `lerobot-train` 파이프라인을 기준으로 `
 RTX 3080에서 1-step smoke test와 checkpoint 저장을 통과한 뒤 20,000-step 본 학습을 시작했다. batch size 4, AMP, ImageNet pretrained ResNet18, checkpoint 2,000-step 간격이며 초기 속도 약 6.8 steps/s, GPU memory 2.13 GB, loss는 step 200의 4.10에서 step 560의 2.88로 감소했다.
 
 2,000-step checkpoint 본 저장에서는 Windows가 `checkpoints/last` directory symlink 생성을 거부해 저장 완료 직후 학습이 중단됐다. 번호가 붙은 `002000` checkpoint의 모델(약 207 MB), optimizer(약 413 MB), RNG와 step state는 정상이다. LeRobot의 `update_last_checkpoint`를 수정해 Windows에서 선택적 `last` symlink 실패가 학습을 중단하지 않도록 했고, `002000`에서 optimizer와 데이터 순서를 포함해 정상 재개했다.
+
+---
+
+## 2026-10-01 : ACT 100 episode 테스트 학습 결과 요약
+
+100 episodes / 56,768 frames(원본 12.751 GB)로 학습한 RGB top·side + 관절 상태 입력 ACT가 **20,000 step까지 완료**됐다. 최종 체크포인트는 `episode_sample_dataset/doll_pickplace_act/outputs/act_100ep_20k/checkpoints/020000`이며, 최종 training loss는 **0.198**이다.
+
+학습 데이터 내 12개 에피소드·1,200프레임 행동 예측 검사의 6축 평균 MAE는 **4.981**(팔은 도, 그리퍼는 데이터셋 단위), 학습 행동 범위 이탈률은 **7.33%**였다. 학습·체크포인트는 정상이나 그리퍼 범위 이탈률이 **25.92%**이고 별도 미사용 검증 세트가 없어, 이 수치만으로 실제 픽 성공률이나 일반화 성능을 판단할 수 없다. 상세 그래프와 실습 분석은 `episode_sample_dataset/doll_pickplace_act_testreport/`에 정리했다.
+
+---
+
+본 데이터 수집 환경과 저장 항목은 [Research Log 2](research_log_2.md)에 이어서 기록한다.
