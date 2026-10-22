@@ -2,6 +2,23 @@
 
 SO-101 로봇팔의 시연을 RGB-D 데이터로 수집하고, top/side RGB와 관절 상태로 ACT 정책을 학습·실행하는 작업 기록.
 
+## 실물 실행 영상
+
+<table>
+  <tr>
+    <td width="150" align="center">
+      <a href="https://hazyala.github.io/LeRobot-S101-ACT-2026/"><img src="docs/assets/demo_qr.png" width="130" alt="실물 실행 영상 페이지 QR"></a>
+    </td>
+    <td>
+      <a href="https://hazyala.github.io/LeRobot-S101-ACT-2026/"><img src="https://img.shields.io/badge/Demo-%EC%8B%A4%EB%AC%BC%20%EC%8B%A4%ED%96%89%20%EC%98%81%EC%83%81%20%EB%B3%B4%EA%B8%B0-2563EB?style=for-the-badge" alt="실물 실행 영상 보기"></a>
+      <br><br>
+      <b>인형</b> — 서 있는 인형 · 누운 인형 실물 실행, 로봇 실행기 화면(TOP · SIDE)<br>
+      <b>종이컵</b> — 찌그러지지 않게 파지해 목표 패드에 안착하는 실물 실행, 로봇 실행기 화면(TOP · SIDE)<br><br>
+      <a href="https://hazyala.github.io/LeRobot-S101-ACT-2026/">hazyala.github.io/LeRobot-S101-ACT-2026</a>
+    </td>
+  </tr>
+</table>
+
 ![ACT 검증의 카메라 표본](episode_sample_dataset/doll_pickplace_act/validation_outputs/camera_samples.png)
 
 ## 지금 들어 있는 것
