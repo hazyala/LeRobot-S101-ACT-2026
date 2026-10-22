@@ -25,6 +25,8 @@
 | 02 종이컵 | [`videos/cup_robot_view.mp4`](videos/cup_robot_view.mp4) | 종이컵 — 찌그러지지 않게 파지해 빨간 목표 패드 위에 세워 안착 |
 | 02 종이컵 | [`videos/cup_runner_top_side.mp4`](videos/cup_runner_top_side.mp4) | 로봇 실행기 화면 — 종이컵 실행 중 TOP · SIDE 카메라 |
 
+종이컵 영상은 시연 250개(학습 200개 · 121,313프레임 / 검증 50개 · 30,818프레임)로 학습한 ACT 모델로 실행했습니다.
+
 인형 영상은 NVIDIA B200에서 50,000단계 학습한 ACT 모델 중 검증 오차가 가장 낮은 checkpoint 047000으로 실행했습니다.
 
 ## 구성
