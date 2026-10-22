@@ -1,4 +1,5 @@
 import json
+import copy
 import sys
 import tempfile
 import unittest
@@ -11,6 +12,19 @@ import core as recovery
 
 
 class CollectionTests(unittest.TestCase):
+    def test_d405_model_name_accepts_sdk_labels_but_rejects_other_models(self):
+        for name in ('Intel RealSense D405', 'Intel RealSense D405I', 'Intel RealSense D455',
+                     'Intel RealSense D4050', 'Intel RealSense D435', ''):
+            with self.subTest(name=name):
+                if name == 'Intel RealSense D405':
+                    common.validate_top_camera_name(name)
+                else:
+                    with self.assertRaisesRegex(RuntimeError, 'detected'):
+                        common.validate_top_camera_name(name)
+        for name in ('Intel RealSense (TM) D405', 'RealSense D405', 'Intel RealSense D405 Camera'):
+            with self.subTest(name=name):
+                common.validate_top_camera_name(name)
+
     def test_recovery_cancel_preserves_original_and_pending_journal(self):
         with tempfile.TemporaryDirectory() as d, patch.object(common, 'STORE', Path(d)):
             task = common.task_for(0)
@@ -97,6 +111,36 @@ class CollectionTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as d:
             with self.assertRaises(RuntimeError):
                 recovery.safe_child(Path(d), "../../outside")
+
+    def test_d405_replacement_preserves_history_and_rejects_incompatible_changes(self):
+        with tempfile.TemporaryDirectory() as d, patch.object(common, 'STORE', Path(d)):
+            task = common.task_for(0)
+            old = common.fingerprint(task, depth_scale=0.0001)
+            old['rig']['top_serial'] = 'old-device'
+            old['legacy_collector_sha256'] = 'daa496e3306276cb091eccb0029074b5ea0f3803c6c1c1be42e5fb71457f5753'
+            new = common.fingerprint(task, depth_scale=0.0001)
+            manifest = common.task_dir(task) / 'collection_manifest.json'
+            common.atomic_json(manifest, old)
+            with patch.object(common, 'fingerprint', return_value=new):
+                common.ensure_manifest(task)
+            backups = list((manifest.parent / 'sessions').glob('previous_manifest_*.json'))
+            self.assertEqual(common.read_json(backups[0]), old)
+            self.assertEqual(common.read_json(manifest), new)
+            for field in ('fps', 'width', 'top_exposure'):
+                changed = copy.deepcopy(new)
+                changed['rig']['top_serial'] = 'another-device'
+                changed['rig'][field] += 1
+                with self.subTest(field=field), patch.object(common, 'fingerprint', return_value=changed):
+                    with self.assertRaisesRegex(RuntimeError, 'changed'):
+                        common.ensure_manifest(task)
+            for field, value in [('calibration_sha256', {}), ('legacy_collector_sha256', 'unknown'),
+                                 ('depth', {**new['depth'], 'depth_scale_m_per_unit': 0.001})]:
+                changed = copy.deepcopy(new)
+                changed['rig']['top_serial'] = 'another-device'
+                changed[field] = value
+                with self.subTest(field=field), patch.object(common, 'fingerprint', return_value=changed):
+                    with self.assertRaisesRegex(RuntimeError, 'changed'):
+                        common.ensure_manifest(task)
 
     def test_completed_save_with_pending_quality_is_rolled_back(self):
         with tempfile.TemporaryDirectory() as d, patch.object(common, "STORE", Path(d)):

@@ -1,0 +1,192 @@
+{
+  "checkpoint": 44000,
+  "source_validation_loss": 0.18898926675319672,
+  "weights_finite": true,
+  "reload_strict": true,
+  "hardware_connected": false,
+  "held_out_episodes": [
+    3,
+    28,
+    52,
+    82,
+    107,
+    139,
+    163,
+    190,
+    215,
+    246
+  ],
+  "observations": 30,
+  "normalized_mae_equal_episode": 0.2842499282280567,
+  "joint_mae_original_units": [
+    5.954653263092041,
+    14.136429786682129,
+    4.0543742179870605,
+    12.875991821289062,
+    1.4756641387939453,
+    7.385716915130615
+  ],
+  "joint_order": [
+    "shoulder_pan.pos",
+    "shoulder_lift.pos",
+    "elbow_flex.pos",
+    "wrist_flex.pos",
+    "wrist_roll.pos",
+    "gripper.pos"
+  ],
+  "median_inference_ms_excluding_first": 52.61050001718104,
+  "anchors": [
+    {
+      "episode": 3,
+      "absolute_frame": 3008,
+      "valid_actions": 100
+    },
+    {
+      "episode": 3,
+      "absolute_frame": 3393,
+      "valid_actions": 100
+    },
+    {
+      "episode": 3,
+      "absolute_frame": 3778,
+      "valid_actions": 1
+    },
+    {
+      "episode": 28,
+      "absolute_frame": 17195,
+      "valid_actions": 100
+    },
+    {
+      "episode": 28,
+      "absolute_frame": 17434,
+      "valid_actions": 100
+    },
+    {
+      "episode": 28,
+      "absolute_frame": 17674,
+      "valid_actions": 1
+    },
+    {
+      "episode": 52,
+      "absolute_frame": 29957,
+      "valid_actions": 100
+    },
+    {
+      "episode": 52,
+      "absolute_frame": 30236,
+      "valid_actions": 100
+    },
+    {
+      "episode": 52,
+      "absolute_frame": 30516,
+      "valid_actions": 1
+    },
+    {
+      "episode": 82,
+      "absolute_frame": 46022,
+      "valid_actions": 100
+    },
+    {
+      "episode": 82,
+      "absolute_frame": 46329,
+      "valid_actions": 100
+    },
+    {
+      "episode": 82,
+      "absolute_frame": 46637,
+      "valid_actions": 1
+    },
+    {
+      "episode": 107,
+      "absolute_frame": 61889,
+      "valid_actions": 100
+    },
+    {
+      "episode": 107,
+      "absolute_frame": 62246,
+      "valid_actions": 100
+    },
+    {
+      "episode": 107,
+      "absolute_frame": 62603,
+      "valid_actions": 1
+    },
+    {
+      "episode": 139,
+      "absolute_frame": 83866,
+      "valid_actions": 100
+    },
+    {
+      "episode": 139,
+      "absolute_frame": 84251,
+      "valid_actions": 100
+    },
+    {
+      "episode": 139,
+      "absolute_frame": 84637,
+      "valid_actions": 1
+    },
+    {
+      "episode": 163,
+      "absolute_frame": 100256,
+      "valid_actions": 100
+    },
+    {
+      "episode": 163,
+      "absolute_frame": 100640,
+      "valid_actions": 100
+    },
+    {
+      "episode": 163,
+      "absolute_frame": 101025,
+      "valid_actions": 1
+    },
+    {
+      "episode": 190,
+      "absolute_frame": 116760,
+      "valid_actions": 100
+    },
+    {
+      "episode": 190,
+      "absolute_frame": 117045,
+      "valid_actions": 100
+    },
+    {
+      "episode": 190,
+      "absolute_frame": 117330,
+      "valid_actions": 1
+    },
+    {
+      "episode": 215,
+      "absolute_frame": 131382,
+      "valid_actions": 100
+    },
+    {
+      "episode": 215,
+      "absolute_frame": 131723,
+      "valid_actions": 100
+    },
+    {
+      "episode": 215,
+      "absolute_frame": 132064,
+      "valid_actions": 1
+    },
+    {
+      "episode": 246,
+      "absolute_frame": 149964,
+      "valid_actions": 100
+    },
+    {
+      "episode": 246,
+      "absolute_frame": 150232,
+      "valid_actions": 100
+    },
+    {
+      "episode": 246,
+      "absolute_frame": 150500,
+      "valid_actions": 1
+    }
+  ],
+  "robot_success_rate_measured": false,
+  "note": "30 fixed held-out observations; not the full validation score or a grasp-success test."
+}

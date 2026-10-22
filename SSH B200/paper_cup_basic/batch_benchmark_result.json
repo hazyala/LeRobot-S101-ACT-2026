@@ -1,0 +1,14 @@
+[
+  {
+    "batch": 8,
+    "seconds": 34.42285328917205,
+    "peak_cuda_gb": 4.008617472,
+    "output": "/NHNHOME/workspace/lerobot/outputs/act_paper_cup_bench_b8_20261021_220100_722167"
+  },
+  {
+    "batch": 16,
+    "seconds": 36.92174457386136,
+    "peak_cuda_gb": 7.356621312,
+    "output": "/NHNHOME/workspace/lerobot/outputs/act_paper_cup_bench_b16_20261021_220139_428778"
+  }
+]

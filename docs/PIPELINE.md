@@ -23,11 +23,17 @@ flowchart TD
 
 ## 학습 경계
 
+현재 종이컵 본 학습은 `SSH B200/paper_cup_basic/train.py`를 서버에서 실행한다. `pick_paper_cup/dataset` 250개를 에피소드 중복 없이 학습 200개/검증 50개로 나누며, 학습 에피소드 통계만으로 정규화한다. 50,000 step, batch 8, workers 4, 평가·저장 2,000 step 간격이다. 공식 ACT 루프에서 검증 손실이 가장 낮은 저장 모델을 `best`로 지정한다. 상세는 [서버 안내](../SSH%20B200/paper_cup_basic/README.md)에 있다.
+
+아래 `train_act.py`는 초기 100개 시연 실험의 과거 경로이며 현재 종이컵 진입점과 구분한다.
+
 `train_act.py`의 기본 데이터는 `episode_sample_dataset/auto_home_collection/auto_home_dataset`이다. 메타데이터를 policy feature로 바꾸고 `observation.images.top_depth`를 제외한다. `TrainPipelineConfig`와 `ACTConfig`를 구성한 뒤 LeRobot의 `train`을 호출한다.
 
 기본값은 steps 20,000, batch-size 4, save-freq 2,000, 출력 `doll_pickplace_act/outputs/act_100ep_20k`다. 원본 녹화와 모델 파일은 Git에 포함되지 않는다. 학습 설정과 실험 수치를 혼동하지 않도록 [학습 보고서](../episode_sample_dataset/doll_pickplace_act/doll_pickplace_act_testreport/01_model_training.md)를 따로 둔다.
 
 ## 실행 경계
+
+현재 종이컵은 [run.py](../paper_cup_B200_act/run.py)가 로컬 best 모델과 해당 processor·학습 통계를 읽고 기존 공통 제어기를 호출한다. 인형과 모델·데이터·설정을 구분하고 그리퍼 조기 닫힘은 사용하지 않는다. 종이컵 전용 종료 처리만 주입해 HOME 도착 뒤 토크를 해제하고 자동 종료한다. 공통 제어기의 인형 기본 경로는 그대로 유지한다.
 
 `run_act_pickplace_safe.py`는 기본 `020000` checkpoint의 policy와 processor를 읽는다. `ThreadPoolExecutor`에서 새 관측으로 action chunk를 추론하고, 제어 loop는 기존 chunk를 소비한다. 새 계획 전환 시 팔 관절을 보간하며 그리퍼 닫힘은 별도로 선행시킨다.
 

@@ -1,0 +1,6 @@
+{
+  "step": 44000,
+  "eval_loss": 0.18898926675319672,
+  "checkpoint": "checkpoints/044000",
+  "criterion": "lowest finite validation loss across saved checkpoints"
+}

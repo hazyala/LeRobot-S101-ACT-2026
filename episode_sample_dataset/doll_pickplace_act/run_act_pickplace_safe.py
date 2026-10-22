@@ -822,7 +822,7 @@ def run_episode(
         precise_sleep(max(0.0, 1.0 / args.fps - (time.perf_counter() - loop_started_at)))
 
 
-def main() -> None:
+def main(shutdown=None) -> None:
     args = parse_args()
     init_logging()
     validate_artifacts()
@@ -908,47 +908,50 @@ def main() -> None:
             except BaseException as hold_exc:
                 print(f"Could not hold the current pose: {hold_exc}")
     finally:
-        bus_connected = robot.bus.is_connected
-        home_reached = False
-        if bus_connected and not emergency:
-            try:
-                home_reached = return_home_and_stabilize(
-                    robot,
-                    action_names,
-                    action_min,
-                    action_max,
-                    args.fps,
-                )
-            except EmergencyStop as exc:
-                emergency = True
-                print(f"EMERGENCY STOP: {exc}")
-            except BaseException as home_exc:
-                print(f"Could not complete HOME return: {home_exc}")
-
-        if bus_connected and not emergency and not home_reached:
-            try:
-                observation = read_motor_observation(robot)
-                hold_action = {name: float(observation[name]) for name in action_names}
-                robot.send_action(hold_action)
-                print("HOME was not reached. Current pose remains held with torque ON.")
-            except BaseException as hold_exc:
-                print(f"Could not hold the current pose: {hold_exc}")
-            while input("Support the arm and type RELEASE to disable torque: ").strip() != "RELEASE":
-                print("Torque remains ON. Type RELEASE only after the arm is physically supported.")
-
-        cv2.destroyAllWindows()
-        all_connected = robot.is_connected
-        if all_connected and not emergency:
-            robot.disconnect()
+        if shutdown is not None:
+            shutdown(robot, action_names, action_min, action_max, args.fps, emergency)
         else:
-            # Also clean up a partially completed connection. In the emergency
-            # path torque has already been disabled, and this repeats that safe state.
-            if bus_connected:
-                robot.bus.disconnect(disable_torque=True)
-            for camera in robot.cameras.values():
-                if camera.is_connected:
-                    camera.disconnect()
-        print("Disconnected. Motor torque is off; support the arm before it relaxes.")
+            bus_connected = robot.bus.is_connected
+            home_reached = False
+            if bus_connected and not emergency:
+                try:
+                    home_reached = return_home_and_stabilize(
+                        robot,
+                        action_names,
+                        action_min,
+                        action_max,
+                        args.fps,
+                    )
+                except EmergencyStop as exc:
+                    emergency = True
+                    print(f"EMERGENCY STOP: {exc}")
+                except BaseException as home_exc:
+                    print(f"Could not complete HOME return: {home_exc}")
+
+            if bus_connected and not emergency and not home_reached:
+                try:
+                    observation = read_motor_observation(robot)
+                    hold_action = {name: float(observation[name]) for name in action_names}
+                    robot.send_action(hold_action)
+                    print("HOME was not reached. Current pose remains held with torque ON.")
+                except BaseException as hold_exc:
+                    print(f"Could not hold the current pose: {hold_exc}")
+                while input("Support the arm and type RELEASE to disable torque: ").strip() != "RELEASE":
+                    print("Torque remains ON. Type RELEASE only after the arm is physically supported.")
+
+            cv2.destroyAllWindows()
+            all_connected = robot.is_connected
+            if all_connected and not emergency:
+                robot.disconnect()
+            else:
+                # Also clean up a partially completed connection. In the emergency
+                # path torque has already been disabled, and this repeats that safe state.
+                if bus_connected:
+                    robot.bus.disconnect(disable_torque=True)
+                for camera in robot.cameras.values():
+                    if camera.is_connected:
+                        camera.disconnect()
+            print("Disconnected. Motor torque is off; support the arm before it relaxes.")
 
     if failure is not None:
         raise SystemExit(f"Execution stopped safely: {failure}")

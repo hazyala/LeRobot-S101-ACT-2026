@@ -6,12 +6,12 @@ SO-101 로봇팔의 시연을 RGB-D 데이터로 수집하고, top/side RGB와 �
 
 ## 지금 들어 있는 것
 
-`collection/`은 여섯 작업을 선택하는 Tkinter 수집 창이다. Leader를 조작하면 Follower가 따라 움직이고, HOME에서 벗어나 작업한 뒤 돌아온 시연을 자동 저장한다. 인형 Pick & Place는 별도 ACT 학습·검증·실행 코드와 보고서로 남겼다.
+`collection/`은 여섯 작업을 선택하는 Tkinter 수집 창이다. Leader를 조작하면 Follower가 따라 움직이고, HOME에서 벗어나 작업한 뒤 돌아온 시연을 자동 저장한다. 인형과 종이컵 Pick & Place의 B200 ACT 학습 및 로컬 실행 코드를 구분해 관리한다.
 
 - 인형·종이컵 집기, 분류, 상자 2·3·4개 쌓기를 작업 문장과 함께 수집한다.
 - TOP RGB/depth, SIDE RGB, 관절 상태와 action을 LeRobot 데이터셋으로 기록한다.
 - HOME 복귀 2초와 최소 녹화 8초 조건을 적용한다. 실패한 시연은 폐기하고 같은 번호로 재시도한다.
-- 저장 전후 영상·프레임·메타데이터를 검사하고 중단된 저장을 복구한다. 장비 설정이나 보정값이 달라지면 이어 쓰지 않는다.
+- 저장 전후 영상·프레임·메타데이터를 검사하고 중단된 저장을 복구한다. 동일 D405의 일련번호 교체는 이력을 남겨 허용하며, 나머지 호환되지 않는 설정·보정 변경은 차단한다.
 - ACT 실행기는 action chunk를 백그라운드에서 갱신하면서 관절 명령에 범위·이동량·추적 오차 제한을 적용한다.
 
 ## 수집과 정책 실행
@@ -22,15 +22,18 @@ flowchart LR
     Cameras[D405 TOP RGB-D / SIDE webcam] --> Collect
     Collect --> Follower[SO-101 Follower]
     Collect --> NewData[robot_datasets/tasks]
-    Sample[로컬 auto_home_dataset] --> Train[train_act.py / LeRobot ACT]
-    Train --> Model[로컬 checkpoint]
-    Model --> Run[run_act_pickplace_safe.py]
+    NewData --> Transfer[SSH 전송과 SHA-256 확인]
+    Transfer --> Train[B200 / LeRobot ACT]
+    Train --> Model[best checkpoint 로컬 복사]
+    Model --> Run[paper_cup_B200_act/run.py]
     Cameras --> Run
     Follower -->|관절 상태| Run
     Run -->|제한된 action| Follower
 ```
 
-현재 학습기는 기존 `auto_home_dataset` 경로를 사용한다. 새 수집 창의 작업별 데이터가 학습기에 자동 연결되는 구조는 아니다. ACT 입력에서는 depth를 제외하고 top/side RGB와 6차원 관절 상태를 사용한다. [상세 pipeline](docs/PIPELINE.md)에 저장·재개·추론 흐름을 정리했다.
+종이컵 학습기는 작업별 `pick_paper_cup/dataset`을 서버로 전송해 사용한다. ACT 입력에서는 depth를 제외하고 top/side RGB와 6차원 관절 상태를 사용한다. [상세 pipeline](docs/PIPELINE.md)에 저장·학습·추론 흐름을 정리했다.
+
+2026-10-22 기준 종이컵은 전체 250개·152,131프레임 중 학습 200개·121,313프레임, 검증 50개·30,818프레임을 사용했다. 50,000 step 결과를 저장했고 best는 44,000 step, 검증 손실 0.18899다. 사용자가 실제 종이컵 파지가 잘 된다고 확인했으며 정량 성공률은 측정하지 않았다. [최신 연구일지](notes/research_log_3.md)에 과정과 검사 한계를 기록했다.
 
 ## 장비와 환경
 
@@ -55,11 +58,10 @@ Windows Python 3.12 개발환경을 기준으로 작성했다. LeRobot editable 
 장비 연결은 창의 **수집 시작**에서 수행한다. 실제 포트·카메라·HOME 기준은 `collection/settings.json`과 로봇별 보정 파일을 먼저 확인한다. 자세한 조작은 [수집 안내](collection/README.md)에 있다.
 
 ```powershell
-.\.venv\Scripts\python.exe .\episode_sample_dataset\doll_pickplace_act\train_act.py --steps 20000 --batch-size 4
-.\.venv\Scripts\python.exe .\episode_sample_dataset\doll_pickplace_act\run_act_pickplace_safe.py --preflight-only
+.\.venv\Scripts\python.exe .\paper_cup_B200_act\check_model.py
 ```
 
-사전점검도 로컬 데이터·checkpoint·패키지가 필요하다. 로봇을 연결하지 않는 옵션이며 실제 모터 실행과 구분한다. [ACT 안내](episode_sample_dataset/doll_pickplace_act/README.md)에 SPACE/P/Q/E 조작과 정지 동작이 있다. HOME 복귀와 토크 해제 방식은 종료 원인에 따라 다르다.
+위 검사는 로봇을 연결하지 않으며 로컬 데이터·checkpoint·패키지가 필요하다. 실제 실행은 [종이컵 실행 안내](paper_cup_B200_act/README.md)의 `run.py`를 실행 버튼으로 시작한다. SPACE/P/Q/E 조작을 유지하며 종이컵은 HOME 복귀·토크 해제 후 자동 종료한다. B200 본 학습은 [서버 학습 안내](SSH%20B200/paper_cup_basic/README.md)를 따른다.
 
 ## 코드와 실험 기록
 
@@ -69,6 +71,8 @@ Windows Python 3.12 개발환경을 기준으로 작성했다. LeRobot editable 
 | `episode_sample_dataset/` | 초기 수동·자동 수집과 ACT 샘플 |
 | `robot_calibration/` | 저장된 Leader/Follower 보정값 |
 | `scripts/` | 환경·카메라 검사 |
+| `SSH B200/paper_cup_basic/` | 종이컵 본 학습, 200/50 분할, best 체크포인트 선택 |
+| `paper_cup_B200_act/` | 종이컵 best의 로컬 실행, 사전 검사와 작은 결과 기록 |
 | `episode_sample_dataset/doll_pickplace_act/doll_pickplace_act_testreport/` | 학습, 모델 평가, 실제 실행 분석 |
 
 [학습 기록](episode_sample_dataset/doll_pickplace_act/doll_pickplace_act_testreport/01_model_training.md)은 100개 시연·20,000 step 실행을 기록한다. 수치와 그래프는 해당 실험의 기록이다. [평가](episode_sample_dataset/doll_pickplace_act/doll_pickplace_act_testreport/02_model_evaluation.md)와 [실행 분석](episode_sample_dataset/doll_pickplace_act/doll_pickplace_act_testreport/03_execution_analysis.md)을 함께 읽어 오프라인 예측과 실제 작업 결과를 구분한다.

@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "exit_code": 0,
+  "timed_out": false,
+  "checkpoint_found": true,
+  "log": "/NHNHOME/workspace/lerobot/outputs/act_paper_cup_test_20261021_214754_114241.log",
+  "output": "/NHNHOME/workspace/lerobot/outputs/act_paper_cup_test_20261021_214754_114241",
+  "completed_utc": "2026-10-21T12:48:36.401661+00:00",
+  "steps": 10,
+  "batch_size": 2,
+  "workers": 4,
+  "validation_episodes": 2,
+  "note": "Execution check only; not evidence of grasp success."
+}

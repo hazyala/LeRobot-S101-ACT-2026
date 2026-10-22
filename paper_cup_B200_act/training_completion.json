@@ -1,0 +1,13 @@
+{
+  "steps": 50000,
+  "checkpoint_count": 25,
+  "best": {
+    "step": 44000,
+    "eval_loss": 0.18898926675319672,
+    "checkpoint": "checkpoints/044000",
+    "criterion": "lowest finite validation loss across saved checkpoints"
+  },
+  "final_checkpoint_modified_utc": "2026-10-21T15:41:44+00:00",
+  "exit_code_verified": false,
+  "source_output": "/NHNHOME/workspace/lerobot/outputs/act_paper_cup_basic_20261021_224407_822254"
+}

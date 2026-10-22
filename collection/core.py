@@ -25,6 +25,11 @@ BASE = Path(__file__).resolve().parent
 ROOT = BASE.parent
 STORE = ROOT / "robot_datasets"
 LEGACY = ROOT / "episode_sample_dataset/auto_home_collection/auto_home_record.py"
+# Reviewed change: the hardcoded D405 serial moved into settings.json only.
+COMPATIBLE_LEGACY_HASHES = {
+    "daa496e3306276cb091eccb0029074b5ea0f3803c6c1c1be42e5fb71457f5753",
+    "22d36c966414253ce22a151b1f83b238a693a538e8832092d1a30122d4d5758b",
+}
 _DLL_HANDLES = []
 
 
@@ -163,6 +168,12 @@ def load_engine(task=None, root=None):
     return module
 
 
+def validate_top_camera_name(name):
+    # SDK/firmware versions may include a trademark or vary the vendor prefix.
+    if not re.search(r'\bD405\b', name, flags=re.IGNORECASE):
+        raise RuntimeError(f'Top camera must be a RealSense D405; detected {name!r}')
+
+
 def fingerprint(task, depth_scale=None):
     calibration = {}
     for name, rel in {"leader": "teleoperators/so_leader/leader.json", "follower": "robots/so_follower/follower.json"}.items():
@@ -201,6 +212,17 @@ def ensure_manifest(task, depth_scale=None):
                 return {**manifest, "rig": {key: value for key, value in manifest.get("rig", {}).items()
                                              if key not in limits}}
             only_limits_changed = without_limits(previous) == without_limits(expected)
+            def without_camera_identity(manifest):
+                normalized = without_limits(manifest)
+                normalized['rig'] = {key: value for key, value in normalized['rig'].items()
+                                     if key != 'top_serial'}
+                if normalized.get('legacy_collector_sha256') in COMPATIBLE_LEGACY_HASHES:
+                    normalized['legacy_collector_sha256'] = 'd405_serial_from_settings'
+                return normalized
+            compatible_camera_change = (
+                bool(previous.get('rig', {}).get('top_serial'))
+                and bool(expected.get('rig', {}).get('top_serial'))
+                and without_camera_identity(previous) == without_camera_identity(expected))
             # CPU RGB lossless and NVENC RGB lossless both store H.264 GBRP.
             # Permit this backend change only; retain all rig/calibration checks.
             rgb_profiles = [previous.get("rgb_encoder", {}), expected.get("rgb_encoder", {})]
@@ -227,10 +249,13 @@ def ensure_manifest(task, depth_scale=None):
                     video_features[key]["info"].get("video.codec") == "h264"
                     and video_features[key]["info"].get("video.pix_fmt") == "gbrp"
                     for key in ("observation.images.top", "observation.images.side"))
-            if not clean_empty and not only_limits_changed and not only_rgb_backend_changed:
+            if not clean_empty and not only_limits_changed and not only_rgb_backend_changed and not compatible_camera_change:
                 raise RuntimeError("Task/rig/calibration changed. Use a new dataset version; do not mix configurations.")
             atomic_json(task_dir(task) / "sessions" / f"previous_manifest_{datetime.now():%Y%m%d_%H%M%S_%f}.json", read_json(path))
             atomic_json(path, expected)
+            if compatible_camera_change:
+                print('D405 identity updated; previous manifest retained in sessions. '
+                      f"Serial {previous['rig']['top_serial']} -> {expected['rig']['top_serial']}", flush=True)
     elif data_root(task).exists():
         raise RuntimeError("Existing dataset has no collection manifest; refusing to adopt it implicitly")
     else:
@@ -811,7 +836,12 @@ def run(task, session_label, commands=None, notify=None):
             m.connect_with_saved_calibration(robot, "follower")
             if incoming() == "q":
                 return
-            scale = robot.cameras["top"].rs_profile.get_device().first_depth_sensor().get_depth_scale()
+            import pyrealsense2 as rs
+            top_device = robot.cameras["top"].rs_profile.get_device()
+            top_name = top_device.get_info(rs.camera_info.name)
+            validate_top_camera_name(top_name)
+            print(f'Top camera model verified: {top_name}', flush=True)
+            scale = top_device.first_depth_sensor().get_depth_scale()
             if not m.np.isfinite(scale) or scale <= 0:
                 raise RuntimeError(f"Invalid D405 depth scale: {scale}")
             ensure_manifest(task, depth_scale=scale)

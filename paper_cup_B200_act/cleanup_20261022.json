@@ -1,0 +1,202 @@
+{
+  "date": "2026-10-22",
+  "local": {
+    "removed": [
+      {
+        "path": ".cache",
+        "bytes": 179766200
+      },
+      {
+        "path": "doll_transfer_manifest.json",
+        "bytes": 274885
+      },
+      {
+        "path": "episode_sample_dataset\\doll_pickplace_act\\outputs\\smoke_test",
+        "bytes": 206746262
+      },
+      {
+        "path": "episode_sample_dataset\\doll_pickplace_act\\train_resume_stderr.log",
+        "bytes": 1354035
+      },
+      {
+        "path": "episode_sample_dataset\\doll_pickplace_act\\train_resume_stdout.log",
+        "bytes": 38
+      },
+      {
+        "path": "episode_sample_dataset\\doll_pickplace_act\\train_stderr.log",
+        "bytes": 156654
+      },
+      {
+        "path": "episode_sample_dataset\\doll_pickplace_act\\train_stdout.log",
+        "bytes": 226
+      },
+      {
+        "path": "SSH B200\\paper_cup_basic\\run_test.py",
+        "bytes": 3710
+      },
+      {
+        "path": "SSH B200\\paper_cup_basic\\test_worker.py",
+        "bytes": 467
+      },
+      {
+        "path": "collection\\__pycache__",
+        "bytes": 128408
+      },
+      {
+        "path": "collection\\tests\\__pycache__",
+        "bytes": 94191
+      },
+      {
+        "path": "episode_sample_dataset\\auto_home_collection\\__pycache__",
+        "bytes": 40434
+      },
+      {
+        "path": "episode_sample_dataset\\doll_pickplace_act\\__pycache__",
+        "bytes": 48281
+      },
+      {
+        "path": "paper_cup_B200_act\\__pycache__",
+        "bytes": 18473
+      },
+      {
+        "path": "SSH B200\\paper_cup_basic\\__pycache__",
+        "bytes": 5800
+      },
+      {
+        "path": "scripts\\__pycache__",
+        "bytes": 13284
+      }
+    ],
+    "removed_bytes": 388651348.0
+  },
+  "server": {
+    "scope": "B200 server",
+    "removed": [
+      {
+        "path": "outputs/act_paper_cup_split_200_50_check_20261021",
+        "bytes": 27780
+      },
+      {
+        "path": "outputs/act_paper_cup_test_20261021_214754_114241.log",
+        "bytes": 10424
+      },
+      {
+        "path": "outputs/act_paper_cup_bench_b8_20261021_220100_722167",
+        "bytes": 619601327
+      },
+      {
+        "path": "outputs/act_paper_cup_test_20261021_220402_700727.status.json",
+        "bytes": 473
+      },
+      {
+        "path": "outputs/act_doll_basic_split_check",
+        "bytes": 32034
+      },
+      {
+        "path": "outputs/act_paper_cup_basic_20261021_223615_619277",
+        "bytes": 27780
+      },
+      {
+        "path": "outputs/act_paper_cup_test_20261021_214754_114241.status.json",
+        "bytes": 473
+      },
+      {
+        "path": "outputs/act_doll_smoke_20261013_135540_361898",
+        "bytes": 619576601
+      },
+      {
+        "path": "outputs/act_paper_cup_test_20261021_224219_911619",
+        "bytes": 619604151
+      },
+      {
+        "path": "outputs/act_doll_basic_workers4",
+        "bytes": 619608623
+      },
+      {
+        "path": "outputs/act_paper_cup_full_config_check_20261021",
+        "bytes": 24900
+      },
+      {
+        "path": "outputs/act_paper_cup_test_20261021_224219_911619.log",
+        "bytes": 10510
+      },
+      {
+        "path": "outputs/act_paper_cup_test_20261021_224219_911619.status.json",
+        "bytes": 473
+      },
+      {
+        "path": "outputs/act_paper_cup_bench_b16_20261021_220139_428778",
+        "bytes": 619601330
+      },
+      {
+        "path": "outputs/act_paper_cup_test_20261021_214754_114241",
+        "bytes": 619601323
+      },
+      {
+        "path": "outputs/act_paper_cup_test_20261021_220402_700727",
+        "bytes": 619601323
+      },
+      {
+        "path": "outputs/act_paper_cup_test_20261021_220402_700727.log",
+        "bytes": 10344
+      },
+      {
+        "path": "experiments/act/paper_cup_basic/run_test.py",
+        "bytes": 3710
+      },
+      {
+        "path": "experiments/act/paper_cup_basic/test_worker.py",
+        "bytes": 467
+      },
+      {
+        "path": "experiments/act/paper_cup_basic/benchmark_worker.py",
+        "bytes": 610
+      },
+      {
+        "path": "experiments/act/paper_cup_basic/benchmark_b8.log",
+        "bytes": 11039
+      },
+      {
+        "path": "experiments/act/paper_cup_basic/benchmark_b16.log",
+        "bytes": 11323
+      },
+      {
+        "path": "experiments/act/paper_cup_basic/test_launcher.log",
+        "bytes": 6538
+      },
+      {
+        "path": "experiments/act/paper_cup_basic/test_launch.json",
+        "bytes": 210
+      },
+      {
+        "path": "experiments/act/paper_cup_basic/split_before_80_20.json",
+        "bytes": 6551
+      },
+      {
+        "path": "experiments/act/paper_cup_basic/training.lock",
+        "bytes": 0
+      },
+      {
+        "path": "experiments/act/paper_cup_basic/__pycache__",
+        "bytes": 24848
+      },
+      {
+        "path": "experiments/act/doll_basic/train.py.bak_20261013_162258_947615",
+        "bytes": 7539
+      },
+      {
+        "path": "docs/doll_transfer_manifest.json",
+        "bytes": 274885
+      }
+    ],
+    "removed_bytes": 4337687589,
+    "preserved": [
+      "outputs/act_doll_basic",
+      "outputs/act_paper_cup_basic_20261021_224407_822254",
+      "datasets",
+      "lerobot-act",
+      "build/wheels",
+      "build/source-archives"
+    ]
+  }
+}
