@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SO-101 ACT Pick &amp; Place — 실물 실행 영상</title>
-<meta name="description" content="SO-101 Leader–Follower 시연으로 학습한 ACT 정책(B200 · checkpoint 047000)의 인형 Pick & Place 실물 실행 영상">
+<title>SO-101 ACT Pick &amp; Place — 인형 · 종이컵 실물 실행 영상</title>
+<meta name="description" content="SO-101 Leader–Follower 시연으로 학습한 ACT 정책(B200 · checkpoint 047000)의 인형·종이컵 Pick & Place 실물 실행 영상">
 <style>
   :root{--ink:#0B1A33;--navy:#0F2A5C;--blue:#2563EB;--sky:#0EA5E9;--pale:#93C5FD;--slate:#5B6B82;--tint:#DBEAFE;--bg:#F3F6FB;--line:#C9D6EA}
   *{box-sizing:border-box}
@@ -28,6 +28,18 @@
   .meta .kicker{color:var(--blue)}
   .meta h2{font-size:17px;margin:4px 0 6px}
   .meta p{margin:0;color:var(--slate);font-size:14px}
+  .sec{display:flex;align-items:baseline;gap:12px;margin:36px 0 14px}
+  .sec:first-child{margin-top:0}
+  .sec h2{font-size:22px;margin:0}
+  .sec p{margin:0;color:var(--slate);font-size:14px}
+  .card.fill{display:flex;flex-direction:column}
+  .card.fill .meta{flex:1;display:flex;flex-direction:column}
+  .strip{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px}
+  .strip figure{margin:0}
+  .strip img{display:block;width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:8px;background:#000}
+  .mini{margin:auto 0 0;padding-top:16px;display:grid;grid-template-columns:110px 1fr;gap:6px 12px;font-size:14px}
+  .mini dt{color:var(--slate)} .mini dd{margin:0}
+  .strip figcaption{font-size:13px;color:var(--slate);margin-top:4px}
   .facts{margin-top:28px;background:#fff;border:1px solid var(--tint);border-radius:14px;padding:18px 18px 8px}
   .facts h3{margin:0 0 10px;font-size:16px}
   .facts dl{display:grid;grid-template-columns:150px 1fr;gap:8px 16px;margin:0 0 10px;font-size:14px}
@@ -41,13 +53,14 @@
 <header>
   <div class="wrap">
     <div class="kicker">SO-101 · LEROBOT · ACT IMITATION LEARNING</div>
-    <h1>인형 Pick &amp; Place<br><em>실물 실행 영상</em></h1>
-    <p>Leader–Follower 시연 499개로 학습한 ACT 정책을 NVIDIA B200에서 50,000단계 학습하고, 50개 체크포인트 중 검증 오차가 가장 낮은 047000 모델을 로컬 로봇 실행기에 적용한 결과입니다. 별도 재시도 없이 한 번에 집어 상자에 넣었습니다.</p>
+    <h1>인형 · 종이컵 Pick &amp; Place<br><em>실물 실행 영상</em></h1>
+    <p>SO-101 Leader–Follower로 직접 수집한 시연으로 ACT 정책을 학습해 실제 로봇에서 실행한 영상입니다. 인형은 시연 499개로 학습한 ACT 정책을 NVIDIA B200에서 50,000단계 학습하고, 50개 체크포인트 중 검증 오차가 가장 낮은 047000 모델을 로컬 로봇 실행기에 적용한 결과입니다. 별도 재시도 없이 한 번에 집어 상자에 넣었습니다.</p>
     <div class="chips"><span class="chip">B200 · 50,000 steps</span><span class="chip">checkpoint 047000</span><span class="chip">입력: TOP·SIDE RGB + 관절 5·그리퍼 상태</span><span class="chip">출력: 100×6 action chunk</span></div>
   </div>
 </header>
 <main>
   <div class="wrap">
+    <div class="sec"><h2>01 · 인형</h2><p>B200 · checkpoint 047000</p></div>
     <div class="grid">
       <section class="card portrait">
         <video src="videos/robot_view_b.mp4" poster="img/poster_b.jpg" controls muted playsinline preload="metadata"></video>
@@ -63,7 +76,7 @@
       </section>
     </div>
     <section class="facts">
-      <h3>실행 조건</h3>
+      <h3>인형 모델 실행 조건</h3>
       <dl>
         <dt>데이터</dt><dd>인형 시연 499개 · 291,869프레임 (학습 449 / 검증 50)</dd>
         <dt>학습</dt><dd>공식 LeRobot ACT · NVIDIA B200 · batch 64 · FP32 · 50,000단계</dd>
@@ -71,6 +84,35 @@
         <dt>실행</dt><dd>로컬 RTX 3080 · 60프레임 비동기 재계획 · 관절 범위·속도·추종 제한</dd>
       </dl>
     </section>
+
+    <div class="sec"><h2>02 · 종이컵</h2><p>찌그러지지 않게 쥐어야 하는 작업</p></div>
+    <div class="grid">
+      <section class="card portrait">
+        <video src="videos/cup_robot_view.mp4" poster="img/poster_cup.jpg" controls muted playsinline preload="metadata"></video>
+        <div class="meta"><div class="kicker">RUN 03</div><h2>종이컵 — 파지 · 운반 · 목표 위치 안착</h2><p>종이컵 옆면을 집어 들어 빨간 목표 패드 위에 세워 내려놓고 HOME 자세로 복귀합니다.</p></div>
+      </section>
+      <section class="card fill">
+        <div class="meta" style="padding:20px">
+          <div class="kicker">WHY IT'S HARDER</div>
+          <h2>인형보다 어려운 이유</h2>
+          <p style="margin-bottom:10px">인형은 단단해서 세게 쥐어도 형태가 유지되지만, 종이컵은 얇은 벽이라 그리퍼를 조금만 세게 닫아도 찌그러집니다. 반대로 약하게 쥐면 들어 올리는 도중 미끄러집니다.</p>
+          <p>그래서 이 작업은 위치만이 아니라 <b>컵을 찌그러뜨리지 않으면서 놓치지 않는 그리퍼 닫힘 정도</b>까지 시연에서 배워야 합니다. 영상에서 컵은 운반 후에도 형태를 유지한 채 패드 위에 세워집니다.</p>
+          <div class="strip">
+            <figure><img src="img/cup_8.2.jpg" alt="그리퍼가 종이컵 옆면을 쥔 장면"><figcaption>파지</figcaption></figure>
+            <figure><img src="img/cup_11.8.jpg" alt="종이컵을 들어 운반하는 장면"><figcaption>운반</figcaption></figure>
+            <figure><img src="img/cup_19.0.jpg" alt="종이컵이 목표 패드 위에 세워진 장면"><figcaption>안착</figcaption></figure>
+          </div>
+          <dl class="mini">
+            <dt>수집 데이터</dt><dd>종이컵 시연 102개 · 58,182프레임</dd>
+            <dt>확인 포인트</dt><dd>운반 후에도 컵 형태 유지 · 목표 패드 위에 세워서 안착</dd>
+          </dl>
+        </div>
+      </section>
+      <section class="card wide">
+        <video src="videos/cup_runner_top_side.mp4" poster="img/poster_cup_runner.jpg" controls muted playsinline preload="metadata"></video>
+        <div class="meta"><div class="kicker">RUNNER VIEW</div><h2>종이컵 실행 — 정책이 보는 TOP · SIDE 카메라</h2><p>왼쪽 D405 TOP 화면에서 컵이 시작 위치에서 빨간 목표 패드로 옮겨지는 과정을 볼 수 있습니다.</p></div>
+      </section>
+    </div>
   </div>
 </main>
 <footer>
