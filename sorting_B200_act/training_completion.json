@@ -1,0 +1,11 @@
+{
+  "stage": "completed",
+  "updated_utc": "2026-10-23T14:48:50.956015+00:00",
+  "output": "/NHNHOME/workspace/lerobot/outputs/act_sorting_basic_20261023_215050_815728",
+  "best": {
+    "step": 46000,
+    "eval_loss": 0.15885090827941895,
+    "checkpoint": "checkpoints/046000",
+    "criterion": "lowest finite validation loss across saved checkpoints"
+  }
+}

@@ -1,5 +1,21 @@
 # SO-101 ACT Pick & Place
 
+## 추가 작업과 자료
+
+이 저장소에는 인형·종이컵 Pick & Place와 Sorting 실험, 수집 도구, 원격 추론 관련 코드가 함께 있습니다. 각 폴더의 안내에서 데이터 경로와 실행 조건을 먼저 확인합니다.
+
+| 위치 | 내용 |
+|---|---|
+| [Sorting 학습](SSH%20B200/sorting_basic/README.md) | Sorting 데이터 기반 B200 ACT 학습 |
+| [Sorting 및 Pick & Place 혼합 학습](SSH%20B200/sorting_pickplace_nohome_mix_v1/README.md) | Sorting과 HOME 구간을 제외한 Pick & Place 데이터를 활용한 실험 |
+| [Sorting 모델](sorting_B200_act/README.md) | Sorting 모델 확인 및 실행 관련 파일 |
+| [혼합 학습 모델](sorting_pickplace_nohome_mix_v1_B200_act/README.md) | 혼합 학습 모델 확인 및 실행 관련 파일 |
+| [Jetson·B200 연동](so101_demo/README.md) | 원격 추론과 로봇 제어 연동 작업. 실제 로봇 실행 전 해당 폴더의 검증 상태 확인 필요 |
+| [데이터셋 구성](docs/PICKPLACE_NOHOME_DATASET.md) | HOME 구간 제외 데이터셋 구성 기록 |
+| [혼합 데이터 검토](docs/SORTING_PICKPLACE_MIX_REVIEW.md) | Sorting과 Pick & Place 혼합 학습 검토 기록 |
+
+학습 데이터, 로컬 가상환경, 모델 체크포인트는 Git에서 제외되어 있으므로 각 실험을 실행하려면 별도로 준비해야 합니다.
+
 SO-101 로봇팔의 시연을 RGB-D 데이터로 수집하고, top/side RGB와 관절 상태로 ACT 정책을 학습·실행하는 작업 기록.
 
 ## 실물 실행 영상

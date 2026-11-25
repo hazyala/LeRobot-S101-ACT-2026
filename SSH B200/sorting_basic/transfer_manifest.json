@@ -1,0 +1,3771 @@
+{
+  "total_episodes": 150,
+  "total_frames": 184183,
+  "files": [
+    {
+      "path": "data/chunk-000/file-000.parquet",
+      "size": 178707,
+      "sha256": "485846bef3401d2b4e280dc5b49c264bfb2bd3922f099599e81712719b4baf30"
+    },
+    {
+      "path": "data/chunk-000/file-001.parquet",
+      "size": 166321,
+      "sha256": "b6f97b9f6cd2b5b73ba40a0f0bf99462ecdeaae4287150cacf52ff7f07ce84a6"
+    },
+    {
+      "path": "data/chunk-000/file-002.parquet",
+      "size": 167964,
+      "sha256": "85c660d61792487375f8e23b743808f0b7ee0a51564219b44d589c106890408a"
+    },
+    {
+      "path": "data/chunk-000/file-003.parquet",
+      "size": 144864,
+      "sha256": "973f30dc49cc8622dc33dde924781de1d943457e9017c2d1b08aa58dbae0935d"
+    },
+    {
+      "path": "data/chunk-000/file-004.parquet",
+      "size": 161564,
+      "sha256": "2d5f61e8bbe417e4ec103f9050f8422e6bccc27b924433409f10d589d65d051b"
+    },
+    {
+      "path": "data/chunk-000/file-005.parquet",
+      "size": 148649,
+      "sha256": "bca661fe341de49b27630c9e824eb76e0b4af29c1f86375fc750aba97a0ad2b4"
+    },
+    {
+      "path": "data/chunk-000/file-006.parquet",
+      "size": 144670,
+      "sha256": "dd1dbfef16e1658b9b487dc87c700403801b337a9e2451318b02b30fa43db98c"
+    },
+    {
+      "path": "data/chunk-000/file-007.parquet",
+      "size": 145667,
+      "sha256": "b332a92c65caaa0aa4c50f78aa4b8989e07d21965bec9c9b3892d777fd6410dd"
+    },
+    {
+      "path": "data/chunk-000/file-008.parquet",
+      "size": 152315,
+      "sha256": "6d7801b239bece25841acef61c6ea37895b43eaee1b4dfe75341aab6e35fb80b"
+    },
+    {
+      "path": "data/chunk-000/file-009.parquet",
+      "size": 146377,
+      "sha256": "e6da18ad8897e5a0b5645ea8428130a04132bd0138bc111a25f7a533ebe3a47e"
+    },
+    {
+      "path": "data/chunk-000/file-010.parquet",
+      "size": 156257,
+      "sha256": "fb8285dfe2eb32e8bb6d7b7e25256a24c7ff6b27de043056acbf9c2b47622dd2"
+    },
+    {
+      "path": "data/chunk-000/file-011.parquet",
+      "size": 157564,
+      "sha256": "d207c8184284d3cf5200972f279a3804e1498f1310fd1a4ad5bbc39fd3e5f87a"
+    },
+    {
+      "path": "data/chunk-000/file-012.parquet",
+      "size": 140002,
+      "sha256": "f1d9a9b0740b81a8f7607a5ebe1769e455dfd350befcb907b98eac598a3c74e1"
+    },
+    {
+      "path": "data/chunk-000/file-013.parquet",
+      "size": 169172,
+      "sha256": "10bad91f60a1d012c9fa9bb5643ef5947995c8d61ea87fb600bba1b35695c7ae"
+    },
+    {
+      "path": "data/chunk-000/file-014.parquet",
+      "size": 148398,
+      "sha256": "f4fcf091b13a2b1fa6d84869be0f5304a4ee5d7625f0236fddcba68821a5e35c"
+    },
+    {
+      "path": "data/chunk-000/file-015.parquet",
+      "size": 141190,
+      "sha256": "5613b108be9e4772f12cc3c9a5fd15ff6288a8e80f1a7264632a90b2cf5f5ae4"
+    },
+    {
+      "path": "data/chunk-000/file-016.parquet",
+      "size": 156386,
+      "sha256": "ec5539c98963f3f9c50819a6e5fbc1f064214311f86c32facbc1e2261727369c"
+    },
+    {
+      "path": "data/chunk-000/file-017.parquet",
+      "size": 149399,
+      "sha256": "6d431ee79a14941fb14f0795a4bee9581700d588dc3d16b36c19145a8a3d9909"
+    },
+    {
+      "path": "data/chunk-000/file-018.parquet",
+      "size": 156179,
+      "sha256": "4e1719b7675db47c5e36843588d80e094d821837f044f496bc494322a078698d"
+    },
+    {
+      "path": "data/chunk-000/file-019.parquet",
+      "size": 151514,
+      "sha256": "aca86db2bd6ee4f13c34619c0b57b3601420dd0c7031ebf0d00def04eda94fc7"
+    },
+    {
+      "path": "data/chunk-000/file-020.parquet",
+      "size": 154994,
+      "sha256": "7df663779b1d24688ddc6e8fe55cd1b89a0f578b467d5859331e976b14d4c336"
+    },
+    {
+      "path": "data/chunk-000/file-021.parquet",
+      "size": 141678,
+      "sha256": "73a493eb018210571305bb312f77e0cc8eb41058b6e8586fe357383d19de16d4"
+    },
+    {
+      "path": "data/chunk-000/file-022.parquet",
+      "size": 155988,
+      "sha256": "3e63162b320b7dff84858236579119fa5f079c656b18e2db1f8b8073fe85713f"
+    },
+    {
+      "path": "data/chunk-000/file-023.parquet",
+      "size": 150094,
+      "sha256": "2a997c1178cf6c490ed753a8dc3112aa5e7c8e62c51733a49fed7b70d0e89fa7"
+    },
+    {
+      "path": "data/chunk-000/file-024.parquet",
+      "size": 159010,
+      "sha256": "637d1e0ccfd9dcf0e221cc575fc72ff05f300fcb42381a4023076129e4252b88"
+    },
+    {
+      "path": "data/chunk-000/file-025.parquet",
+      "size": 155637,
+      "sha256": "b6764a9db4031cadb1034e38dd01cef63f2958170aff1b17112f8bbb8566f5c3"
+    },
+    {
+      "path": "data/chunk-000/file-026.parquet",
+      "size": 146490,
+      "sha256": "8baaaed91ea18bec1c3af36dd7cccd5100b4cad397e1bf3d48224ed0d4900020"
+    },
+    {
+      "path": "data/chunk-000/file-027.parquet",
+      "size": 141342,
+      "sha256": "a918600d9edb8792e4693d330daed71772d622c44f2ab25a654df8bc641d5e5b"
+    },
+    {
+      "path": "data/chunk-000/file-028.parquet",
+      "size": 152132,
+      "sha256": "d0a78ac9c546964683256d23a0a59ab835202a5d89886865275f1d056bc632f2"
+    },
+    {
+      "path": "data/chunk-000/file-029.parquet",
+      "size": 132120,
+      "sha256": "0243c19524cf402443a46345b23221f8e3d200d81252edf82a7ea48542d0b6b1"
+    },
+    {
+      "path": "data/chunk-000/file-030.parquet",
+      "size": 144073,
+      "sha256": "1bca429a952d2935c3e19ff62a97048bf3c40ff429420ec925267c675dc5f6e3"
+    },
+    {
+      "path": "data/chunk-000/file-031.parquet",
+      "size": 163725,
+      "sha256": "20f8ddabbe4b3b08d1406b5b51dbffedea57cf80a6edd46d5b7ad53b4ea81af3"
+    },
+    {
+      "path": "data/chunk-000/file-032.parquet",
+      "size": 147398,
+      "sha256": "3b513179da797473b7ec6b0ac03c366638147522e569988153dff88776a2ef9c"
+    },
+    {
+      "path": "data/chunk-000/file-033.parquet",
+      "size": 157955,
+      "sha256": "65728044a731017a36ac9900afe32ed006b2af5c6d9e91534c3ad2186bbfd68c"
+    },
+    {
+      "path": "data/chunk-000/file-034.parquet",
+      "size": 153771,
+      "sha256": "41f5fd52b72facc821865e54bf1979c581df090b6bee5585caccdb081cd7745e"
+    },
+    {
+      "path": "data/chunk-000/file-035.parquet",
+      "size": 164618,
+      "sha256": "ee7ac02fac0d55fd04284ebb38884f18b45168ce5500943c9fef7373e2a65e07"
+    },
+    {
+      "path": "data/chunk-000/file-036.parquet",
+      "size": 133632,
+      "sha256": "8fcf53e2f4d244014a9982b18d11b0a5db5778ae582ef9bbad72ede303e167f7"
+    },
+    {
+      "path": "data/chunk-000/file-037.parquet",
+      "size": 159206,
+      "sha256": "4a990629689ee376eceda4ba20770725b3f1835a20fd34d762d3ebfab9c371ab"
+    },
+    {
+      "path": "data/chunk-000/file-038.parquet",
+      "size": 144530,
+      "sha256": "1171461e6984eedf18a8e7879c30e99c3b00010a4ca2558ce445c35d2e9d1478"
+    },
+    {
+      "path": "data/chunk-000/file-039.parquet",
+      "size": 148931,
+      "sha256": "6155d8b18804da8754568e0715ce25663bd6242e21baf8940cc5a1ece5eeca1b"
+    },
+    {
+      "path": "data/chunk-000/file-040.parquet",
+      "size": 138003,
+      "sha256": "3523431b1dc51bc7d4d1dee7f89baf432208adfa3010a035de49e23fd0bfe4eb"
+    },
+    {
+      "path": "data/chunk-000/file-041.parquet",
+      "size": 146475,
+      "sha256": "b69d758495bf787b6ea637039e5ab5237ff5f452e6b36ba7d88c7e515cb40afc"
+    },
+    {
+      "path": "data/chunk-000/file-042.parquet",
+      "size": 153036,
+      "sha256": "0ba0c28fdce02e36617955d4d9749056e426b614e0555a52a94d9cc0ed1ecb28"
+    },
+    {
+      "path": "data/chunk-000/file-043.parquet",
+      "size": 163904,
+      "sha256": "75d425ef85edca5dd2dfd7322ec7789eb27c8c6ce3a5775baa35a541aafa4b27"
+    },
+    {
+      "path": "data/chunk-000/file-044.parquet",
+      "size": 166871,
+      "sha256": "8d85ec45323646971b81f77750722ec8dd9cb413514aa108f59ce4379e9d72ce"
+    },
+    {
+      "path": "data/chunk-000/file-045.parquet",
+      "size": 174787,
+      "sha256": "404005d21223fee13e674efa35a0c0293eff79501bae5aa9cf39aa05e14a9d76"
+    },
+    {
+      "path": "data/chunk-000/file-046.parquet",
+      "size": 166767,
+      "sha256": "92b700b5954696465f9fb103dd07c40050b42b9dab03c90274e06f47127fbac7"
+    },
+    {
+      "path": "data/chunk-000/file-047.parquet",
+      "size": 153598,
+      "sha256": "b52e2e3d8e6edda5109422c0fe541212cbb9d7f6ba8b0beeda9854f94da3980b"
+    },
+    {
+      "path": "data/chunk-000/file-048.parquet",
+      "size": 155997,
+      "sha256": "01425145f33bc6a342ff1346bd0b05d2547d80d806251b82f233ccacc20f3e53"
+    },
+    {
+      "path": "data/chunk-000/file-049.parquet",
+      "size": 167374,
+      "sha256": "1f26b2cf875320bdc9f593735163b663f72b77cc38db217f1420b1a147bc8cc1"
+    },
+    {
+      "path": "data/chunk-000/file-050.parquet",
+      "size": 150194,
+      "sha256": "356aabb7245f9e76738328d6cb81b9c1ca14b38d69408b84e74195a7d9fbb99a"
+    },
+    {
+      "path": "data/chunk-000/file-051.parquet",
+      "size": 158767,
+      "sha256": "3af5ff353885387e35b04e53d2e56e7dd8744b2c3e89c32ee47dcb48496456ed"
+    },
+    {
+      "path": "data/chunk-000/file-052.parquet",
+      "size": 193475,
+      "sha256": "66ce5e9e007be22a34be67df3baa4ce8fce40e2e12f0cdd32330334a7f9008f2"
+    },
+    {
+      "path": "data/chunk-000/file-053.parquet",
+      "size": 143754,
+      "sha256": "1dbc502e768848a364bd070878cc87f729fa7273e2830d9c621c73083ed08e22"
+    },
+    {
+      "path": "data/chunk-000/file-054.parquet",
+      "size": 164944,
+      "sha256": "446492891b6501008c9f541cc4419c93c30d41aa9dc6dbfe6210fa8c969c42ec"
+    },
+    {
+      "path": "data/chunk-000/file-055.parquet",
+      "size": 143952,
+      "sha256": "e753007ec7bad6b8ed313019482e660bb89545c05670f1f005afea95283d60bc"
+    },
+    {
+      "path": "data/chunk-000/file-056.parquet",
+      "size": 148171,
+      "sha256": "10d9c632b310a991cb82f296e515d6d1cc14b557cfd6e21610e806e76c524700"
+    },
+    {
+      "path": "data/chunk-000/file-057.parquet",
+      "size": 139283,
+      "sha256": "e4acb04daf12a6db5ad7e42bf4ca06ecfb1f38a79ecf9c5824c8277658c50037"
+    },
+    {
+      "path": "data/chunk-000/file-058.parquet",
+      "size": 155436,
+      "sha256": "31c7ba9210926c4714dc11ef8d2ceecc30472eb3f4201e2abe3d6a2928baa408"
+    },
+    {
+      "path": "data/chunk-000/file-059.parquet",
+      "size": 152563,
+      "sha256": "d782fb71a8a205966c28088a3172c6c0e0c89c0249fb88738e0b144c3f717974"
+    },
+    {
+      "path": "data/chunk-000/file-060.parquet",
+      "size": 155020,
+      "sha256": "90dd90bff557763f91d7f6a52fe54385753edb2fa9f0b4054c665ca3f1a02f1f"
+    },
+    {
+      "path": "data/chunk-000/file-061.parquet",
+      "size": 163050,
+      "sha256": "473171665d0ce103fbe17fc4b9bf9df87bcd6b018374835f772ff9a5df6974ad"
+    },
+    {
+      "path": "data/chunk-000/file-062.parquet",
+      "size": 138356,
+      "sha256": "30708cd80d3e22a44d90dc9774e50ff9368c08d8c4808d9c591d250b2c497521"
+    },
+    {
+      "path": "data/chunk-000/file-063.parquet",
+      "size": 132534,
+      "sha256": "d843f0eb42fb8edf5a40f6f1be08d1e1678c236d30824783866d5a64fcba1770"
+    },
+    {
+      "path": "data/chunk-000/file-064.parquet",
+      "size": 147314,
+      "sha256": "f0d5e3abec6ebd704bc7e6c1c8c63525d315c8802677e29140633072a6373df3"
+    },
+    {
+      "path": "data/chunk-000/file-065.parquet",
+      "size": 155566,
+      "sha256": "71e604bf7486da851cd25d74b3954479795a22a0ee52f22a2c546f33a7dc2586"
+    },
+    {
+      "path": "data/chunk-000/file-066.parquet",
+      "size": 136235,
+      "sha256": "703a2fad383b14ba3d383f2b22d3b40b68e27a44a764b045a623f8b17f7a00ce"
+    },
+    {
+      "path": "data/chunk-000/file-067.parquet",
+      "size": 151104,
+      "sha256": "05ffe645e817b2dfec8d3af89e7b2c7598cdcb40966a9707d1aa7ac3193a72eb"
+    },
+    {
+      "path": "data/chunk-000/file-068.parquet",
+      "size": 132931,
+      "sha256": "20836de8a4aba68dbb3a741cfe1aad423a26a65b523c263f1de99d6b89dd5823"
+    },
+    {
+      "path": "data/chunk-000/file-069.parquet",
+      "size": 159610,
+      "sha256": "76a0e06eb5fe81fa000c05f75e116f92bbdc66913adad783657c4b633c1029b1"
+    },
+    {
+      "path": "data/chunk-000/file-070.parquet",
+      "size": 171086,
+      "sha256": "87cdbbab076af9779ed135ee4683168fed43b78ff0e6ea0ad1a9f607445d0bfa"
+    },
+    {
+      "path": "data/chunk-000/file-071.parquet",
+      "size": 150607,
+      "sha256": "9f4549b7082fb9df416418483b3f3c02871fd9b9319927a843f828f2facbbc46"
+    },
+    {
+      "path": "data/chunk-000/file-072.parquet",
+      "size": 144880,
+      "sha256": "e022e6cc10ee5956cfcd7c72eed7f635eda1accad2eca6aac178d212e69a8b80"
+    },
+    {
+      "path": "data/chunk-000/file-073.parquet",
+      "size": 160693,
+      "sha256": "2dec265cebb3618879fca2efbef175d56a4b8040f5d3bbeae043a1a8f3a87d28"
+    },
+    {
+      "path": "data/chunk-000/file-074.parquet",
+      "size": 174110,
+      "sha256": "5794444179f06c29bc9b855482379216661d97b9628221ed85035726f75100ad"
+    },
+    {
+      "path": "data/chunk-000/file-075.parquet",
+      "size": 149969,
+      "sha256": "6c48cf483a2b0d9268caddbbf0d320781766c17e7f3a3b08084ea889cfe0b11e"
+    },
+    {
+      "path": "data/chunk-000/file-076.parquet",
+      "size": 150302,
+      "sha256": "c8a3d491c6fcaf71dcfb6091aa55bdef4841968c65d976d397b5144aa8dd8db3"
+    },
+    {
+      "path": "data/chunk-000/file-077.parquet",
+      "size": 163642,
+      "sha256": "99485f9f972e4b0bd3bd928c9ac939770fea8a1d57f9176d6ccba0f0a4a4264e"
+    },
+    {
+      "path": "data/chunk-000/file-078.parquet",
+      "size": 174556,
+      "sha256": "c37329f1e02403543f61050e4bb1d7bc807f8fefd1cd6c9c0b3fc120c980ad67"
+    },
+    {
+      "path": "data/chunk-000/file-079.parquet",
+      "size": 164042,
+      "sha256": "7edccef61e95e30ef6b64d559839edbfaaabe70d5f8ddea7f574ab15a71e9731"
+    },
+    {
+      "path": "data/chunk-000/file-080.parquet",
+      "size": 169235,
+      "sha256": "8af96530ec3571fe249c0222e8922b71ce3a200b6042eda675811aa3fc5db617"
+    },
+    {
+      "path": "data/chunk-000/file-081.parquet",
+      "size": 166025,
+      "sha256": "a03066c349a07112df1d163f7032f0d455a059788d035fc7c7140a5c9169956d"
+    },
+    {
+      "path": "data/chunk-000/file-082.parquet",
+      "size": 179512,
+      "sha256": "b08a1fb612f187ffc2e5969d7c9abad917fdf67c201beea10a23d8e1037ae4ec"
+    },
+    {
+      "path": "data/chunk-000/file-083.parquet",
+      "size": 186002,
+      "sha256": "3d1e2eff91de5acb09d933ae4248d44cdb35895d105f0b5f06419ab3e19c39b2"
+    },
+    {
+      "path": "data/chunk-000/file-084.parquet",
+      "size": 171349,
+      "sha256": "c8606e65aee3a8787f470b20ef90b720372d580fe4777190152b23f0a078c261"
+    },
+    {
+      "path": "data/chunk-000/file-085.parquet",
+      "size": 142852,
+      "sha256": "b6542218cf23b92c15160f1c1c94bda2e1560c7e04d02cba2a95f10826ffed21"
+    },
+    {
+      "path": "data/chunk-000/file-086.parquet",
+      "size": 151139,
+      "sha256": "c82ec1cf8bd1b351465372e259064d14086e10fb6e40a9503fcd92347697370e"
+    },
+    {
+      "path": "data/chunk-000/file-087.parquet",
+      "size": 172470,
+      "sha256": "c09332ce87adaf578d13480f3dce6dc099b2322cd748324efbadb21b896de007"
+    },
+    {
+      "path": "data/chunk-000/file-088.parquet",
+      "size": 156505,
+      "sha256": "2ef16448b0ddd3a4c742602b05f49e3bbd570057cd4b06ca1ba1674621ad712c"
+    },
+    {
+      "path": "data/chunk-000/file-089.parquet",
+      "size": 154015,
+      "sha256": "66dd20de1730a1dbe705e06189e5cc4887ecc289552644b07b9086c35b9df0ab"
+    },
+    {
+      "path": "data/chunk-000/file-090.parquet",
+      "size": 157694,
+      "sha256": "6ee84cb1f81d92becb7d4edc1872bf798b723766a9d5ae428bc2fe5f0e6bcf8a"
+    },
+    {
+      "path": "data/chunk-000/file-091.parquet",
+      "size": 173786,
+      "sha256": "51ea6528fdf27bbcbaac83e0f135a3e141f398a89578bf7b544a2596999600a7"
+    },
+    {
+      "path": "data/chunk-000/file-092.parquet",
+      "size": 156820,
+      "sha256": "b4b050ebc1e6c9bb27ab16a39459443f822435db0c06c9b59071b62f46488ec0"
+    },
+    {
+      "path": "data/chunk-000/file-093.parquet",
+      "size": 140365,
+      "sha256": "ac5a89904cf61bc9359dff10dc26cf23aa6257474215750de4a6eccc9bd291ea"
+    },
+    {
+      "path": "data/chunk-000/file-094.parquet",
+      "size": 176135,
+      "sha256": "16c13f9a78a12b1e86c127c6c507da9a9e943ad280a0be4a48ca5758e1d702b5"
+    },
+    {
+      "path": "data/chunk-000/file-095.parquet",
+      "size": 146519,
+      "sha256": "b5d637ffdcc91c3eb0c9177638dabfdd80685a2aaab2b7b6bc37f834e7cfc69f"
+    },
+    {
+      "path": "data/chunk-000/file-096.parquet",
+      "size": 146474,
+      "sha256": "ba2fddcfcbd608c6c726d1616e1d6dc62b0e85d7891324e4f7d1159c49d7c58c"
+    },
+    {
+      "path": "data/chunk-000/file-097.parquet",
+      "size": 165375,
+      "sha256": "c1d17425b13afacf6fe34c93c53dca2af290d6a61ae8ffb30b59420aecacc9c5"
+    },
+    {
+      "path": "data/chunk-000/file-098.parquet",
+      "size": 179894,
+      "sha256": "c7b2964a9b4b696367a65c6a7f4c0f364f2b01638c562b1d36ad122d56f42cb6"
+    },
+    {
+      "path": "data/chunk-000/file-099.parquet",
+      "size": 145727,
+      "sha256": "e3e8109e2cfb52d25285a875a75cc3d2fd338e2339354f77592a33564531aefc"
+    },
+    {
+      "path": "data/chunk-000/file-100.parquet",
+      "size": 140453,
+      "sha256": "f71a1e7526f9e6dc6a541e4b547fc623f43d943bdf489aab6aac95503d01fa9b"
+    },
+    {
+      "path": "data/chunk-000/file-101.parquet",
+      "size": 151826,
+      "sha256": "2659307c215cebac556ed0123713e3d86cd00b78afef20dfa4671259929a4ed2"
+    },
+    {
+      "path": "data/chunk-000/file-102.parquet",
+      "size": 141277,
+      "sha256": "326e070b6d442bd926d881218b870dc64d813698683cd8793df51b560b18ded0"
+    },
+    {
+      "path": "data/chunk-000/file-103.parquet",
+      "size": 149532,
+      "sha256": "945c4add022e54b3f47ebad62599c51416922cff3f42676ff263d5a20e7e49e6"
+    },
+    {
+      "path": "data/chunk-000/file-104.parquet",
+      "size": 161839,
+      "sha256": "b36fd8ea6e11c22e6ea49e4ccbca7d06d6e93f24a36f9b511a7b477797f517ae"
+    },
+    {
+      "path": "data/chunk-000/file-105.parquet",
+      "size": 141280,
+      "sha256": "471597806a350b5fd4cbfab207d7d34821b36003bc27f7ba64fb139baf7c2a70"
+    },
+    {
+      "path": "data/chunk-000/file-106.parquet",
+      "size": 138497,
+      "sha256": "44e451d610e90ac5c1b1492de44719eaa202d4f5085743371c68dbd1c1279b26"
+    },
+    {
+      "path": "data/chunk-000/file-107.parquet",
+      "size": 157811,
+      "sha256": "f4ddb71f33df9e77f6c051734984e5c99da9f8b2a404c9d4cca33cad86f83a4d"
+    },
+    {
+      "path": "data/chunk-000/file-108.parquet",
+      "size": 123869,
+      "sha256": "b521d31acda7e0716e9a31d25503d0a3e9ce85cc9549fbf4f57777550d54f922"
+    },
+    {
+      "path": "data/chunk-000/file-109.parquet",
+      "size": 130765,
+      "sha256": "756a650953861543527be1f931b9c131ef9f8fed93ae43570029f447b3eb67a2"
+    },
+    {
+      "path": "data/chunk-000/file-110.parquet",
+      "size": 142130,
+      "sha256": "d85dd346b59da6e817040355a77461b7a0f2fbb284c05206bdeae9926a1d680d"
+    },
+    {
+      "path": "data/chunk-000/file-111.parquet",
+      "size": 135270,
+      "sha256": "9aa7821b917b3b4988ff7a16442fdd79b88f4c5c3c0c5b63abc26de809da98e0"
+    },
+    {
+      "path": "data/chunk-000/file-112.parquet",
+      "size": 135318,
+      "sha256": "b349cb1dbf2cee7abb3388b35aad16b15958a28bbc3a345e4059a86ae3731a53"
+    },
+    {
+      "path": "data/chunk-000/file-113.parquet",
+      "size": 142787,
+      "sha256": "43800076bc08ce51fcc4107f0fc58a95b3d2257bf39542bf7cc330cb4c6b6dc0"
+    },
+    {
+      "path": "data/chunk-000/file-114.parquet",
+      "size": 153545,
+      "sha256": "1a7f798ba4f4cbb40d99f413f642ebd0bad2916967d900e94307f89c960b7019"
+    },
+    {
+      "path": "data/chunk-000/file-115.parquet",
+      "size": 150808,
+      "sha256": "6077a7d9eb05ac5bb77c5c1e35d7ec35ed61df348ba148ca308f28462b463bca"
+    },
+    {
+      "path": "data/chunk-000/file-116.parquet",
+      "size": 145866,
+      "sha256": "f89520fb455bc766fb617c53c196368d1f7fe4f9909ef4dca99bf78d3028746f"
+    },
+    {
+      "path": "data/chunk-000/file-117.parquet",
+      "size": 153004,
+      "sha256": "efc85f1254cbfde9ccfa0bf3169f3e137ad3260d0d5f98bcb1903e62f3d7a80f"
+    },
+    {
+      "path": "data/chunk-000/file-118.parquet",
+      "size": 150396,
+      "sha256": "194d09f50ea7fad19ac781a48c378b99783e59f37da3f9c8ac7fea994df25ad1"
+    },
+    {
+      "path": "data/chunk-000/file-119.parquet",
+      "size": 131432,
+      "sha256": "1d9231662fa6a5f1ae7b7b7b8068be4e62e170d4dad336c00899e515b41fd0d1"
+    },
+    {
+      "path": "data/chunk-000/file-120.parquet",
+      "size": 156161,
+      "sha256": "4a09e48f26cfd1ee28005d79f74cba3adf8dc70e462dc6e7601782487d7774e7"
+    },
+    {
+      "path": "data/chunk-000/file-121.parquet",
+      "size": 140896,
+      "sha256": "cdd59c7669a9f15014bb5acc95f321581b9a0ef2018480b2a9f4e12dd760dfce"
+    },
+    {
+      "path": "data/chunk-000/file-122.parquet",
+      "size": 151957,
+      "sha256": "e476ceb05a9f1a41346cf772b10cdc2beecbf9ea01e09c2911dc83728b59bb4e"
+    },
+    {
+      "path": "data/chunk-000/file-123.parquet",
+      "size": 147854,
+      "sha256": "c9e4e1fd82fb112416c4c64546cadb8f19c544b840aee17c3740db1f701a9d19"
+    },
+    {
+      "path": "data/chunk-000/file-124.parquet",
+      "size": 161211,
+      "sha256": "0c2f49d2bff873f95b5d0d0371f72977f275cabad2fd45902f18504c8e46ccbe"
+    },
+    {
+      "path": "data/chunk-000/file-125.parquet",
+      "size": 150695,
+      "sha256": "d01f598a7ec56a542f559687af15929419aa5726ec83645721540cfc212c24a0"
+    },
+    {
+      "path": "data/chunk-000/file-126.parquet",
+      "size": 138663,
+      "sha256": "21a3b9cfe14287c5a0f4b8fb944ed348811c6e46ff2692f80baf9c9de485c947"
+    },
+    {
+      "path": "data/chunk-000/file-127.parquet",
+      "size": 146498,
+      "sha256": "9ea2ac755ae6207aee9fa366666adcb573655047a534a86a20bbc615e140462a"
+    },
+    {
+      "path": "data/chunk-000/file-128.parquet",
+      "size": 157349,
+      "sha256": "777ecda2147ee66eda60fed64d21eab9f94ec20c51a3f59e300fa957cbe4fa60"
+    },
+    {
+      "path": "data/chunk-000/file-129.parquet",
+      "size": 158347,
+      "sha256": "1ddc87405f044fd4e3b518719385a48d74964bdba02a47d3ca8eed455092424d"
+    },
+    {
+      "path": "data/chunk-000/file-130.parquet",
+      "size": 151629,
+      "sha256": "e6434b792dd6cf2d83136b665b8360217c1725bd43b30e593f980d553c66d6a2"
+    },
+    {
+      "path": "data/chunk-000/file-131.parquet",
+      "size": 160828,
+      "sha256": "6572384c0cba84ee1a03e9e866a5c9632c2b78b8420cc5d92955ebb470c3d9b6"
+    },
+    {
+      "path": "data/chunk-000/file-132.parquet",
+      "size": 148493,
+      "sha256": "b9ab3dfb306cf9f3bcacb1fbd3bcd6f3b1cbd01e3ced8b8bf578e36ab3174d84"
+    },
+    {
+      "path": "data/chunk-000/file-133.parquet",
+      "size": 144701,
+      "sha256": "97d2eff7c0f50ebdc0e39fca2f711243b578452ea3dc1b94bd3e07ecee07eebe"
+    },
+    {
+      "path": "data/chunk-000/file-134.parquet",
+      "size": 153674,
+      "sha256": "4f457e6d30066714188b5b627bd8d8daa77fd6d38441505414002d5ef4c4f963"
+    },
+    {
+      "path": "data/chunk-000/file-135.parquet",
+      "size": 165066,
+      "sha256": "282ced068a90cc90774985cf50eb8f3bfe6d69587f7586d3047f10b9aa621877"
+    },
+    {
+      "path": "data/chunk-000/file-136.parquet",
+      "size": 163678,
+      "sha256": "8e8d7459d1c889cfc11b32cfa4f593a348ef281d6f663eaacf735ae61a1b4342"
+    },
+    {
+      "path": "data/chunk-000/file-137.parquet",
+      "size": 155765,
+      "sha256": "437b6d262b943cd14ce88805d0344f05728e51a855ae8251f2855489c7409673"
+    },
+    {
+      "path": "data/chunk-000/file-138.parquet",
+      "size": 161691,
+      "sha256": "f77a640bdb1d3a4eee62cd4b8abe7fb3cf3797e6113534427df7019d469a362d"
+    },
+    {
+      "path": "data/chunk-000/file-139.parquet",
+      "size": 177873,
+      "sha256": "4b3e1da115f2bcd78579cc917f31583201595a5048c34e01fe00702139078d98"
+    },
+    {
+      "path": "data/chunk-000/file-140.parquet",
+      "size": 165072,
+      "sha256": "dcbc2681f924efefe32c86f95c29f92ad5cf165a0276585047ff9a405b9703ae"
+    },
+    {
+      "path": "data/chunk-000/file-141.parquet",
+      "size": 165550,
+      "sha256": "20ec8fc9d1050387c1343ec12369bfdb6af5d10b72ceed27b0b90b6a7739ac85"
+    },
+    {
+      "path": "data/chunk-000/file-142.parquet",
+      "size": 162260,
+      "sha256": "9b3764365f2162cea246edf1a0012993b621a7b9f8320393bf98391a80e58c9c"
+    },
+    {
+      "path": "data/chunk-000/file-143.parquet",
+      "size": 164047,
+      "sha256": "82dba4a109908e29c58859e15fbd99d52d35671af17ddeaba324c6431598f58a"
+    },
+    {
+      "path": "data/chunk-000/file-144.parquet",
+      "size": 179075,
+      "sha256": "492336463fc19667514ca179619f20f80184c9ad59ecd926cc89c9a02ffdcfeb"
+    },
+    {
+      "path": "data/chunk-000/file-145.parquet",
+      "size": 162355,
+      "sha256": "44a66267371abbbfb057318f38f1203b98283c415c46149beda9c07a7b3a08b7"
+    },
+    {
+      "path": "data/chunk-000/file-146.parquet",
+      "size": 171520,
+      "sha256": "77404c28b91f79fcc03bceacb984da40a288f4af55f9e28b9ab21a1f285aaac1"
+    },
+    {
+      "path": "data/chunk-000/file-147.parquet",
+      "size": 162952,
+      "sha256": "ff85d13f3aedf2efb79cba46867eb0786665b0a3279f37a50a14943f54259254"
+    },
+    {
+      "path": "data/chunk-000/file-148.parquet",
+      "size": 179336,
+      "sha256": "0ad4c39a5b3bae4baa88c091cf91166d1ec3fc0125f9f9c52e45dbc31de2653c"
+    },
+    {
+      "path": "data/chunk-000/file-149.parquet",
+      "size": 152197,
+      "sha256": "bdfa1b409e376e444820fe756b63eabda13e84bf3b2175e0709ca9ea7e11cb03"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-000.parquet",
+      "size": 93107,
+      "sha256": "b503fc3ebdfd35df7cd0cc1ed14ff436e219cdfe409c478633ded5b77a798bb0"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-001.parquet",
+      "size": 93109,
+      "sha256": "8ba24c5543a4d3fdb59a7dafe79a690129d71326fa85494eb42a321e76c5e6fb"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-002.parquet",
+      "size": 93114,
+      "sha256": "6e2e1a8cab08e8353097d277a294ae2bc7487450ca44a2c43da3f4e9ccaf021b"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-003.parquet",
+      "size": 93128,
+      "sha256": "6b03b1cf5db80c2557f5c8eab63e8d68aaaf13387931dae5ad06fd73838779f7"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-004.parquet",
+      "size": 93164,
+      "sha256": "427c7d6ee14b56e09853e1897d69b87f5006e1f620eea60e3cc11d2a94ad93da"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-005.parquet",
+      "size": 93145,
+      "sha256": "4bdfb962d8e2e84cc72cd6d7bbf6e80d6d60ca4e80d185a06040e1db3d1e9333"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-006.parquet",
+      "size": 93136,
+      "sha256": "0b885fa8e3ff845b2ece78bffab509637a906e6ca79027561b597c5a0eb64934"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-007.parquet",
+      "size": 93128,
+      "sha256": "bc338c5029d5126de20d39624bbd110ebec3783b2a17885ae4937445a3a0aff4"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-008.parquet",
+      "size": 93126,
+      "sha256": "3aeb97f97ef021cb2de1ad29323198e4c941a8206a53f998477fdb31fa846c92"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-009.parquet",
+      "size": 93104,
+      "sha256": "763eff243eec9cf9f6318ec9f3d107c79f9d87febf64559cd6fafead4693b11b"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-010.parquet",
+      "size": 93148,
+      "sha256": "0c0a515e5fa47eb3787345ae9eaf06342d6c1d461599ea3967ef44c7ee3bba19"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-011.parquet",
+      "size": 93194,
+      "sha256": "092a7e66a3a0f8993c4898b22eb5bef1c6df27cf96e424a4ffd1ff776797b1ac"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-012.parquet",
+      "size": 93133,
+      "sha256": "22f43c8bd91304021cc969e03f6b4b3554f004aa8d530398d38e0825db5680da"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-013.parquet",
+      "size": 93125,
+      "sha256": "de2a96bcc7735c35844cdd9d30c1de5dced524c9d6177e0eebd945295a1af99d"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-014.parquet",
+      "size": 93164,
+      "sha256": "78792dc4271627d2a8ba82b3dd4a617444aafd6decafdc1725d7f0d0cb13c06b"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-015.parquet",
+      "size": 93178,
+      "sha256": "c97a47132b8e4c94f4df92ae3e9256a00106ee1118d61b6ce7b83d6b042ac74b"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-016.parquet",
+      "size": 93159,
+      "sha256": "f4ad47c877f9e68fccf78685b12d69906331808aa0c76315e4085bd2beed2e1b"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-017.parquet",
+      "size": 93138,
+      "sha256": "419cf27ce12af0ebbbc4779364ed1b1c43b9165e2867968d1b5f5d94c774892e"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-018.parquet",
+      "size": 93102,
+      "sha256": "f03583146224557a647da6d24191c8bb40b65b9a2e61cd54c85f9e81b4a0cb1e"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-019.parquet",
+      "size": 93156,
+      "sha256": "bb1310f0f5e35d053715098f493d32010951d96aef63be6c2e4058c488a0cb82"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-020.parquet",
+      "size": 93124,
+      "sha256": "644681d0f180f565d251603fe14799616919a7b4e09a2e0b20427a05ff5167c9"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-021.parquet",
+      "size": 93174,
+      "sha256": "270af4ab50beae2a45e4b304a03e2bfe6126d3c5f042ca06ff13b712a26f13ae"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-022.parquet",
+      "size": 93140,
+      "sha256": "c3649db153fdbfa1944fcb030d37fec52d6d9ffcb70a15837efb6aa420afede4"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-023.parquet",
+      "size": 93132,
+      "sha256": "3cfb4351b1697a7c864c776a837785e8c0248f6adb140bbf6a100247bd9d9bb3"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-024.parquet",
+      "size": 93143,
+      "sha256": "08cd883827b879273b3d9e7b726f86e227ecfcffa5e35b0ccdccde57fa7030ea"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-025.parquet",
+      "size": 93149,
+      "sha256": "4c54dd31c4a35feab2d5c27f8f22f87fb28b3e64b18b881d9f07816557ae618e"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-026.parquet",
+      "size": 93097,
+      "sha256": "578371c4d0d163724bd5edd888ad95f2c7c830d68280544e7a1510c7249bc4a8"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-027.parquet",
+      "size": 93142,
+      "sha256": "241baca8c119c321242d60e7bb7b227535d125221458a7eb15683a31612d7d4e"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-028.parquet",
+      "size": 93121,
+      "sha256": "c5e151e766549be46f5d17c0e6ae69b8eb67c8bd96bc0d0be54dc71eaecd325a"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-029.parquet",
+      "size": 93125,
+      "sha256": "0f50499c07401b57827ad4a54d9b56a745ea42abbc230e73fd8485c80b4063b8"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-030.parquet",
+      "size": 93137,
+      "sha256": "2647a1cf7448b70d836ba636d7b4613a3127104b3529c84a703befbe4db6b2d3"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-031.parquet",
+      "size": 93111,
+      "sha256": "9951c30b90257024020717c5c7d3049337471265bcc994428c1adc14b53359ee"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-032.parquet",
+      "size": 93157,
+      "sha256": "4935cdae7cd8b26ff4e4cd361573adc4242b63d4cee534a065a53096bd86ebab"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-033.parquet",
+      "size": 93112,
+      "sha256": "c998d87b8229c67a93f19c5174ceb7f1f406d4f95b7e01e3ad992a9caef9f7f4"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-034.parquet",
+      "size": 93126,
+      "sha256": "53611d135dcd7e7b01847da9b592f708f1cb506928795b2921f339bcfc79e6cc"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-035.parquet",
+      "size": 93148,
+      "sha256": "ebbed4368f9734c22e1803f8cecee43abbe50857725a57b58c0048c8695b2c60"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-036.parquet",
+      "size": 93118,
+      "sha256": "62094375632a94df39e7bd0f0d3f1c8e01435b3fa4920e9cac2b40a89a365601"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-037.parquet",
+      "size": 93166,
+      "sha256": "7770c958df6af869279278bab92a97c1ab5a9226551a92369378e9fd7a233622"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-038.parquet",
+      "size": 93159,
+      "sha256": "0bd85b3fe7ae68411242f5c542c43cd21c8059d23aab5cc8a5778c0423b55ecd"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-039.parquet",
+      "size": 93147,
+      "sha256": "eb36623a27f038197c38843de86dbcbdb7522e70b1ee3a6ab2ba7b5a3f852c0b"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-040.parquet",
+      "size": 93133,
+      "sha256": "666f77afc124629bd14cefdc992530357f38edd0c5d5129160493201d2a7c3e1"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-041.parquet",
+      "size": 93131,
+      "sha256": "c8139aee450c540ea2a59bac7ecc2b16687d0a33f1b9d80ced0ceadc4f062469"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-042.parquet",
+      "size": 93162,
+      "sha256": "b57164b0931dbc332be35c044809be11a98f9c7ceb4189e0dd937a0f09fca70e"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-043.parquet",
+      "size": 93144,
+      "sha256": "b9bf9daf2e32411dbb3adb8aa9152c213717549ebe788300f091cdf9b3e7cf93"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-044.parquet",
+      "size": 93148,
+      "sha256": "29386f21e21107ff71f234d474d4886130881a29160a3ccc557e8a9af8c9c5f0"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-045.parquet",
+      "size": 93174,
+      "sha256": "d2426197528c15c3d7b9f1ba0184de598b9eb091cd6ffe1e62d1c8e77e69123f"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-046.parquet",
+      "size": 93162,
+      "sha256": "d2a9b09b9dcefe1a352a507404b81c4fa648c571848ad7e677c8e14121be4552"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-047.parquet",
+      "size": 93146,
+      "sha256": "bf13b075387d07849017c38ae17a9bf1819e441e295dffcea34b96c839d9bc49"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-048.parquet",
+      "size": 93143,
+      "sha256": "45e526788a5286026a9e539876974c90b3ecabcdc8be2dc14dbf3b2800625d8e"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-049.parquet",
+      "size": 93155,
+      "sha256": "57f93f0efa3e83ad33efaea88b456088436b13a9137e33c20cbfd2b1e071696f"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-050.parquet",
+      "size": 93134,
+      "sha256": "25bf9516415176501c2a2bfdc0eab97774ea0450a498f6de5c5752960661144b"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-051.parquet",
+      "size": 93096,
+      "sha256": "8697f6628e7357bdc33dae670555f9e7ffa72127f170cbbc47abba4a4cff2826"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-052.parquet",
+      "size": 93117,
+      "sha256": "e40d0378ebf4625c8dcc60476b74ad53d6713d053a9af11b6e2e177fff2fcb97"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-053.parquet",
+      "size": 93099,
+      "sha256": "8ea75ea0088f5206e2e9e91f79bc551a71b701bc01135d5f82db1ac926e4c30e"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-054.parquet",
+      "size": 93116,
+      "sha256": "03d0d6d0109e66c07df58207471ec3889d3413aa4963e514871dff4be32c6a35"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-055.parquet",
+      "size": 93155,
+      "sha256": "776bd690c00f7f11cac649ad9887faf3973f024e11acf9a0f1a029d0df4fcbca"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-056.parquet",
+      "size": 93109,
+      "sha256": "169b187522b21b10c4a070ca686da0706793d8099806f1cc80806dc49c41a66e"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-057.parquet",
+      "size": 93121,
+      "sha256": "25345e17a68ceba365d28e192fe24e3ac90b38d0fe4f56d57adc047529d1bc96"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-058.parquet",
+      "size": 93168,
+      "sha256": "fc0f66e6acf9168a1a5efcaa7898e949472e481e7908bb94417d3f4e41853cfd"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-059.parquet",
+      "size": 93152,
+      "sha256": "a3f2a80b198fb732a082a7816d90b890bfaf9a54b602d5fdec4bebc0173474b5"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-060.parquet",
+      "size": 93115,
+      "sha256": "9988072aba013968cdd25921ce7d1f41166fa3e80d4c0cfa2d5292f081b0eda7"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-061.parquet",
+      "size": 93146,
+      "sha256": "72043534a8f709db5c993b8397950b8c1387f02b0bede9e886dc15f1a682eddb"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-062.parquet",
+      "size": 93156,
+      "sha256": "59cdd771d6b2a354400a42082e1c8850b2790d97b7cb6aab11043f26b9d8794c"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-063.parquet",
+      "size": 93145,
+      "sha256": "d705018f2ac96646bff9fc16026a22e593a25ccf81587c1ad5d3a39750f89438"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-064.parquet",
+      "size": 93186,
+      "sha256": "37df2dfe0d11143638b648a2509fd00c1c4465574f43b17f573483ef2fb31fe2"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-065.parquet",
+      "size": 93143,
+      "sha256": "edab912b7381e98978c76e7e1c6f4794a5f132225058d078c93a2c47d2b40afc"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-066.parquet",
+      "size": 93157,
+      "sha256": "756232edbb67e23beb67bb07e5195c9b7ac8c7c7dbf7662b604fc6fad6c179f2"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-067.parquet",
+      "size": 93141,
+      "sha256": "3bac4ae5d20011b1da59fa2a5570ff77c6d86fbafc322d547cdd56a44d3631a4"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-068.parquet",
+      "size": 93168,
+      "sha256": "ca19585462a1d2e58ac051efca90e18195fb4823e24220df1ae0071b9a4adecb"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-069.parquet",
+      "size": 93162,
+      "sha256": "9fcad876a8559c07f29001fa692b599ebb05cdc166b90b9250c7176f1749b90d"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-070.parquet",
+      "size": 93157,
+      "sha256": "235cb9653b199fdfa396f0ef209e2ce31bb393c3a1ddded09d6ea4a332a8ffeb"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-071.parquet",
+      "size": 93152,
+      "sha256": "cd2ac665e63c7d95a212b11d19837f4e2d07d2f8d745afc02ff958d3f27f2acb"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-072.parquet",
+      "size": 93170,
+      "sha256": "8770ab33b224bbb010534bfbc1ebc51580a6db9e430e24518ea0915c0615dd3a"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-073.parquet",
+      "size": 93147,
+      "sha256": "207c842b09e9ef2f4456a654896bce8031816fc32177c307f158d6f852c84cdf"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-074.parquet",
+      "size": 93159,
+      "sha256": "e92f1d51b3cacd848a9d24c2ab2f31c83f60113b304edabf718477156c238b5f"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-075.parquet",
+      "size": 93129,
+      "sha256": "707a9e5d5642512d238e55e97a9b389144d23a0434892780051858a7b5cfd947"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-076.parquet",
+      "size": 93149,
+      "sha256": "cb96a2330ff8392a9a0ee9450de8a57c5362763c0998ed79a965e7e54b50ab1e"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-077.parquet",
+      "size": 93152,
+      "sha256": "a59cb6bc983bb34d9f953b43b7bafaabf6b63f865c95a7d58f9047363c0ede39"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-078.parquet",
+      "size": 93119,
+      "sha256": "ef182df40c3a31579525ebf5de3197409abffd84b684d5133d1068d91ff72efc"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-079.parquet",
+      "size": 93130,
+      "sha256": "3922ee5bf47b03761ab70b688894aff0063aecf4cb4f63230c88a3c9f07e8757"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-080.parquet",
+      "size": 93087,
+      "sha256": "261f6fb11b8fa68b3b46fc8e5f371dadea1cbca44cba55970ff077a6c01de476"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-081.parquet",
+      "size": 93141,
+      "sha256": "a6e8dd20da0e251c10ca1c34566e6bc71d1b1fcffae0108f2c4bd1dbeb8111de"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-082.parquet",
+      "size": 93150,
+      "sha256": "b129e307bb90d9c9c89375ee87fafe1941f6aa478bc364889ec3df684013d734"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-083.parquet",
+      "size": 93162,
+      "sha256": "e83e52b7a6127939e394478f500ab58f3f1ce03f330473da197202a47c75b6a6"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-084.parquet",
+      "size": 93153,
+      "sha256": "eb689f65fb8c51607e3a146a3f745858765db8ecc2ab7db4738d64bd301a6816"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-085.parquet",
+      "size": 93168,
+      "sha256": "ba0f4ee0b66bb4a4718d72c99c83e6639f523d5f44d87037e46e6b3d4698df2a"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-086.parquet",
+      "size": 93166,
+      "sha256": "c3753ed78c6f7de38fd8461763ad7cdc005718efccebc7621dd7edd156118862"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-087.parquet",
+      "size": 93151,
+      "sha256": "0cc637f2189bc9695291d0d9fa6979f42ec47c01a39ac015d89238a4fded6ce3"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-088.parquet",
+      "size": 93161,
+      "sha256": "57cd8e23e2e9192428722904aefd080179924733d07c427b61b1d03af5c5f907"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-089.parquet",
+      "size": 93137,
+      "sha256": "6758e32d5db9e95c98de179543887829d2c6aa92de66ab6052218dc6bae25ccd"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-090.parquet",
+      "size": 93131,
+      "sha256": "5cf3580cd082391ceab077c47245fa3832886daa8eb0714276d035bd1275454c"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-091.parquet",
+      "size": 93156,
+      "sha256": "bc7e2c0fa6c1b4b7531cd3518bd50e74981bec71aba0ecbc33407340a8d245ca"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-092.parquet",
+      "size": 93144,
+      "sha256": "0311b355094386a9369a87a6e6d7851f562c2988d4799de6d8b6051897dc8023"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-093.parquet",
+      "size": 93165,
+      "sha256": "bc2107f4e1d50c1b3fb1d68980f24469049fc2ddbc82f6625e9d165c8d367422"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-094.parquet",
+      "size": 93182,
+      "sha256": "8c72d297a048df6feaff27921e713b0eafe642b8c96d4eba8578bc36ffee2e14"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-095.parquet",
+      "size": 93180,
+      "sha256": "560f50468c6bd6ec4c9ee5a1798a3182df76fb55577ef72a059a380f0dc7b8a2"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-096.parquet",
+      "size": 93165,
+      "sha256": "01da0269d2f0665c6c78937146e84aecc5e74b0df6f3c2bbf38d52bc3a74e2a0"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-097.parquet",
+      "size": 93149,
+      "sha256": "1391526b341be7f4a1a980ca629966c43828bfb1093da500f121433b3901b90a"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-098.parquet",
+      "size": 93173,
+      "sha256": "a275c311f9a30812a6ae7b137d1212d4ba6e8c4a93d3ae5c42b8b0efb8d68927"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-099.parquet",
+      "size": 93142,
+      "sha256": "7bb1059fdea0cea351806a9daa61b0835f873b139e306eebc3c201ec94e35379"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-100.parquet",
+      "size": 93146,
+      "sha256": "3a3218120c9106d817985771be1865e9a45a7e86580c0b9981cfb8e481f33604"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-101.parquet",
+      "size": 93125,
+      "sha256": "3f2657a265b22a74857917e90026d1ebc3780b04bf59c78e13f025d04490911e"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-102.parquet",
+      "size": 93128,
+      "sha256": "74f2b7783a1f4257e5d121bfa6cd9fabd83818ecfe46dde4c157fddecd9ce538"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-103.parquet",
+      "size": 93153,
+      "sha256": "bdd50e2327c4cef9efe3ab9a5830d71bc6e14f94d094c4efa1f5c6005ee3675a"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-104.parquet",
+      "size": 93158,
+      "sha256": "69b984e0e135b7df1ba0721fe34c518329c05f16791606817fd3fcf781443a0c"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-105.parquet",
+      "size": 93158,
+      "sha256": "479b60827c4c14bfcd7370ac6bc722fa25a396fe6d2eab9cf02af58ffeb54425"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-106.parquet",
+      "size": 93170,
+      "sha256": "2165e542650a99f76302d028d0a0203c2688defdc598c09f2ec1e7c7b3c52d82"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-107.parquet",
+      "size": 93115,
+      "sha256": "383c7bb60e8382c4c03f509c93b8ed7eedbbb7a40219b734bc0cf5b5dd2018c7"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-108.parquet",
+      "size": 93146,
+      "sha256": "f68f4782d54d0e272e7f3cb432f7a57110c66c04855e4a54c8f4af1430b38803"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-109.parquet",
+      "size": 93177,
+      "sha256": "e9763929e69cbedd83af984c1589c1d6d393bcf6e9a8e164292ad71be36efdea"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-110.parquet",
+      "size": 93148,
+      "sha256": "1a4704c987d6ec33ac93d3cace8db8bbbaa45a538e95045b46f6bc2b518cb09e"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-111.parquet",
+      "size": 93141,
+      "sha256": "1ad045775348314c61bbf9e611508266f7087631789ba8abca1df64283a21d2b"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-112.parquet",
+      "size": 93151,
+      "sha256": "2a0014401e1060be1a7ad0e513d575c79b0d43de190e8f5bbb3abd5276256056"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-113.parquet",
+      "size": 93136,
+      "sha256": "a40fb1b5061264ad726b2f8c58b63bced723ae8ce8e41a2a90f23b2571517203"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-114.parquet",
+      "size": 93159,
+      "sha256": "992f08493dd37c2d47d7836f2c5e87ab69ed0a33d8ec1ca6db0765220af45077"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-115.parquet",
+      "size": 93148,
+      "sha256": "9e20edbe351126740f22fb30fae1066d78b8ae2d7a637c20623188f45b2e94c5"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-116.parquet",
+      "size": 93118,
+      "sha256": "bf59c0e4a52375e0d75c64df1dd1054d8e0b051291ec443272a4f450d7fe09d7"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-117.parquet",
+      "size": 93127,
+      "sha256": "2bff6a94b0bb2e22b3358fdcd65784e2405221587588cc3f2a5a75e3c013368e"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-118.parquet",
+      "size": 93178,
+      "sha256": "6868ab8344de24f8542c621f3e05592a6a13c262315773175878b6e91a8553ea"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-119.parquet",
+      "size": 93166,
+      "sha256": "6d67017bba0b8650096f37ccd42f7b1ab56895d98ecb608bedcc62c7f1dbea8c"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-120.parquet",
+      "size": 93070,
+      "sha256": "e532c03ef9c025d19210594ae053eef0dc94bcaed4780980132a315c63d40c86"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-121.parquet",
+      "size": 93085,
+      "sha256": "8335fa0782a508257c06b9d2fb906eb2740a9819c626fa8d025e2af8b326dfd1"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-122.parquet",
+      "size": 93076,
+      "sha256": "b567c52747c220b32a6391136cdfb09e619e87d091967da2f4e9b5a7ece2907a"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-123.parquet",
+      "size": 93072,
+      "sha256": "928fa8a7bff1c2408a8dccd229913470eda72c4c1521a53decd269ed64388424"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-124.parquet",
+      "size": 93080,
+      "sha256": "086485a4ab3b48fe3861564734678c037669d59000c648d117025e9531412829"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-125.parquet",
+      "size": 93027,
+      "sha256": "11131ab1ddcf6bb0428bf8c7845fa3b32b8b83e181e5a23a915a33bd8e26774f"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-126.parquet",
+      "size": 93144,
+      "sha256": "c5b9bc33ba6ff601765f9be2f38af0181b0257e3924ff0584c563b44a4953675"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-127.parquet",
+      "size": 93153,
+      "sha256": "150adcad6f0b41e17c60d93d69df277ef23303670516b875f65c2a90e1b362d7"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-128.parquet",
+      "size": 93115,
+      "sha256": "3a684512f83e550a7aaa62c0f382d7dd4d1c42ab855a724d5d4711289486bdba"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-129.parquet",
+      "size": 93136,
+      "sha256": "a9d5595a2f4c63860210bac01b3da54802e2d43dcab23619311072542fcd160e"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-130.parquet",
+      "size": 93122,
+      "sha256": "1049c0c088b9a092521c242645f4c4e6ffb2bdfe08357c70db853e0a46b4b84b"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-131.parquet",
+      "size": 93161,
+      "sha256": "36e3bba825d7ddb70d46bd4498dfd48224c7e42bce20be75b6eb480f27458f29"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-132.parquet",
+      "size": 93118,
+      "sha256": "27f1f601247109b2a6176f693ed48941c9d5c968dcb6ca27de39ea962850dd43"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-133.parquet",
+      "size": 93101,
+      "sha256": "bd7d0ccda532e5804d96c4666fd223bd5285adc84b8bec50c3804ab3e744bbb0"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-134.parquet",
+      "size": 93134,
+      "sha256": "ad7708fc18244875cae62b962a34348dcd09db383596e1fcdb7b47187a0be900"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-135.parquet",
+      "size": 93083,
+      "sha256": "25a0ee19f3952db171743cc5523d4de8ea66f34d4ec681ab6160e80e114e115c"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-136.parquet",
+      "size": 93167,
+      "sha256": "107004b3561e7aef9453e6756203a6a2ef7c70c43044fd56249b08800625cdfb"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-137.parquet",
+      "size": 93119,
+      "sha256": "6dbbd2abc3023069c851113679fa89f44c98ecc38e1cc3089551ac49ca747700"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-138.parquet",
+      "size": 93081,
+      "sha256": "b1fe4788935938447e1047d575e17ace7f196e0c8d39274ffbf518aa692542f7"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-139.parquet",
+      "size": 93147,
+      "sha256": "0dde66eb76b3301906b5e55051ab257191ddea555f9e964cee111fca3aa14619"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-140.parquet",
+      "size": 93114,
+      "sha256": "96f39df4cbc24588ab89930150e1cdb4d895d44ae4dd3822175e3a5cfffe1c20"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-141.parquet",
+      "size": 93115,
+      "sha256": "08a15d5724b2d9ead5993784de5f81f3d423fd816e8e566e44648c24cb18a8a9"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-142.parquet",
+      "size": 93114,
+      "sha256": "787d19069ca775fcd033da5293710bf70d847ee6ad4b52ecbd7e450096516ea7"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-143.parquet",
+      "size": 93135,
+      "sha256": "7a7c87f505910fd05604c2b8e2b445822e544cb45a3fad4ae71a9917b293a3f1"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-144.parquet",
+      "size": 93151,
+      "sha256": "cdfb8ac4d27067253757c1d7d4b694c492ffead82747a7e2cc409a07a3b34abb"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-145.parquet",
+      "size": 93134,
+      "sha256": "4e8ca026d3dbec476e8b0557360f6367c078e1409afa48cf69a7037421be5ab3"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-146.parquet",
+      "size": 93162,
+      "sha256": "f20fd3ab50b1365ea54d16c31c6951c0bfd84aa5dfcdd6f6025bc5d6223c8338"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-147.parquet",
+      "size": 93162,
+      "sha256": "79d3b2dedd3ee6b6146f8b96ca35c9999d1437ccebdd35430ec33a63528b957e"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-148.parquet",
+      "size": 93135,
+      "sha256": "157dff914c8a5fb38ead5a984ce710b52e0a5d7321c0e9ce24c188602fbaef9e"
+    },
+    {
+      "path": "meta/episodes/chunk-000/file-149.parquet",
+      "size": 93161,
+      "sha256": "df9ee2160eb1b9d2d2c729afd897d41d101daadbeaf3d9bd6b9fc3842ae7b08f"
+    },
+    {
+      "path": "meta/info.json",
+      "size": 7409,
+      "sha256": "ce9833f0e9ac1058c103ecc98075821d6f2a4ed7ca84050cb8a5f607294ae18a"
+    },
+    {
+      "path": "meta/stats.json",
+      "size": 26732,
+      "sha256": "f8844c24751f3bdd2a06e87173312439a6f2b363f6c9eebc835808e1cf396ab0"
+    },
+    {
+      "path": "meta/tasks.parquet",
+      "size": 2257,
+      "sha256": "dc7a84ef84f66b95dd52f5896475780ee753abf10ad58c8c74ee0f01beb8fff7"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-000.mp4",
+      "size": 484291403,
+      "sha256": "2dfe1aae232ba82195ef6fed6f6550b8002fe0c8fb97ef846a4d308f58e91f1c"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-001.mp4",
+      "size": 454649116,
+      "sha256": "d9352a79a764a1e05a5479716b9cd6b61dc9887a69dae61c45b52dc004815da6"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-002.mp4",
+      "size": 443492645,
+      "sha256": "4906356b8a4bf1ded19c44065e64ea7e500c611097018f0944e88b1ae3e2a73d"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-003.mp4",
+      "size": 386028546,
+      "sha256": "6255b17c5f4484a61cf2609525692cc4f7546c4855ab3ec71ab55c169434651f"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-004.mp4",
+      "size": 447358939,
+      "sha256": "bc09213f4e99fe16e68d7a7efbf22100ce3718a047e26e200a9d6933572dd9d1"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-005.mp4",
+      "size": 387495801,
+      "sha256": "c44d2bfa0435e7425d2dd7cc6a20af3054ad0b7694a2205b941242a062cdc821"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-006.mp4",
+      "size": 387012740,
+      "sha256": "038ab4907e1c3731b1154cb81f38d45cca2b27668e2c51584c0942521731821b"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-007.mp4",
+      "size": 380733091,
+      "sha256": "da46db8e67c9cabb7555424b96d9eb62b139ebf23415fde6dbec8fbfd6eca421"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-008.mp4",
+      "size": 404404812,
+      "sha256": "a19591db42e8f9353127cb105a3952faad4b2e1b3ea9fdc9bca516cb59aa3759"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-009.mp4",
+      "size": 377929469,
+      "sha256": "5b01400b13a853e748882b1b03650df3d740f7a54b04393d906acbc3ba178fee"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-010.mp4",
+      "size": 424969215,
+      "sha256": "d81ef4983fede8e87a46e1739953d204fc9cbdbe0172e76f988888a597ebae27"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-011.mp4",
+      "size": 405698990,
+      "sha256": "9bd58a0cf7d7d01014e762c9eb05177e292828773909fe85fe0c11e6b2499ee3"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-012.mp4",
+      "size": 362542908,
+      "sha256": "1342017c035123966c089aef77f57206935a62d89e55056ad5864c238e37cfab"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-013.mp4",
+      "size": 448714339,
+      "sha256": "04332e64b642bcb8a56fe9c0934981e70c42dbfabbd5ce5e5ecf44355f330e09"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-014.mp4",
+      "size": 398622324,
+      "sha256": "c8eb8678f65d8f09fc23db4626cc7054cb762d7e056e1a44d45ab1e7ce94b915"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-015.mp4",
+      "size": 354252891,
+      "sha256": "750d5ab8d8fb2f8ffc984eb49d5b4c17261fbe6db08e26aa138ad85af8d442a5"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-016.mp4",
+      "size": 413031212,
+      "sha256": "a782a4dff39f91844ec33cbdb293baf029f0dc48e5cb15d0ac28c1b5d7082d3d"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-017.mp4",
+      "size": 391278240,
+      "sha256": "0a38653a98500db54e2b5760066acae2aeae8df12b39b0bec9cfd01843132686"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-018.mp4",
+      "size": 411342683,
+      "sha256": "e80f830872499186a7fd69113cd4bdbdcde50cc1b57fab4658c56f57df53837d"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-019.mp4",
+      "size": 385629312,
+      "sha256": "0f12727ebb2a6230845c943537384612d45e0cf1c09816749e6400400b349f04"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-020.mp4",
+      "size": 408494391,
+      "sha256": "1122f40028785a3b1f7da12cca061dd6099cee3792535e3529b1b1a068ab3dcc"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-021.mp4",
+      "size": 361196227,
+      "sha256": "87b7da41a04efd68e3ea7e9d2798534dcedbbccef7c6b1f7ea205f24a1d64eb9"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-022.mp4",
+      "size": 419394660,
+      "sha256": "30fe40a91cc268c7248ac9483cd4c9f63be2c91f8042796d782eed2d5c9de74e"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-023.mp4",
+      "size": 392153721,
+      "sha256": "6f0f1d8e9aa34cb66b5ae7acce06739b78d2956e8d7491a8c55a5c142a035541"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-024.mp4",
+      "size": 419895323,
+      "sha256": "32a6d20c3f8a80b19a38a7581d7eb2b0cdc6b3189c59fc4e3d2eea533ccaee7c"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-025.mp4",
+      "size": 406583667,
+      "sha256": "0be1469074c4b20801edba40a9cd37ed75f877c5c340e2dba38db0726de7c27f"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-026.mp4",
+      "size": 353550719,
+      "sha256": "5b7458196f5e5b4f28da0f5f9ec4ee095ded74d7d60c45136b6f256998eb2d82"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-027.mp4",
+      "size": 361817085,
+      "sha256": "e722a344ffb637a50e7148b70f37c8d492d8967b31be4cc4960ba353c4a0d6da"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-028.mp4",
+      "size": 391838290,
+      "sha256": "d870e82f5c1ff0ac055727a1dde1b47b29086acfacdf0336995d508dd49f57ba"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-029.mp4",
+      "size": 329816341,
+      "sha256": "c9a800547f992dc1633b60e759031c9ed5e75475491d52f72de112f49501048b"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-030.mp4",
+      "size": 374220300,
+      "sha256": "1ae55d801f9733fe92a73879cee2678fc63893fe5cdeacb3bae8aeed6b5094d4"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-031.mp4",
+      "size": 398407045,
+      "sha256": "79a9b606b65f79e337412bc6121b0118eb38659a175b51c4300dd6ee86351971"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-032.mp4",
+      "size": 361710944,
+      "sha256": "2bd64a2e5dc66c2dca926c21ad649cdf4b577527feebf92e63967fc9f9a6c86e"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-033.mp4",
+      "size": 383717119,
+      "sha256": "a1ffc7d73d35f4b132fcad83ae60509e33691e5d42c3e43ada68c143b68f0de4"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-034.mp4",
+      "size": 389305809,
+      "sha256": "d6c4e9c577d8bd237befed4c959a9c4e8886f71c26d9ce1d2b96d761cac10dcb"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-035.mp4",
+      "size": 399820278,
+      "sha256": "7b2f15fb22b2e6d560cfbe2cece9e084cad3183fc9c3cd4e3b4a4f36b85412bd"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-036.mp4",
+      "size": 321902512,
+      "sha256": "6227feec77a3c913016a38fa2de5838f66acef4f69cf2cd5ddb5e9e2df762432"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-037.mp4",
+      "size": 402731284,
+      "sha256": "e12b338bf7ed50278f777dad186b2f074c7b8b2fac890aebed715e1e29744bfa"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-038.mp4",
+      "size": 363081105,
+      "sha256": "58027f5c5400a7e7d042dad5b099b60b39c810bba80f9ad9e26a8bc6c8b33de9"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-039.mp4",
+      "size": 368412613,
+      "sha256": "0dc0a6b0e1be03d76fb2b80b34ca86a7df175f2979f0805899d00b5f8e731591"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-040.mp4",
+      "size": 348716684,
+      "sha256": "e708c169221aa3b713c414d88351480ce51bead2a8833f741c5383974c9c56b0"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-041.mp4",
+      "size": 347192488,
+      "sha256": "42356862a91727d00127240b973b320b5f525910ae16ff0c6c659f175ee138b4"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-042.mp4",
+      "size": 378915928,
+      "sha256": "49486dfdb90cf63c4fa09eaa034908994be3e28031fdf9cf5bc180e85c0205a0"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-043.mp4",
+      "size": 402694724,
+      "sha256": "274ff1ad935e2c1954ea0941bd4d6bd7ee2c06abe9256bd399e3146522cc1cbd"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-044.mp4",
+      "size": 425749123,
+      "sha256": "145ccb0ff1b0d7d4cc020bedd80f5bf7c894ca0c5416f0c8aaf64cfcd9079cf6"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-045.mp4",
+      "size": 440754259,
+      "sha256": "828c8dec72d94c591ab7592277ae527b057d273d76975cc2ec79c0071f028897"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-046.mp4",
+      "size": 425879920,
+      "sha256": "d0ee9cc4b28a8987362d1ade3d7c67404be261b95d68cb19b98c62b061a47488"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-047.mp4",
+      "size": 368326137,
+      "sha256": "3fdfc5b7aa5d4514249f3e76b594a0331d5613fb24a507e2e4b537aac1e2a7b8"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-048.mp4",
+      "size": 395481445,
+      "sha256": "d8ad55c0048b7182c2974051ec59e792634518630ce880adfd80885b8300936e"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-049.mp4",
+      "size": 410977058,
+      "sha256": "92eeac4b8d69287b1680b936a82d110ec60b889bf94d9695a8facd8581a4af20"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-050.mp4",
+      "size": 391596203,
+      "sha256": "4a1e4227bcc63e5796f402129e1af8f4af332063c53d1ae0f4adb4ed160c7777"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-051.mp4",
+      "size": 386810097,
+      "sha256": "a0fef9f42dcef0521f56656af928a3c7b9b1a2299d251901e8589aebef1cef04"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-052.mp4",
+      "size": 526152427,
+      "sha256": "72b0630926734d7ad8ce419e9dae7d02d532cf2b7c5282d2f8b2bd4f2e7e37b0"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-053.mp4",
+      "size": 363979205,
+      "sha256": "55ec2998b0101d801b3736dc383a0e671979e02575eff63760cb981ebaed01fa"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-054.mp4",
+      "size": 413848290,
+      "sha256": "1706bff7bfa42c256b3d15e8166aa75d579f4b45d20a813641663269cb8e65d3"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-055.mp4",
+      "size": 371405537,
+      "sha256": "c8266cd0e5223f122a25246c9100d74ec68acc4bc48590f431383fc833858d62"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-056.mp4",
+      "size": 385469894,
+      "sha256": "dd6a15e95189199e583c005bcd591a111ff15e369195920c88eb9b93d3e6a683"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-057.mp4",
+      "size": 353450562,
+      "sha256": "a0dd3729243fddff34fecb18d07e480a6c939a52782b14dce60a1e1665c3dc22"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-058.mp4",
+      "size": 395220412,
+      "sha256": "7d726acf080cc71d84c6bb25d8a57327b91b1d1ac43cbae0b1a14eecfa627c01"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-059.mp4",
+      "size": 397007302,
+      "sha256": "dfcad795a636e95329be7a55f9ee7b5fe81362f37482c1243e8cd68e1738d7b5"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-060.mp4",
+      "size": 407338325,
+      "sha256": "b3b530e019749c52549b3ba226b70c0944a3394b5e92d7cf286b0c3765fc3d3a"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-061.mp4",
+      "size": 425310190,
+      "sha256": "268fec4ab4f22b6ed418a3d8934988b7f348d32bb636b997f4acf6bbe06f62d9"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-062.mp4",
+      "size": 353655471,
+      "sha256": "3bf1d63a07cb0b20ec5ac234b23d5efe1880711b6cb7abb59707ebada26a21b1"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-063.mp4",
+      "size": 321320979,
+      "sha256": "f418864236105bf7696090a13fac24d7824eaaea56c3bd9d15bc80edec806016"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-064.mp4",
+      "size": 362692413,
+      "sha256": "c0d21663907924c437004aa67f6930eeb0ecd49d2045ecf9750c5bb97c198f24"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-065.mp4",
+      "size": 402224910,
+      "sha256": "24a5edfb5c8a9c2095854777c0147e03fc36ff47ab437ec112cbd59949ce2705"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-066.mp4",
+      "size": 334122765,
+      "sha256": "6eda30df6fe391d5b5cad3da6d95c84da804052791b989d8ee6e0733c799ae71"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-067.mp4",
+      "size": 367427899,
+      "sha256": "7aa20cadb6d42e2f4bc28668ebb30842758b0efd3d6057893693998b8cd7daee"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-068.mp4",
+      "size": 330048753,
+      "sha256": "8c21eebe3edafd84999be36a9c4bb4e89b9f2fd3381ef5652691b184377defbc"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-069.mp4",
+      "size": 401967862,
+      "sha256": "8fd3abf7f9bd1b9379b97fa7e20c38996604671a0a29426759d4557d30afaec8"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-070.mp4",
+      "size": 416146716,
+      "sha256": "a2e3c2a555379f8a28b03a723f090cf58d7c437aba5d1e0a7eed1fb488f1c8b9"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-071.mp4",
+      "size": 375109036,
+      "sha256": "c8556364b60d4ca4e6edc68b620a987fd1971f6a40553a857417824b294eb153"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-072.mp4",
+      "size": 368756304,
+      "sha256": "354cbf51c76f354aa3e8973568a0d6b0a7928af47f1f93e2ae47a54f264910b7"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-073.mp4",
+      "size": 423119944,
+      "sha256": "5705bb96875447ffe5a52d64158872456f2e3f74003b292f0f6daaa79080236b"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-074.mp4",
+      "size": 445968801,
+      "sha256": "3502fd9decd77175a87304a5ff3d1ae0ff96c986a2d15d957f666480c810e1a5"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-075.mp4",
+      "size": 369757207,
+      "sha256": "24e66725bbd4ccda211c2e8358125d8cca508cb36ef672bfd5bd05754d80ee56"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-076.mp4",
+      "size": 382288635,
+      "sha256": "8354be6ad075806fd58cb14069b0f903ae37f9fe802751a188bcf5f7a165cc75"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-077.mp4",
+      "size": 416977738,
+      "sha256": "25c31fee20996a5492fe9a0f03d77da5eec0ba0e4361cf77cb430b21ed3fbfd6"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-078.mp4",
+      "size": 450833836,
+      "sha256": "416e9910ec4d2f1b1170aa58eae7a51a9d117f7a8b5c31976bc790d4add06ef3"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-079.mp4",
+      "size": 409655084,
+      "sha256": "519b322bf334ac1eafe26aaa7e1d53410fa7bcdde013e5231b30faeefc4bcc34"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-080.mp4",
+      "size": 426669307,
+      "sha256": "bfac00bf7c9ae45332ffe7059feb79dee47650afb31517ea92d46df6b425e8e7"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-081.mp4",
+      "size": 417284612,
+      "sha256": "5785bb9abb36c608310cd40bd214811e6245b0b7722a88ed7962259f3b3df790"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-082.mp4",
+      "size": 444208361,
+      "sha256": "d0586631920c86dd8dbf60651ec49d7c63ac725e4330466a0c0a36bce9046193"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-083.mp4",
+      "size": 462933713,
+      "sha256": "413ae9bde789fd967f316e0cc2415bdb6c9135a9b4bbfd1a3e3ab28035bde973"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-084.mp4",
+      "size": 421750126,
+      "sha256": "027750edd509e5ce0291edf555f09e3b3d08189731b97ad8dd03e5ecd293c399"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-085.mp4",
+      "size": 346904033,
+      "sha256": "93ff378d893c4edd4383b22aeef308cf1412cd906a06161a6180f8febf55307f"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-086.mp4",
+      "size": 396577677,
+      "sha256": "86779bec363b4abcb65a550fc9ca6aeaafff7ac326f580cdc00303de08f7841d"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-087.mp4",
+      "size": 418723640,
+      "sha256": "24eb48eb7184fb5b8567490d4792e2d781ec2ba0e878cc7b12af1cdb69aae522"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-088.mp4",
+      "size": 389458547,
+      "sha256": "d953f7f42735d5a6aefaeb6d9bdf77f381519fd448d985e8c5deaa536a00ffcc"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-089.mp4",
+      "size": 382798520,
+      "sha256": "f73d629bf76784e3343bebcce1967ccf68912bc900a82487a2ec34f21442e26c"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-090.mp4",
+      "size": 413753079,
+      "sha256": "32811c2456de50ee0845bbb2ee91636e9c619609fb9d5cb965637db86a2db1a6"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-091.mp4",
+      "size": 455100097,
+      "sha256": "37581ec5ec80baf12dd294845546179b7c6fa70dac6c450b060a4e618e3d8aba"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-092.mp4",
+      "size": 389684349,
+      "sha256": "0678123fb1ec96745cdd7b36019ec32b960117539fe88f9acb6e3f3528974fce"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-093.mp4",
+      "size": 344846046,
+      "sha256": "1205eee902b95b96931ee023c7e02833d3e2684696d5b056b92b41595a273caf"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-094.mp4",
+      "size": 435103214,
+      "sha256": "d74f29442d7b496be2a4befe07cf238e25ae2310095950b90b479fc084956e4b"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-095.mp4",
+      "size": 352353379,
+      "sha256": "5c9ba214294a26a130339b015b07feff0551dd75f7b0cc34251ce1ecf3296725"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-096.mp4",
+      "size": 366659406,
+      "sha256": "3a4a6792bf9caaca701ef510203b9a9f4377e0ee9a59b945d9855c9f01866c1d"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-097.mp4",
+      "size": 412780287,
+      "sha256": "b3e7def03a22fe2d786a262a3de4fcea24f86ad3eac5c6262d64ec876577c6c6"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-098.mp4",
+      "size": 459568847,
+      "sha256": "309234101c0c8ec0a4bed37fb91d64c81d5fc2040615b5869f5970b2babf7f09"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-099.mp4",
+      "size": 362269996,
+      "sha256": "8cf33fb5cfa9299994a547840a7073a2e975f3edb76566603c3477531684d73a"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-100.mp4",
+      "size": 362416925,
+      "sha256": "f0dc57cc425092a71495091d707aa1eb41bc0754e66f46f7ef70ff57b15872f7"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-101.mp4",
+      "size": 380403786,
+      "sha256": "6c7f67374883e7224d6450c3f149f6c5cd319788a22deb17a52e5c08787525c1"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-102.mp4",
+      "size": 347273488,
+      "sha256": "d34c2153ff15f0e65bf4effed0673609d45db5aeb313ceefbfa6fc3f84e3cb38"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-103.mp4",
+      "size": 371108027,
+      "sha256": "c849862a022bfd9ccfb9e0b387654f00dc50522e2795da484a0647fd88e300d5"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-104.mp4",
+      "size": 398402654,
+      "sha256": "b7346dd93c652b55ca4b75c52f5042792fcb8551cdda754c67a5b31be2498d05"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-105.mp4",
+      "size": 337574564,
+      "sha256": "baa48f438a4aff47f49111dd1fbff9d05f6bd207db8b687c1de59e93b3f9066a"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-106.mp4",
+      "size": 342074249,
+      "sha256": "6cf3363040b8ea9dfe5f8f5236f52073896aaabc2cb78193c3be28ada59c3504"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-107.mp4",
+      "size": 409463808,
+      "sha256": "976d06b9d825b3a2bc656088c984c03c0ef49a8b4b34388e7197b64c5b2bf171"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-108.mp4",
+      "size": 294535110,
+      "sha256": "bf83e0ecc7e5d9ba73d515e7a988693166fd8953f68ce9b28465cd4ea45ad111"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-109.mp4",
+      "size": 336698843,
+      "sha256": "4439d0894ef119f333e58b3bb8b621f905e7239dbb07758146765ea958fb1610"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-110.mp4",
+      "size": 355717242,
+      "sha256": "1d90384dbcd56a30805fec7a858c2730aadeb1915ae1f43a822201e47f83f6a1"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-111.mp4",
+      "size": 339207055,
+      "sha256": "fdde56aeab7f601d1c2b422e662c87205851d7af81ac16bfe6f55a69fa9e74bc"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-112.mp4",
+      "size": 339182934,
+      "sha256": "f98cb937001a1db37880f49ec9aeb9cfa3532893180bd0a4103f3b0692f4bcdb"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-113.mp4",
+      "size": 356624459,
+      "sha256": "2a318665e37abfff76535c6808421ca2360a660804dd879ae0ec8f84d550e7bf"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-114.mp4",
+      "size": 394943161,
+      "sha256": "5eeff2bbc0b26353f2e2060b7e9390d0ccf1a93db239ca5194d6699c26951031"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-115.mp4",
+      "size": 390926762,
+      "sha256": "2615176258271d7d7af6a6271a28a98d621cece36927f7d85c866e2549fb313c"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-116.mp4",
+      "size": 362828552,
+      "sha256": "8b88b4264ed3c69e0bb68edb631c2a559ca0942c893fb65a1caaf899c05078d7"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-117.mp4",
+      "size": 378843164,
+      "sha256": "cb6146800ed428c15dffe23e2beaf55116f434e14e1cc18b2c5d8221d763c5d2"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-118.mp4",
+      "size": 365248739,
+      "sha256": "315416a724edd467c792010abd918741a94e48b3f6e7a6b49289a1078a7a2598"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-119.mp4",
+      "size": 327313268,
+      "sha256": "7c0ff934716bbd7fbaf8f486c025a9f259696268990b1a1f76cb609b54c69983"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-120.mp4",
+      "size": 399440675,
+      "sha256": "1b6a314074d68346360333909c3b8cd12fa553c3545bc9f67cd3b96898ee0a3b"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-121.mp4",
+      "size": 343217883,
+      "sha256": "07c5ebeea693a7ea4aa6167aabc7de0cab559d538573c90de49908c547773ff5"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-122.mp4",
+      "size": 376163774,
+      "sha256": "f6d9abda9b4c5a51e48a96e1777173de71fcccbe6777c75e42a3ed0bb1a7f403"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-123.mp4",
+      "size": 381194972,
+      "sha256": "b90e6920eda9887d49b8d202fcd53b29938e53c8383b728c6a726571fd4a98e3"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-124.mp4",
+      "size": 420264010,
+      "sha256": "d488092bd2736ff64de90964e96162f7dd4efae66e1c852ea243ba8d9ef45a8d"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-125.mp4",
+      "size": 377401273,
+      "sha256": "a0e21b2274985050756cfc4255b5db8b973cb581649efb4f69d0f9e4ee49a885"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-126.mp4",
+      "size": 353167793,
+      "sha256": "16133cdbd86740f4ab46e2029e871dea2fc755b05d3ff0cfaf98ba5719ad2e04"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-127.mp4",
+      "size": 347650799,
+      "sha256": "c095acbbfdad0828e9f06900c4612d8b8cdc2f8ca0bbb8a858b871fadf871079"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-128.mp4",
+      "size": 379345423,
+      "sha256": "368af6f352c1c49ebd2ba807537a5a7e42fb238e19f462ea3b0e261a614de1df"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-129.mp4",
+      "size": 379124709,
+      "sha256": "ae0835adb15695377d3331c35fc8b30c77e3dae8c740ff36bf33c3150e3c4e0c"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-130.mp4",
+      "size": 386909632,
+      "sha256": "dac9e9bb7e6e58cd6eb7a67344f661117fc94620ea9a30e837e1a2e955256197"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-131.mp4",
+      "size": 389177927,
+      "sha256": "20081bbd0769f5090de723f1669e78de17e8af38665e359a5aeba906cf4e5b99"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-132.mp4",
+      "size": 372873863,
+      "sha256": "57138d377723ccd4feb2967bac7255a34894bcdce55c3b0dc3a5797908c4b3f2"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-133.mp4",
+      "size": 372805352,
+      "sha256": "33aa521f3489216c9d8eca3e51261e9614a75e3b47df9805cbe0383ca1733621"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-134.mp4",
+      "size": 370949829,
+      "sha256": "584f03264ccdacd824211a6eebf5852571061844b01e9f37bd9ace8d67d2c413"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-135.mp4",
+      "size": 419718658,
+      "sha256": "3b6d471bf3f5452b5f20c47c77b524c8ec99d7418c7624a40dd5106908e2e1fd"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-136.mp4",
+      "size": 379678555,
+      "sha256": "2ac975325cc0a30fa8b72de41f198bbd831910bf9e5311aa806fb6cd084f57b1"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-137.mp4",
+      "size": 397976880,
+      "sha256": "5e51764af559f0ec35642d07c9216dc3ce4058d4d8953321c273f1dff7d712e6"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-138.mp4",
+      "size": 396933434,
+      "sha256": "73371f0ba25260637b1de8d898b9d8c7f400437727b8a8d650f4799ff77d1e70"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-139.mp4",
+      "size": 459243399,
+      "sha256": "81c87f911f64649e2cb0136b37c63eccfdb4d314ad92156b9885c2f098506bdd"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-140.mp4",
+      "size": 419693641,
+      "sha256": "9ea871db7ffd9f5a671ec5243f2bc08d7fa17b0ecb40a86b16689431b4f2f2e2"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-141.mp4",
+      "size": 419295269,
+      "sha256": "2c1ef3abe9e06fb60e337aac616f4a646582b59a73dcc41ccbf9c128fdd09373"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-142.mp4",
+      "size": 391057696,
+      "sha256": "7bcf57a6afb9eb4104cd5224440ebcb985ce0f1cf985a5d461f89670d3338c7d"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-143.mp4",
+      "size": 404408923,
+      "sha256": "5abbe1bc7630da64c5ec828999f612c47d785dee34eb49c186aac1344f075f0c"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-144.mp4",
+      "size": 441863691,
+      "sha256": "1306104fa1a26cbfc92f9368ad30199acec585959c938bb8878c10e104eb3740"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-145.mp4",
+      "size": 398189402,
+      "sha256": "74ca2a3b4ca12d8c5ed8f67963feef146da22e5bd6e22241e92f59636155185a"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-146.mp4",
+      "size": 427908009,
+      "sha256": "338d5af029b1afaf5864f9f7db8ba6c7bef9bc839083253e546752b3f8949009"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-147.mp4",
+      "size": 392284053,
+      "sha256": "9e254133b4baeee3c317b23ed9560d3cbcece46a45f49d75513e0eb94f8b9524"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-148.mp4",
+      "size": 430912186,
+      "sha256": "379cfae3e5056a1ce22b5b2b665ffc5d750b175105052871951bab8a6d4db467"
+    },
+    {
+      "path": "videos/observation.images.side/chunk-000/file-149.mp4",
+      "size": 363952415,
+      "sha256": "1a8dc0a2ab4675c41c0519c9647df78c4d404db56e33b74d6b8b9ef36d294638"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-000.mp4",
+      "size": 666500166,
+      "sha256": "f0ccefeb446cd8f65af4cc85fd0c59e4be11b16128de66f495b3dc96461d2fdf"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-001.mp4",
+      "size": 593178166,
+      "sha256": "6c441d399faf356ce6470dc13bc85269177fa3a49458b3044ce06c9a814d4bb9"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-002.mp4",
+      "size": 599043852,
+      "sha256": "9b2fbe6726601d66a20922c2bbcbeba2c8fc2a2d2240d5c27c22b72b3bf39425"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-003.mp4",
+      "size": 505428831,
+      "sha256": "a29673a8c140da8e3b3154eb103f78e0cb9fb4964ed819c2b50e99785d8507b9"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-004.mp4",
+      "size": 583784890,
+      "sha256": "a7cb7bf714ba04b13860df7154afe51c5af2aef42890a60162153eec510b6346"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-005.mp4",
+      "size": 521537083,
+      "sha256": "dde08774ea694f92f23dec1181ba143c4064a2f59915543993d5705f32d88322"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-006.mp4",
+      "size": 509141659,
+      "sha256": "cb60f7d2d131f737b6a3be53ec4441d7061be1b7f72cb0749b11a45104f3e064"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-007.mp4",
+      "size": 517731968,
+      "sha256": "d6fc36d5a5214d4300f0443481fadfa9581a425854860ce13a1e60ee3bb4bdee"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-008.mp4",
+      "size": 549754477,
+      "sha256": "f9940882cad133e7ebc0f20fa057919ec19543e26da3f57a85bc348e73edb929"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-009.mp4",
+      "size": 515284888,
+      "sha256": "35b84ea40d26dbd21bde07d09903429c013526c4f315331e7befb671807fddaf"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-010.mp4",
+      "size": 560903741,
+      "sha256": "707e493684c7eae65375f657f57b00bbff7a4e337e72ccc3a07344a885676d2e"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-011.mp4",
+      "size": 547789039,
+      "sha256": "b7e4a6a0c582d676c36d501984b798f558a7ce6b7167ab142cf4ef1129417f13"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-012.mp4",
+      "size": 500095091,
+      "sha256": "efcdcf771dcf780628da5c1ada113c3ac580028efdf7a6f4a5287439775add02"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-013.mp4",
+      "size": 605504371,
+      "sha256": "9eac2107165f3705ca28a823a8f387e5be1e2987d7a135ecc4050819e377d147"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-014.mp4",
+      "size": 540754738,
+      "sha256": "e7f18d40b6f15354ec09606898d08b489f43fbffa752c44f89fab8c3f6009e7c"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-015.mp4",
+      "size": 484513034,
+      "sha256": "8dcd52e5f506285273fc12dd7b3ff002f83953706450c850554ffbbad8bea8d7"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-016.mp4",
+      "size": 566583027,
+      "sha256": "e8db4a8f0070ff7ce78b76d388891d8c73549b1c36b06277385a5af770e38917"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-017.mp4",
+      "size": 529349428,
+      "sha256": "92227f34300b742044a1d63108359403b1cce1571942241f283fcb626198da25"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-018.mp4",
+      "size": 551979459,
+      "sha256": "af76cb4c6f383719aa1d1971a3595d5f0bf11b34eaf69dbc6866eaea3d497646"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-019.mp4",
+      "size": 531199068,
+      "sha256": "3e96486e7022866550e24aafe5d022867561c56691672414a097d2a18507ae44"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-020.mp4",
+      "size": 538273813,
+      "sha256": "3006603bd7be6b81f6b96b8c5bc62209e9680e7918b7b8a98d8aafddbe436464"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-021.mp4",
+      "size": 493296999,
+      "sha256": "91547a03826cb949454a4926f1a35bfc5fbc85c173668386b37476cba231f5d1"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-022.mp4",
+      "size": 553565846,
+      "sha256": "e744b6ebdd981603edc44cf78b5b6e80f24fc19b7f409dbaf6bb4f745cd39298"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-023.mp4",
+      "size": 541574560,
+      "sha256": "c3401b5eb468c5992ef8233450b6a2a7d4b46224f07618f91d3e9edd012b357f"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-024.mp4",
+      "size": 562724842,
+      "sha256": "ae17b93d855d239c8411f5c3fa71f754f84929026f6f2a0d824d87c77bf7ceee"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-025.mp4",
+      "size": 565200280,
+      "sha256": "2e1e23376bd5dcda7ea9a400920993fb4ba5a3fb9c4a8f503a9b6a2d4e39cd3a"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-026.mp4",
+      "size": 514782687,
+      "sha256": "80e4056d208295c8c1ef26f0235c7a1d119a32c4283cf5edde13f7eedcdf8ddb"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-027.mp4",
+      "size": 507558003,
+      "sha256": "e4be0b08bae9d732ab15bc6e283d3314cf61fb5b9401399833f8b214957d8c48"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-028.mp4",
+      "size": 542908127,
+      "sha256": "c09eba4c17b3e391e8faf4291e967cca9337205779d06955470b800b4915d0b1"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-029.mp4",
+      "size": 468329342,
+      "sha256": "200e56a80773470ad1a46bc9ade3ec47df2fb91f8cf6621aae55bf7ab053f722"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-030.mp4",
+      "size": 519709297,
+      "sha256": "ead5edf40fca9d212851e93a88da646766ff93423c8a9990dfd0aa7fffbff526"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-031.mp4",
+      "size": 583967722,
+      "sha256": "fecf6811ad1b4a81ff123941d974156aaa5911c985129e3916977de312b327a5"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-032.mp4",
+      "size": 515125608,
+      "sha256": "0b259df3d41b352eb4d499367d4affc3ac03d3e105232f5077440fcb121f8779"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-033.mp4",
+      "size": 551602684,
+      "sha256": "3b359cbe8c1906d1e45f5944792985bfed7e6fe76ed60504934b362f46cda23b"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-034.mp4",
+      "size": 531206146,
+      "sha256": "9e7d3faa84bb73a88543163cea27e967ae129076462a688427670991946386d2"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-035.mp4",
+      "size": 583364607,
+      "sha256": "b87bd256bc7e2ded5e801c04d05f2cf4e76bf83e2e55ced00bcc055d0ea76257"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-036.mp4",
+      "size": 460304112,
+      "sha256": "8168383df318ba4728b17235235b7a04b0a31d807a98095ad42798d78faad0b0"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-037.mp4",
+      "size": 568542924,
+      "sha256": "7bddcffdc71a0d583006c8ee838a02fb0ef89340eb2167c1bca167e24932cd9b"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-038.mp4",
+      "size": 512934127,
+      "sha256": "53b30543be67e4f6dbb8c0fb6dafc7629c908de5be02a92e0e2efa6f95bc7b17"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-039.mp4",
+      "size": 528595512,
+      "sha256": "0bc59fe7835da1ccaf895c4b2bbf967884072219481eb8933f53908bd8e8a09f"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-040.mp4",
+      "size": 492797112,
+      "sha256": "b381a2723b6d65bf1962b12c90ee1953ec49f84a60dbe655cb18031f16945365"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-041.mp4",
+      "size": 513208792,
+      "sha256": "a7f73430e95a3e4fb8572879bd34d195dd8e2ed3044fcf352d78039d185bcafc"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-042.mp4",
+      "size": 546991196,
+      "sha256": "d007dde99c7933fccc25018bdc05655469bd55ee634493a3132b507cbc418344"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-043.mp4",
+      "size": 588241848,
+      "sha256": "903fda806022deff5468c09cb1a13d93e3bc0dda93a4f37be684545edd2d1298"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-044.mp4",
+      "size": 604666576,
+      "sha256": "ae3f5c6af5ee6931503e72a643ba665b41ebb5bc2e9c249b8aa9479aa344c528"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-045.mp4",
+      "size": 628731693,
+      "sha256": "a37a6ad4d13975759f6ddf22e2c680f14d9ac9a2463ae045d257ba86a9a1176f"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-046.mp4",
+      "size": 599992246,
+      "sha256": "bdbf17e9929b4fe5e4a8ff3524dbc11895156e69bcd5b4d774ffcfbf9645e854"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-047.mp4",
+      "size": 545255205,
+      "sha256": "7cf96d0d3f956728c30625f068c7933e780a41eaeb898bd0fbbed75a3b3cafc2"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-048.mp4",
+      "size": 558714635,
+      "sha256": "5430ad12bdc06656d4548185628100761dd55fb74a6e1948a3e6215d21d61100"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-049.mp4",
+      "size": 594833195,
+      "sha256": "67c20c1c07f8768067d042e01666fd079d718763625ce8229acb4cbab0cc3adc"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-050.mp4",
+      "size": 538482645,
+      "sha256": "2b2a1f6dda87bc2288d1dda896cde95ca80a1ddc4ba50cb2b68117e7baa45fa7"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-051.mp4",
+      "size": 561826215,
+      "sha256": "f332f9a5098f3487ba5d94bedafd7f8f66f2b7b64002fec3349687487a202256"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-052.mp4",
+      "size": 725405436,
+      "sha256": "b6b07446c47aee9463152cd7947615c48d00cf376d0d0fa1666dd615335a63d2"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-053.mp4",
+      "size": 505831523,
+      "sha256": "68421d49a3cea4b9ad23f048bcea1203a61132ad67e9e91275aa87fb530674ed"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-054.mp4",
+      "size": 579313814,
+      "sha256": "f895920199d6f06f05eaefeffdd942337cba9de39d4c6e323fd2fa0d1307b411"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-055.mp4",
+      "size": 504999472,
+      "sha256": "f556b71499d204d9481fc2634793788e916985c2ed016c46231f0f17d85692a5"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-056.mp4",
+      "size": 524074588,
+      "sha256": "16ec5121ac3869436b76b3e8131a3530cec5ae34e87559369f3dcc21649189d0"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-057.mp4",
+      "size": 495291929,
+      "sha256": "a5afbe03ca168b45dc1020aff5fb799d032a1da1d25a919989390bdd696d40c2"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-058.mp4",
+      "size": 556419000,
+      "sha256": "8fea00e3621592d5dfdb770ced26e826eb73e4c2c60e3d05f042522e558488f5"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-059.mp4",
+      "size": 549152068,
+      "sha256": "4a5c67f652fff3c15e41db1b18c3b63abfa8185fe36eea7eb3f84f027dd6ad31"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-060.mp4",
+      "size": 564793624,
+      "sha256": "d7a682fb69ace249fed570fbf5b00464f4a9165cc700506273c77ef14a59720e"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-061.mp4",
+      "size": 593111298,
+      "sha256": "bd0f3d0d4a8b0b389ab3833d3292e14052a2a011c08a833d81c4d835b27368e1"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-062.mp4",
+      "size": 487211129,
+      "sha256": "6ee15e2d697376eb2d730775006a5a12845d1521a4acf4cdbcfec3833f66df27"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-063.mp4",
+      "size": 457912383,
+      "sha256": "b6bd968e67bbf8a2d219cbda5067d44a79f2d8d48bc4a75c460605a1af35d06f"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-064.mp4",
+      "size": 528101735,
+      "sha256": "e852debfc600653749826ae3864ee1ffbb3b533044e47439a91fd917b1103c21"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-065.mp4",
+      "size": 557307721,
+      "sha256": "e4e4e5d865198d00fe1da1ad0d4cecc2e6d922cdc013f217128db5d2815ccab2"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-066.mp4",
+      "size": 479644699,
+      "sha256": "a4e11b5ce7940a8074c86a996d7ce031a2f1a77811a9ec8ba6524277caae7602"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-067.mp4",
+      "size": 535341556,
+      "sha256": "988c232a77ba9f807b0bd54fa1d1595674b7c104dd608c8fc9f9f6c34e975411"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-068.mp4",
+      "size": 468081231,
+      "sha256": "6a24b41202d94596b51e21f53458e7db19b32ac32efe7bab4b1dd3904c9c0eea"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-069.mp4",
+      "size": 560970257,
+      "sha256": "0c7edc34f560e9fc6284c1182dfa3e3583964e34f14cb77677e72c5cabbbc92f"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-070.mp4",
+      "size": 621415920,
+      "sha256": "144d92800ed6c4f557d822cabe44afcf0124c10f90493f7abae1cec79606aecb"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-071.mp4",
+      "size": 532687703,
+      "sha256": "99cd2bff9ac313e5eeb34e0334d8ef4c6ea97628b2537d45596fa75baa4c4f97"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-072.mp4",
+      "size": 520081799,
+      "sha256": "7cb86a795281c1575e469577a54a3ec0757a0b36a313adba114af3b95c1dd8c7"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-073.mp4",
+      "size": 603771072,
+      "sha256": "fd52b997dc3dfb8ffcd83d851cd7470f40a1293ef4ef03b3c5706278fdc9befb"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-074.mp4",
+      "size": 637980858,
+      "sha256": "4206bece4f13875988b49a4ee4b26d6bb2050b9592d0edabef713fa1089c7dad"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-075.mp4",
+      "size": 544838909,
+      "sha256": "ea50df4ed99bd60665928a323f73a785f9d62ff37f0309afa51546638dc0160e"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-076.mp4",
+      "size": 539219873,
+      "sha256": "2ff834db5d84d87a973e0b7349a4aba8a1fc15486a4be71bb04fddd90306d6c7"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-077.mp4",
+      "size": 598897435,
+      "sha256": "46c40a276eea46d3217463926e7edcafd07d2d76f953feec1ad402d9fad0b9e5"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-078.mp4",
+      "size": 656761895,
+      "sha256": "ec070890ca57bada68a5280912bac14125e77c7c9619e0c05ec0e4ae9f6bb727"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-079.mp4",
+      "size": 591435581,
+      "sha256": "3933fe336b3fb5b00fcfb7568c1cb9d210547ef8e87d06ddb421dfeb9a06d3bb"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-080.mp4",
+      "size": 619329616,
+      "sha256": "1d2b2a37a2d3f1992403e1bc3ac305b473e7f343f8f629aff57297d7856c3a63"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-081.mp4",
+      "size": 602493784,
+      "sha256": "6b95365d9457fa7a325e88f1df9a664ef4fc42830218896d3f89dda251a64d1c"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-082.mp4",
+      "size": 646999698,
+      "sha256": "0665df7bcdd7de2118af89c55f800b9882e2f269124f0507a1ea3c2749282296"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-083.mp4",
+      "size": 689052277,
+      "sha256": "d768e4907e354d5db4fdc1db352e0f8a1b97dad8d8038be519f534651dfbe079"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-084.mp4",
+      "size": 616029757,
+      "sha256": "6fc5a6bfc217d1545c1b02ab47af3eddfc36d0b4e6e09984bd9874142303f2b4"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-085.mp4",
+      "size": 508351323,
+      "sha256": "c32bb1c5ecec4253198bf4ef75cff023b1e650e3093482614502aeedde6a392f"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-086.mp4",
+      "size": 556439551,
+      "sha256": "d9ee77119518d9490b1bdd9fd4c4c7050e1f056bdd625b21b264fca8b33b4c41"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-087.mp4",
+      "size": 616625437,
+      "sha256": "b2415a9cfa7a3f797161c09a72c71193052075a2b09b19e7df04817d18d835c9"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-088.mp4",
+      "size": 564504791,
+      "sha256": "84ed7a67bd0f54da1151b4b05f2bf9ac067a83e8dec4bc70e86082fae39b13f7"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-089.mp4",
+      "size": 552352337,
+      "sha256": "63bea8c86d2a671b1bb4b9bf945de44f639d4a8f7c00cfc7c8c6209832fce630"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-090.mp4",
+      "size": 565581084,
+      "sha256": "9fc9385b409567080a27a1e123a39fc713aaf6fdd0d7e70e21b5ec7c0e2d40bb"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-091.mp4",
+      "size": 645015060,
+      "sha256": "5b8826ed13eb9409f96bba8483ec2f0068fa537aab07db48da85df292a88763b"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-092.mp4",
+      "size": 561594986,
+      "sha256": "dd8ec9da15ec844b975cf61c48d65ccecf108e7a500452e20eaaa70ccfb2bf2e"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-093.mp4",
+      "size": 501513818,
+      "sha256": "043d0b82ec57abf4f4debe763f37c71b593976a729ceacbbeab2de178c1889c7"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-094.mp4",
+      "size": 620334453,
+      "sha256": "d1e46098358bcf8d8ddf771a17373160803a523b6cad225fb5f0a6e53bf25ecb"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-095.mp4",
+      "size": 524320254,
+      "sha256": "ab458a8f13d5333d41a5a6ca12a358387a65c099679215e0c9fffaaf4e2dc220"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-096.mp4",
+      "size": 521680856,
+      "sha256": "eada5d2be0d006f2c816cf0316406cec4da170d7c72f7afb336d4699ab285f99"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-097.mp4",
+      "size": 602215920,
+      "sha256": "7b98d9d0444652eac531eb05318cbb776c75985af84f6db0a6d198652d3f32be"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-098.mp4",
+      "size": 653317767,
+      "sha256": "9bb074a7e7c7fc0e5c0b6b4cb8d1263acaf06347ce0e45d5ba1ef78d67f0b6d9"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-099.mp4",
+      "size": 517048492,
+      "sha256": "0738c3aaf1e7ea72af4a2f1a8681e4fd3abcbf4f706ab6462a8166a8588c298c"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-100.mp4",
+      "size": 487599976,
+      "sha256": "f7c7c00309bc772e4ca6b76fb7ed8d69b76adcc0baa49ceaa98c3badaa16aa26"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-101.mp4",
+      "size": 536945029,
+      "sha256": "182afd8c2c6cff1618f48cdb91228b30d975b722fcc9222bf8a9cda1cd9a10ee"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-102.mp4",
+      "size": 494388090,
+      "sha256": "8295741e5cdab199d4b77780f720724851efa82687c564c73076ad916791f9d0"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-103.mp4",
+      "size": 529873255,
+      "sha256": "c8822302648cac006c2d3511dec6cfc285e6cb2ffdea2fddfa997ba1c859363b"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-104.mp4",
+      "size": 568443966,
+      "sha256": "09e35f971152ff2d2955b491c166875142ae47aff2c45ac2f3333c209b8d58d2"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-105.mp4",
+      "size": 490040331,
+      "sha256": "e01dea6026ba53cd4c5ba5f7b937e94abecf82fe84c35f2d7b291138d5ef6752"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-106.mp4",
+      "size": 483945192,
+      "sha256": "f19053ad2892c5d870169598f581767dc1f6e857d82ab4f207e8e0859cbbaf1c"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-107.mp4",
+      "size": 573869909,
+      "sha256": "9bf9e837b5c41aaf884d7a5a52c2f7d3f6daac7d61d526d67f086a9c19b762e4"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-108.mp4",
+      "size": 424074796,
+      "sha256": "58f000894431de5e61342d4017c77deaf691ee97f25c3103e9b54b37f7953bbb"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-109.mp4",
+      "size": 450847737,
+      "sha256": "0c474574291957ef26727a593e7dbe7965f3c8403e410d705553ad310cbce8e4"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-110.mp4",
+      "size": 486779776,
+      "sha256": "764ad3ca014ad14465443bf8f8df303a13089c8bd8e11c98fbd58db09acb3dac"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-111.mp4",
+      "size": 479441864,
+      "sha256": "38bfe08783ea552c8616824e6a805d8f0e1e4fa465c995e2a2a62c8b029a3c85"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-112.mp4",
+      "size": 466710277,
+      "sha256": "0c137c3fa26d602983c77c286ed2cc45e448855d3bfb271efdce60f44e968008"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-113.mp4",
+      "size": 497158721,
+      "sha256": "1aca72d3b06770a2dc77d3633b26efdfcf37d39cfd6cbe3530ca36b56276ee52"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-114.mp4",
+      "size": 537017721,
+      "sha256": "2212dc0069d061a2ed2244c2643bd92c25d1a004bf728207253508b4afe4e07f"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-115.mp4",
+      "size": 532573041,
+      "sha256": "aa9da97e038472dacb639b3c97268520ff22b43a522816602047c7e19a88a49d"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-116.mp4",
+      "size": 517021391,
+      "sha256": "a3bd953a9c14c0729d98cf6365c162ceda248b23df69937c8ac9764f49151b8b"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-117.mp4",
+      "size": 530242754,
+      "sha256": "a8f0f7731d7ca5e6e738c15964d5178c5a217ed6cf2dcfd122627fb28beb343e"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-118.mp4",
+      "size": 518329233,
+      "sha256": "6ea18de4038b8711e4b8a545a6ba602a8f46195236e2fce47471f5bf59bc6fc9"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-119.mp4",
+      "size": 448855527,
+      "sha256": "1bad9235f398dc3b4ba78c292c056f464ace1602762cf79042cdae2c3d7f87f7"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-120.mp4",
+      "size": 551123870,
+      "sha256": "f9bce3baf617da5af095782bdab8b92b8ee3f84c46d3927b7a44b5b395bb25e9"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-121.mp4",
+      "size": 474643798,
+      "sha256": "aafe8c29ba8c44dd99f406db05ba998047802137bd564ef0aeed9f7abcfbec7a"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-122.mp4",
+      "size": 517809385,
+      "sha256": "157761922abae6494f19bf7df3d24f9e1b3bb08e7bf92557d54d01bb6069155f"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-123.mp4",
+      "size": 510450368,
+      "sha256": "580c618ca3293ff777ee3cf33b8c893b0cc5bfeadfb3a77ba7080dd2d70d81f3"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-124.mp4",
+      "size": 564352532,
+      "sha256": "409284d500d1206842771f3f0c04695e12cc0860abb5476c93c7f6af9fdf3bda"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-125.mp4",
+      "size": 514270162,
+      "sha256": "719406669b66f33c67c1f63116e56d793733dacd13cfde3f77d05846f44de0e2"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-126.mp4",
+      "size": 477738500,
+      "sha256": "d22c32456bb4379b421111dfed0bcc61a766e7d05f26a713bd6d421ed01bd46e"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-127.mp4",
+      "size": 506251870,
+      "sha256": "fcab2e9cb8a3b8ca3a5b83cd96bcfacb67e718d0ff88e771dba09eddde82d5fe"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-128.mp4",
+      "size": 541189948,
+      "sha256": "adc3d597fd52f0e4cbc87c657702f74de6dd62a62e7c27b716919c34f5d24934"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-129.mp4",
+      "size": 532732364,
+      "sha256": "fa85d1fa6c41866a9637c1a0dbf24146f64b4450abbfc666c7d67daebd1d12e5"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-130.mp4",
+      "size": 517770955,
+      "sha256": "3003bbd0a7a0cf8f9d4e95f5e91126d5c57202b766041ab83526ddae060639d1"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-131.mp4",
+      "size": 543445800,
+      "sha256": "108b7d6dfa1ae1e6823321db88bfc02320aa258a81a4c9858f9e795e41e2ea5e"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-132.mp4",
+      "size": 500138081,
+      "sha256": "062194abd8dc78a140cde3f1b867d6d3da705f525048ac601fa52a4e845bdaed"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-133.mp4",
+      "size": 495552297,
+      "sha256": "1bc0f42f4876c12f9a79ad7841a14cdd2f51599204a2e3e8c126a11859b5ae0e"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-134.mp4",
+      "size": 529334705,
+      "sha256": "d2284ee8fc93af3f3f91482d9b2d770766210ed7b0c630ab3f33af630a9781f9"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-135.mp4",
+      "size": 546524955,
+      "sha256": "67c5ef079f420aa075451a8e0d99e74443c4f91627eef782d4cf92aec456e25c"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-136.mp4",
+      "size": 545785968,
+      "sha256": "7b95054ea44748ea93d2809f8b8c318aa0c18565200b61c17aac7c00e09b0356"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-137.mp4",
+      "size": 530694296,
+      "sha256": "8f0ed31f8892adb53991bc88a274c01de6593e99810a6e1ddcf9d069d99af9c7"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-138.mp4",
+      "size": 540872068,
+      "sha256": "4f3717765c3a75804cf55e5b6efe069abe581324b88740b1ddfa4c47c32debb1"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-139.mp4",
+      "size": 616588568,
+      "sha256": "0a4c99980b85595cfe3a76c5b645822af438daad763286018239306bd6f5dbb2"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-140.mp4",
+      "size": 578003669,
+      "sha256": "c65688168789ee2af65867f58f5c991f71414d28ac78ac8cc90b81e74432e353"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-141.mp4",
+      "size": 576791971,
+      "sha256": "5732d1a95b5485a3c24f973d912eac8f95dc8d13abc7b3ec004ff29e3fc1aa58"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-142.mp4",
+      "size": 542688273,
+      "sha256": "33c0c5be35dd326d210fa84c914a3298977951966e71baab51500a41049118f3"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-143.mp4",
+      "size": 558293363,
+      "sha256": "2074979aa0c28909c55ea989e730059d99f84a680612b683d0b925e84898b2c2"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-144.mp4",
+      "size": 624733316,
+      "sha256": "0920505ab7dceb7648d691dfb8ce3a991d1cfe4755de3f4dc7ced6d0927f42df"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-145.mp4",
+      "size": 550889253,
+      "sha256": "834b58c83ec5108a67235ec860c54716629c23ad0a485562fa4d8f676bf4de86"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-146.mp4",
+      "size": 598886648,
+      "sha256": "68f246bf943eb47103dea1373c1a57a83b943079fd9917feb6c2a4908f5a9dbb"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-147.mp4",
+      "size": 555586352,
+      "sha256": "727b3d110ca781f6f1a9ac8ea121abddf530854727a4d12c274adb3d311d820e"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-148.mp4",
+      "size": 608195804,
+      "sha256": "fb3c225831f85a54bd60081ec8b663904ea7a4d42f0f5ed8f3dc28a84ce52c1e"
+    },
+    {
+      "path": "videos/observation.images.top/chunk-000/file-149.mp4",
+      "size": 519000258,
+      "sha256": "d0851b22660f1dc3f4731694d3e6c560df905259476f0987f4e9b67f86ee9b6d"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-000.mp4",
+      "size": 378142873,
+      "sha256": "1eb8b7651a7b4f2714c2e7db1fc2b494a0f400c82d74cbfd518b1beb25858103"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-001.mp4",
+      "size": 335670418,
+      "sha256": "e6b9949fa3f76315a0b9e9d6af6e2fb81020167bd2947aff0943d639e32ca6c3"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-002.mp4",
+      "size": 337752377,
+      "sha256": "f40f0b6a6bc4860d9ecf56d759cd385260a7fc93c127039e7a9b381ab1c2ae1c"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-003.mp4",
+      "size": 278546268,
+      "sha256": "4b09caf6ae278a6c2889ac9d28ffb84b2271a5120ef85e1104e39700a96f2ec4"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-004.mp4",
+      "size": 329395111,
+      "sha256": "0be4e2238d78874de8e34bbc7b7b4f3389b03bac175ddcfb2d0d48e58dc94a2a"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-005.mp4",
+      "size": 293570062,
+      "sha256": "92bfedce0f9312a46d881ce297de2842bf13a8b7eb020a6717a81b4352b0f4b7"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-006.mp4",
+      "size": 285476298,
+      "sha256": "a227b2176f19a58d8e4175a687c527dc067af01c85d1eef7c4b01ea116dbe40e"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-007.mp4",
+      "size": 293025348,
+      "sha256": "62f66f1bb9be1269e3d839d44b4e1fa6ba6105bdee89bb7331c859df9f76d375"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-008.mp4",
+      "size": 309320294,
+      "sha256": "940f5c90b17b42225cc1671db3dbb459a08b4ab90a5a300ce7178d7f50a015ad"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-009.mp4",
+      "size": 284803764,
+      "sha256": "58e5dd31edcf77f960bdfc0040a59b985b4ea835f86d6d4375cc48ff7bc13ffa"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-010.mp4",
+      "size": 309572404,
+      "sha256": "1a61b74c5c861cd7d60b58f48f4d5e39001f3656b65b4994a30d2c0edc384cf4"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-011.mp4",
+      "size": 300736977,
+      "sha256": "e870e2c9547b38dd0faa9fcfefa0c2b32ab971fdaf36c8d2131b9f70e771ce75"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-012.mp4",
+      "size": 275611369,
+      "sha256": "302f167b5bed2bbd6e0551ad5154920bd61d2f0c9ca96f8c23efb728713b0225"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-013.mp4",
+      "size": 339210006,
+      "sha256": "3ab029e4b9c6fc15ef0b9714dc238428f7f8ca4625fbeb6efb7965fb4c61ce0a"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-014.mp4",
+      "size": 301911371,
+      "sha256": "4433973d8bf24241a89e3ef9c6058ac9a04f337b5dac65f8ed0c44b269d67eb0"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-015.mp4",
+      "size": 270834796,
+      "sha256": "790c4f19039cfc2747cc69bc9c6cb40ca0843f7be2e46c63424d84dffe3be4bf"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-016.mp4",
+      "size": 315987886,
+      "sha256": "b10d712f3d9a7f4a1ffd351c398fb84a82a7ce920422d45289deb14f53b67234"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-017.mp4",
+      "size": 294397993,
+      "sha256": "776b87053d40a7df89a67f31ca12fbdbdd6db8a29539b78f0f14ebfdddbe4ede"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-018.mp4",
+      "size": 304135879,
+      "sha256": "6aa19081fa297f974714214394b5e14e3908664d198b1d45f76ed748728afd9a"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-019.mp4",
+      "size": 290845950,
+      "sha256": "a91731e1a7954bf16efb3249e3aa9e5efb087af7979bebe1dd04e69761abffce"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-020.mp4",
+      "size": 293534532,
+      "sha256": "d540ea34f64560d9c31dd1995fd22150992b9cde789e7c2c9e5cfcfdd39f7af5"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-021.mp4",
+      "size": 273254691,
+      "sha256": "4e2e9add6ff0ebe3a9b1f9cd9bae2f9a87288e4315c10e08e1da700dcbeb16b1"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-022.mp4",
+      "size": 306306886,
+      "sha256": "9b5e61ba6d7500f8c40535fe3cd64f823a6df7ca259ba0c28696fa4786a1e5b6"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-023.mp4",
+      "size": 303053100,
+      "sha256": "0d2fe851961332dcaddd2af970afb7b34486176176d5d30078acf9e86224951d"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-024.mp4",
+      "size": 313039469,
+      "sha256": "7a6528841790707d729dbf605d054abf9cbe42f8a1f24cbeec4f944a86e88178"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-025.mp4",
+      "size": 311566213,
+      "sha256": "dbe306807179224a1874dbbb41e1b1178a36cf768eca165c7b82d3945b7df182"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-026.mp4",
+      "size": 289754952,
+      "sha256": "e2127d0b5b5a169002553823ffe69e1103d9621c9539253df7e32485108da994"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-027.mp4",
+      "size": 285489638,
+      "sha256": "651df37fe78be2f218c579c1f1f48b07ba314c68dbfed7d3e4313ba60d04abe0"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-028.mp4",
+      "size": 304261779,
+      "sha256": "41aff21c3ba85d3e37af5d8961a44e3294d21ee92b2450465a2261d9174feb3d"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-029.mp4",
+      "size": 262505072,
+      "sha256": "dd02fa5f2a06852411a27efa030bfdad7b491c6a745b05a2503cf427278e0803"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-030.mp4",
+      "size": 290478612,
+      "sha256": "98a21c501d3612acf6b5518aa625791063dbedcb944aa13469918082930cf2bb"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-031.mp4",
+      "size": 327104344,
+      "sha256": "2866c81dc9eb5323f5fa3cc851f241a273e2ec38775c386f88ea6065df6b014c"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-032.mp4",
+      "size": 287534194,
+      "sha256": "932821b5a8068e06530d743567e4dda67cf6f65b9259bdff22af51c7d8f7f677"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-033.mp4",
+      "size": 307628077,
+      "sha256": "3d8412dc3d5f26a146d682b3a1ff0b91c23effa4dc9f7977cc6aff105cde6b45"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-034.mp4",
+      "size": 290802112,
+      "sha256": "64c3b9abdaccd57744e9c8aaa2f1fe58af400438286b8677164e7752360d445f"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-035.mp4",
+      "size": 326055346,
+      "sha256": "430f5e67f0a0f6de8707aa6eba8b81002d2bdc86bbb97c549f63684dc43dce7d"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-036.mp4",
+      "size": 256296308,
+      "sha256": "596f753a374ea435cbfc01393089381298dd39c3e3464db27920c3399320dae0"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-037.mp4",
+      "size": 316287430,
+      "sha256": "fa1f702bbc57bd251278cf93992e3fb42438cc26f18025626291ce124e77bde6"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-038.mp4",
+      "size": 285714028,
+      "sha256": "7773dcff331513103d1fbb5f6532a990839d4243b1422a83db0018d8f7f73d73"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-039.mp4",
+      "size": 289541284,
+      "sha256": "71002de010e310ab6d51727e860dcc4d6be33834799f92a128c54a90585f36a5"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-040.mp4",
+      "size": 274256375,
+      "sha256": "fad4b32db043f79216cda77eb8028f24c0ac0001e3a270e6f8507863d270b2f2"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-041.mp4",
+      "size": 286331830,
+      "sha256": "e2d93ab9c376f21ac816c37bf280c2135a63f9d5f0db63a8afc96cd525f2a1fa"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-042.mp4",
+      "size": 305347256,
+      "sha256": "a5e3fceab4bbbab3a6c223c55f477bd04dfabcf0fa8277a1de5ee8040f176cc0"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-043.mp4",
+      "size": 326984405,
+      "sha256": "2fd1fe0c33efe9ef9300c834c91cca0dd82c2614fd103ea6d5828c21c4f48e7b"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-044.mp4",
+      "size": 333824609,
+      "sha256": "c2308b97c34ca4dc9f950b37297d201b0593b417ac3db50b3022c04a28567cd6"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-045.mp4",
+      "size": 341754039,
+      "sha256": "5fa216036baaa915cb18f88bdf316a78a443989b294f3261e2fc2518c2a0eaec"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-046.mp4",
+      "size": 332938617,
+      "sha256": "bfd24fa9aaff7eb99b094bf7a56f6dc8ba7fe9e5fd36cc3c3f0335ae5e9edfaa"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-047.mp4",
+      "size": 302115526,
+      "sha256": "eb4e5e84d86f7c57fcb9428eaa5520b6310e5573c15d0d19859c59e3114300ab"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-048.mp4",
+      "size": 310994689,
+      "sha256": "cfd039436f7cd106fe4beb273f56e692cd3fec433c361ef8bff19c1b55117b50"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-049.mp4",
+      "size": 329288126,
+      "sha256": "2ff9365b4b41d66d60a3022ea71ed18fe9412288e251fb87b97de7a947abd474"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-050.mp4",
+      "size": 300095295,
+      "sha256": "3b9ae3654870b7948f124c5c6c8006869646e40f5f270786926790abcab4e621"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-051.mp4",
+      "size": 314509475,
+      "sha256": "d23a1db704d2e38a1852668d30df22c052fa9def27da2731f784539f14a79779"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-052.mp4",
+      "size": 405070637,
+      "sha256": "f58392618326ed0958644408b01750cd4339edebe6f03b45e725278eef005798"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-053.mp4",
+      "size": 282568096,
+      "sha256": "2151bd04dd2186692c064890e814e05b9e7536342a680212f069d64f8e0efddb"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-054.mp4",
+      "size": 322690121,
+      "sha256": "6a81ff54ef2a77bf3b93280e68f0ba858e89e0fbf302aa7478dc44f93d5895aa"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-055.mp4",
+      "size": 279346791,
+      "sha256": "77620aa3141e0e73d52c70ab126fd7efd8d73b4138373633e6e6eb01a23e7f88"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-056.mp4",
+      "size": 291621077,
+      "sha256": "e26278783119069e11b38399afccc800868db99fa25c02023ee63af912e7996b"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-057.mp4",
+      "size": 276171081,
+      "sha256": "3af3ef611cb6added753f97f51982238c4d51a43f012e84efc5570eca6dffd42"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-058.mp4",
+      "size": 302996384,
+      "sha256": "7574867b293ea4f06d99e37c7842bb5ce971a6113830d8187bed280328eedcd2"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-059.mp4",
+      "size": 298577231,
+      "sha256": "922e4351f70317dad83ec45342e5ef65e5aebc1c087d556f441f9c47cde4be60"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-060.mp4",
+      "size": 314620102,
+      "sha256": "b430aed965debca45fab66d086163733a2636ad38ebad4bbb47ae7f2a556f879"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-061.mp4",
+      "size": 329633363,
+      "sha256": "dc78986d1741b94c4d275404399fa782fd520753b205888907a83816188c168e"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-062.mp4",
+      "size": 265327332,
+      "sha256": "1e6c2b42bc0e6653feabbfce724f7d3487986ababb05ac70ab937e362d737a35"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-063.mp4",
+      "size": 246261192,
+      "sha256": "11a55712192ead91e0692c48bd4c413d84f7db8f885d30ffe6e62b5611cc01b0"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-064.mp4",
+      "size": 293250612,
+      "sha256": "5523954532a430d7f528aae8a5f824053bb4dfd6b083f75995bcb16a28b92ca9"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-065.mp4",
+      "size": 300142629,
+      "sha256": "cef5475b4ff0cc4cf6e7e4de07d244f13291036db4b2403152a4bfbd8cd7f8e2"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-066.mp4",
+      "size": 266907998,
+      "sha256": "cb9ed902dad4d52b259542970268a123431c8e3ab5dbdd8710413647b2b93079"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-067.mp4",
+      "size": 292884231,
+      "sha256": "4f7f394d3dca563c05ea41601ecb08cc29034d80931f1003b89359876081841a"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-068.mp4",
+      "size": 260222995,
+      "sha256": "362ef61d9d82a48d34ab75319b64b668245bc68a57f3516f2362da0f1bf4feb6"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-069.mp4",
+      "size": 303189052,
+      "sha256": "2f1acb1cbf0de75412950a717eefc1364a11f455d73350ec2dbe19e26c1703bd"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-070.mp4",
+      "size": 346553188,
+      "sha256": "034b2efcdf68796703c38f1841d385b637cb4c20bf8fd2f63809dcfc8fbacd1f"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-071.mp4",
+      "size": 286727998,
+      "sha256": "3e2abcce76cbf1e92090181a2cf44ebc2d3e53b83e824ff7d1c53e7531b4270a"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-072.mp4",
+      "size": 288398242,
+      "sha256": "e2db7837f7fac0d3d03c299e801e720b9ec9b289143321272952b936e2cdd226"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-073.mp4",
+      "size": 336131494,
+      "sha256": "a9c5d0cb1209016d81f1d7d8efed8d4ff4d73f07c7f80189d2380506ac2886b4"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-074.mp4",
+      "size": 355074079,
+      "sha256": "1ad127d89e418a906cb4a18d0eaecfbfe22080aaf75a2638eae8b7ba7ebbbc14"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-075.mp4",
+      "size": 303347329,
+      "sha256": "81f88633cfd26a5873438b6992284ed46f817e8f4dffafab1f24f3dddad087ae"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-076.mp4",
+      "size": 292527089,
+      "sha256": "bf86e8ad7f814c56bc667291a367e003783d94595118425bb4641d8b7adc9596"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-077.mp4",
+      "size": 333054970,
+      "sha256": "9469f23b8f195bc165093b352ff6f99234ded6919941e4a56f5f3c686ba2c88c"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-078.mp4",
+      "size": 365041669,
+      "sha256": "cce4c4328da1bbc167d2fc4720f12512c3946268fcd6f178a999f9fa64682a79"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-079.mp4",
+      "size": 321442387,
+      "sha256": "dc486b04cdb17718bd542285277f9383216ecb8607b2db1b057e84c9485aabf6"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-080.mp4",
+      "size": 344919215,
+      "sha256": "01bbcaba3005f05237aa4e31c4430600a5c4e059e6184ccfceab3ea43ff6b548"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-081.mp4",
+      "size": 330343450,
+      "sha256": "1bebd29e33991b36ffab9f4f726c49ab510e4765b2473bcfa391961393441124"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-082.mp4",
+      "size": 354894914,
+      "sha256": "ba9c97b9f1fa3ee1b12779793cb69c2b1159d6cb5dd5b08aaede04941fe613c1"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-083.mp4",
+      "size": 382410451,
+      "sha256": "7faaf6d00c1452ea7814c98c6d94e0e8402b317506b51ded4d182f14fd69edf0"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-084.mp4",
+      "size": 333182419,
+      "sha256": "50fa8eca79e59f383d2d03c1a60923b65ec8a4d54660bd0b03b854c8d3d9f586"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-085.mp4",
+      "size": 276722922,
+      "sha256": "059b51c04fb6e6f0b868a1157d47074149f115ff9e9985ffa9cacbabf1cc7f0c"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-086.mp4",
+      "size": 305636021,
+      "sha256": "02ebb5a0fcbd177e703d6930dfa59d2a8d8673b831672474896f30c48adf35aa"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-087.mp4",
+      "size": 338880879,
+      "sha256": "47bdd311284c3418cc52addc2939280804d5acca47e7ce4c098f3be4e7f136a7"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-088.mp4",
+      "size": 312023741,
+      "sha256": "13f90f89a2dad17aa6591ecc63dd1bb3fcb52099075e9aa8961380fd5bba3850"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-089.mp4",
+      "size": 307027341,
+      "sha256": "ed653a3ba26e6d7a8995dc93d4b35616965470fe465a7cf46805bc8302045f98"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-090.mp4",
+      "size": 312605421,
+      "sha256": "c06446a5a90edfdb3b9fbc6c4d8afccd3f06e8934c32f432e8910616754060e9"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-091.mp4",
+      "size": 357821855,
+      "sha256": "80bc4b6c4b16300f7ce98eaffa2b88f1e80af523779cb03a561aefedfd5fff3c"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-092.mp4",
+      "size": 310279000,
+      "sha256": "fa3a3c52e88f8bf7d2fb9d8a7a9971d9889023ae925c985432861c6c68412b5a"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-093.mp4",
+      "size": 272194269,
+      "sha256": "c44f1de2370fdb0d6d4e29d283c69df6b588cb87c183a1de90c75de342865fcf"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-094.mp4",
+      "size": 337867770,
+      "sha256": "10ffdde78146971527953d48ae1f62c9096a8e4c72b1f20ee6834aeaffdde22f"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-095.mp4",
+      "size": 290785806,
+      "sha256": "b8ea3d8b776e21769aeb234ba783035b498525782ce00973a7c90eaacb070513"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-096.mp4",
+      "size": 289626508,
+      "sha256": "233bdf50d461b5117176cd2b6e1579d413112921d449d6b2bc81f61317f7713a"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-097.mp4",
+      "size": 334453309,
+      "sha256": "bc3525a881f6f4a1c6984398ad0a6abddf8203853bec0d7681dc497cd53843a8"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-098.mp4",
+      "size": 361590836,
+      "sha256": "a24ca0a7fdb58d41685f0f5eefdf3105c8ce93fc82ac97ff5bd135cac1d9da9b"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-099.mp4",
+      "size": 287720350,
+      "sha256": "d034f46bfc9bab11900f5fd487094199c3b2210a95ece3da7f6f46b62e22778b"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-100.mp4",
+      "size": 264194996,
+      "sha256": "6476d5eedb773e0f8ca073ee1eed2f853f8e89ace9f5a7c6d1f0cee2ae7638eb"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-101.mp4",
+      "size": 301756364,
+      "sha256": "f9da76f6f8a379acf2324c8f7f927997c3260f143e5de3faad85616bfc1ae518"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-102.mp4",
+      "size": 277279560,
+      "sha256": "4a9b7660ab5c6ab8730a6565fcd3432c38f0df5525215ef965bb6d58aed03268"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-103.mp4",
+      "size": 291481675,
+      "sha256": "6ef27d31a1085a8282eab9acfdcbc932bb27bff4536129d727bbefcba57e24b9"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-104.mp4",
+      "size": 318200723,
+      "sha256": "08e98e15ba4835859758e31fa9581d0d901fe882298b3a65dfc612f9d8c95216"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-105.mp4",
+      "size": 273662264,
+      "sha256": "4f19fbf29a758cccfeed2b429ba6bb5a61dffcd9281a9176136497453ceb48ff"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-106.mp4",
+      "size": 270597960,
+      "sha256": "a34376111b112a53500f86b62dbd2479aee82c0db214918a81e70ec7f4665f62"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-107.mp4",
+      "size": 319835378,
+      "sha256": "deb70f9efb14991eb7ce4521cc779d680d82e0d1a97f19e51a7271b375a359a4"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-108.mp4",
+      "size": 236844686,
+      "sha256": "3b9b2cfdb26a0fd14640ec88eb658a2bbd3c1d5797b74d41d6349b6100b73ed9"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-109.mp4",
+      "size": 250639728,
+      "sha256": "470d8b42f696fbe432a5fbbbf650e7ec225c8c9067506d15863affdba8a4e242"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-110.mp4",
+      "size": 262871089,
+      "sha256": "06f0f1ef32b0583bc027f276f5643df38f0bd64044c29875f2253906c59b5933"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-111.mp4",
+      "size": 267587130,
+      "sha256": "69b81deb80d3bd6cf78199f9b5f3bfeb759bdcf5120b7ff8b82993096cc8690b"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-112.mp4",
+      "size": 260360117,
+      "sha256": "5b3d7a67f394048b68737baca6640275312a3ff418a4674d460f3bc97aee819f"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-113.mp4",
+      "size": 276323165,
+      "sha256": "319bf5bab3de6456da310aaf36b8f3c83b250de4c2588342518867622f7d964e"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-114.mp4",
+      "size": 293635531,
+      "sha256": "8a1cd7b0e6673f6bc728da50778104fdc250099a4a56e78cde0c539385fdfd12"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-115.mp4",
+      "size": 296176581,
+      "sha256": "daba963531e2dc8cb4a4e63fb33139df0f16ceff707277a2338688453c999d28"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-116.mp4",
+      "size": 287868560,
+      "sha256": "295a03368fedfe43ae314cbe8408addf647f3d3da0803ed1a605e564ef550f35"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-117.mp4",
+      "size": 296092839,
+      "sha256": "3fe4d5e2615395e2c2dca6feaef2e474afe7ace17e6a15afdbb8cd2a19752824"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-118.mp4",
+      "size": 287399205,
+      "sha256": "fa508f8adb84bae026b82665a8ffe1bd661a086dc6802c64165cc9e8529c079a"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-119.mp4",
+      "size": 250129736,
+      "sha256": "8285b3f2374fd41d1d1531d1852b0dc7ae68213879d4531aa58ee69f9a2a4f79"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-120.mp4",
+      "size": 331975910,
+      "sha256": "1e617e8ea84891f54411c8c663484c7608d2a05f7eda804a4e135283c9c9defc"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-121.mp4",
+      "size": 286547337,
+      "sha256": "5d10db9c2dede99597880b2e51839d7f56ac39efb212ae921316703820aa71b8"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-122.mp4",
+      "size": 310546880,
+      "sha256": "031eaae9e4419aad1b74fdce96d3ea4133c18a3583cd06b0aa36c3343f4be4a9"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-123.mp4",
+      "size": 306510626,
+      "sha256": "aef730c2452da16a8d1d399318ba2caa1250e3c5f9b857acaba97766495bc1e1"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-124.mp4",
+      "size": 337865643,
+      "sha256": "920835a6a1935def11afbcf9b7691d9c6f9ba17f70022eb38f976c6448913089"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-125.mp4",
+      "size": 299311917,
+      "sha256": "b4ff1ece0dad2ac5b6c17273f85ae0eb679a3bbf738424b3624d63f7738b2e5e"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-126.mp4",
+      "size": 285464815,
+      "sha256": "9313ecea6a12a024320b4659b3ab8b6793f7b329e4992b09640431890eb2b014"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-127.mp4",
+      "size": 303272807,
+      "sha256": "c386722a435086aa998718efdbfb96582b5223a8106fca331976883c8f4964b7"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-128.mp4",
+      "size": 324203821,
+      "sha256": "f268e6946676af23b7e041edea81202f94daf1042c2bc162e4e4d1ac58e871df"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-129.mp4",
+      "size": 318287089,
+      "sha256": "429eea59426f8a9e569b5af677eabdb0fe9411eafe162d94ef008fd48ca7673d"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-130.mp4",
+      "size": 307982751,
+      "sha256": "b6e81226b8e4f1d8c5bfd11499f18b6f4551fab050ba65c352cfd1c0a9df90df"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-131.mp4",
+      "size": 319393437,
+      "sha256": "be429494629c077b34c8e85c4b91ce6b11c48124cbde17f15efb8ae36bc502f7"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-132.mp4",
+      "size": 291566179,
+      "sha256": "0da9379e77a61b2acc7dd2f860accb3cef13fe804a9347f551dd4dfa988f7344"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-133.mp4",
+      "size": 286868486,
+      "sha256": "4bc5ae5e3447e0fb88527c32ab7353359fb8cf5e4562533abda97d25efc98028"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-134.mp4",
+      "size": 309239813,
+      "sha256": "fdb0f1cc9d4a1592640ffb9e72aa78aed3ecc8a37be04b4c1aafad5840d0da93"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-135.mp4",
+      "size": 317636677,
+      "sha256": "c4278e73451e20daa638e772ca7930189cfee46e48bba77480509584f651fe3a"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-136.mp4",
+      "size": 318305832,
+      "sha256": "e73cfaa53a1bd101345825cbe16842cc2959bda11037913148b55cbd9e6ba359"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-137.mp4",
+      "size": 314774544,
+      "sha256": "548b225e4bb5c4fa90756f013af42f2a97de84831f72958dd645d9b9e3d5fd6f"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-138.mp4",
+      "size": 323296907,
+      "sha256": "a6ccda3c0f6cdb07267a0975a5485d170e2956ef4d0af5c3d74a7e2562499612"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-139.mp4",
+      "size": 361095990,
+      "sha256": "edea6b393eee7542f20250792c3cd977793330190d761aa1592f500894d575e9"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-140.mp4",
+      "size": 341955337,
+      "sha256": "4db39facc520fb3b7eb8388dc5f8744471c4051d731d9efa70a646075918b066"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-141.mp4",
+      "size": 341684421,
+      "sha256": "96d469acf495d2457d7ecb9279cb67afaff1bbbdc60a362fa662be4e12b0c2e1"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-142.mp4",
+      "size": 310537681,
+      "sha256": "e46ef8e85df73779d706969cd787a059e0fb2b4e3cb2644beff38c4772d09277"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-143.mp4",
+      "size": 320565536,
+      "sha256": "0764c2183df13b1e0d6badbff6fe56ed0615b7aa0be704c40eb38b1429d73adb"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-144.mp4",
+      "size": 369229212,
+      "sha256": "1ff73c08ca5b38d79acbe6cfadbf71ec0b0dca2f3093537dc27aa8d3c8a9cebc"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-145.mp4",
+      "size": 329088455,
+      "sha256": "c7e51520981a910eaae911a93047511bb85ec0e28b8672bc090eda1106b7ce13"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-146.mp4",
+      "size": 357378204,
+      "sha256": "52af9aa3fcbd3bdf776e9d1664d4e5414ba9b87bfd79d9941bc979b83e198d68"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-147.mp4",
+      "size": 329752273,
+      "sha256": "177073e1c68ab97f8b81fe0e3156dcb8fe242ab0e2a29b7a744c7db8351f8964"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-148.mp4",
+      "size": 360742484,
+      "sha256": "af5a46ef1ffd5516c6dec97b5b15cb21756a70d0b1ec8b16d8d56eb6b9983d0a"
+    },
+    {
+      "path": "videos/observation.images.top_depth/chunk-000/file-149.mp4",
+      "size": 303184407,
+      "sha256": "516c4c6bcd9d58996cc0a2fcf4305f6f5eaad151dd3fa9d54f82339c341171aa"
+    }
+  ]
+}

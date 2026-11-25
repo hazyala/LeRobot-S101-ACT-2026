@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "train": 120,
+  "validation": 30,
+  "train_only_stats": true,
+  "best_selection": "improvement/tie/worse/NaN checked",
+  "inputs": [
+    "observation.state",
+    "observation.images.top",
+    "observation.images.side"
+  ]
+}

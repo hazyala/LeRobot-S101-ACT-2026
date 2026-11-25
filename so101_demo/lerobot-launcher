@@ -1,0 +1,14 @@
+#!/bin/sh
+# When launched over SSH, use the logged-in Jetson desktop only if its X11
+# display is already accessible to this same user. Never override X forwarding.
+if [ -z "${DISPLAY:-}" ] && [ -S /tmp/.X11-unix/X0 ]; then
+    for auth in "$HOME/.Xauthority" "/run/user/$(id -u)/gdm/Xauthority"; do
+        if [ -r "$auth" ] && DISPLAY=:0 XAUTHORITY="$auth" xdpyinfo >/dev/null 2>&1; then
+            DISPLAY=:0
+            XAUTHORITY="$auth"
+            export DISPLAY XAUTHORITY
+            break
+        fi
+    done
+fi
+exec /home/aisw/lerobot/.venv/bin/python /home/aisw/lerobot/demo_menu.py "$@"
