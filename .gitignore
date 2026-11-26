@@ -1,0 +1,11 @@
+# Local environments, datasets and model files
+lerobot/
+.venv/
+venv/
+.cache/
+__pycache__/
+*.py[cod]
+models/
+datasets/*
+!datasets/calibration/
+!datasets/calibration/**

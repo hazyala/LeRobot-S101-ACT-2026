@@ -1,0 +1,14 @@
+{
+  "dataset": "D:\\lerobot\\datasets\\paper_cup",
+  "model_directory": "D:\\lerobot\\models\\paper_cup_training",
+  "steps": 20000,
+  "batch_size": 8,
+  "save_every": 1000,
+  "log_every": 100,
+  "seed": 1000,
+  "validation_ratio": 0.2,
+  "policy": "ACT",
+  "chunk_size": 100,
+  "video_backend": "pyav",
+  "pretrained_backbone_weights": "ResNet18_Weights.IMAGENET1K_V1"
+}

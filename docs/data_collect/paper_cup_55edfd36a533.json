@@ -1,0 +1,23 @@
+{
+  "dataset_path": "D:\\lerobot\\datasets\\paper_cup",
+  "history": {
+    "name": "종이컵 Pick & Place",
+    "task": "Pick up the paper cup and place it in the designated area.",
+    "sessions": [
+      {
+        "start": "2026-11-25T12:52:35+09:00",
+        "start_note": "섹션 1번 에피소드 10개 수집",
+        "before_count": 0,
+        "before_bytes": 0,
+        "end": "2026-11-25T12:58:34+09:00",
+        "added": 11,
+        "total": 11,
+        "added_bytes": 4302438641,
+        "total_bytes": 4302438641,
+        "episode_range": "0–10",
+        "exit_code": 0,
+        "end_note": "에피소드 11개 수집 완료"
+      }
+    ]
+  }
+}

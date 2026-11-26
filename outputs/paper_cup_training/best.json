@@ -1,0 +1,7 @@
+{
+  "step": 7000,
+  "eval_loss": 0.2445475310087204,
+  "checkpoint": "checkpoints\\007000",
+  "model": "D:\\lerobot\\models\\paper_cup_training\\best_model",
+  "criterion": "lowest validation loss"
+}
