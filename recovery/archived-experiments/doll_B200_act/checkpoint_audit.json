@@ -1,0 +1,141 @@
+{
+  "numbered_checkpoints": 50,
+  "steps": [
+    1000,
+    2000,
+    3000,
+    4000,
+    5000,
+    6000,
+    7000,
+    8000,
+    9000,
+    10000,
+    11000,
+    12000,
+    13000,
+    14000,
+    15000,
+    16000,
+    17000,
+    18000,
+    19000,
+    20000,
+    21000,
+    22000,
+    23000,
+    24000,
+    25000,
+    26000,
+    27000,
+    28000,
+    29000,
+    30000,
+    31000,
+    32000,
+    33000,
+    34000,
+    35000,
+    36000,
+    37000,
+    38000,
+    39000,
+    40000,
+    41000,
+    42000,
+    43000,
+    44000,
+    45000,
+    46000,
+    47000,
+    48000,
+    49000,
+    50000
+  ],
+  "structural_issues": [],
+  "all_1000_step_checkpoints_present": true,
+  "numbered_size_gib": 28.85128342639655,
+  "total_size_gib": 29.428338929079473,
+  "final_step": {
+    "step": 50000,
+    "num_processes": 1,
+    "batch_size": 64
+  },
+  "final_finite_checks": {
+    "pretrained_model/model.safetensors": {
+      "nonfinite_tensors": []
+    },
+    "pretrained_model/policy_postprocessor_step_0_unnormalizer_processor.safetensors": {
+      "nonfinite_tensors": []
+    },
+    "pretrained_model/policy_preprocessor_step_3_normalizer_processor.safetensors": {
+      "nonfinite_tensors": []
+    },
+    "training_state/optimizer_state.safetensors": {
+      "nonfinite_tensors": []
+    },
+    "training_state/rng_state.safetensors": {
+      "nonfinite_tensors": []
+    }
+  },
+  "model_tensor_elements": 51668614,
+  "last_matches_final": {
+    "pretrained_model/model.safetensors": true,
+    "pretrained_model/config.json": true,
+    "pretrained_model/train_config.json": true,
+    "pretrained_model/policy_preprocessor.json": true,
+    "pretrained_model/policy_postprocessor.json": true,
+    "pretrained_model/policy_preprocessor_step_3_normalizer_processor.safetensors": true,
+    "pretrained_model/policy_postprocessor_step_0_unnormalizer_processor.safetensors": true,
+    "training_state/training_step.json": true,
+    "training_state/optimizer_state.safetensors": true,
+    "training_state/optimizer_param_groups.json": true,
+    "training_state/rng_state.safetensors": true
+  },
+  "early_final_model_differ": true,
+  "split": {
+    "train": 449,
+    "validation": 50,
+    "overlap": 0,
+    "complete": true
+  },
+  "settings": {
+    "steps": 50000,
+    "batch_size": 64,
+    "num_workers": 7,
+    "eval_steps": 1000,
+    "save_freq": 1000,
+    "log_freq": 100,
+    "seed": 1000
+  },
+  "input_features": {
+    "observation.state": {
+      "type": "STATE",
+      "shape": [
+        6
+      ]
+    },
+    "observation.images.top": {
+      "type": "VISUAL",
+      "shape": [
+        3,
+        480,
+        640
+      ]
+    },
+    "observation.images.side": {
+      "type": "VISUAL",
+      "shape": [
+        3,
+        480,
+        640
+      ]
+    }
+  },
+  "normalization": {
+    "VISUAL": "MEAN_STD",
+    "STATE": "MEAN_STD",
+    "ACTION": "MEAN_STD"
+  },
+  "loss_logs": []
+}
