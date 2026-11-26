@@ -13,6 +13,8 @@
 | [Jetson·B200 연동](so101_demo/README.md) | 원격 추론과 로봇 제어 연동 작업. 실제 로봇 실행 전 해당 폴더의 검증 상태 확인 필요 |
 | [데이터셋 구성](docs/PICKPLACE_NOHOME_DATASET.md) | HOME 구간 제외 데이터셋 구성 기록 |
 | [혼합 데이터 검토](docs/SORTING_PICKPLACE_MIX_REVIEW.md) | Sorting과 Pick & Place 혼합 학습 검토 기록 |
+| [데이터 및 시연 이미지](docs/assets/dataset_samples/) | 작업별 카메라 화면과 시연 이미지 |
+| [종이컵 작업 이미지](docs/assets/paper-cup/) | 작업 순서 이미지와 단계별 프레임 |
 
 학습 데이터, 로컬 가상환경, 모델 체크포인트는 Git에서 제외되어 있으므로 각 실험을 실행하려면 별도로 준비해야 합니다.
 
