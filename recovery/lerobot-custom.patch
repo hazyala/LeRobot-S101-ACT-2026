@@ -1,0 +1,504 @@
+diff --git a/src/lerobot/cameras/opencv/camera_opencv.py b/src/lerobot/cameras/opencv/camera_opencv.py
+index bdcc7e17d..70067426f 100644
+--- a/src/lerobot/cameras/opencv/camera_opencv.py
++++ b/src/lerobot/cameras/opencv/camera_opencv.py
+@@ -115,6 +115,7 @@ class OpenCVCamera(Camera):
+         self.frame_lock: Lock = Lock()
+         self.latest_frame: NDArray[Any] | None = None
+         self.latest_timestamp: float | None = None
++        self.latest_frame_number: int = 0
+         self.new_frame_event: Event = Event()
+ 
+         self.rotation: int | None = get_cv2_rotation(config.rotation)
+@@ -476,6 +477,7 @@ class OpenCVCamera(Camera):
+                 with self.frame_lock:
+                     self.latest_frame = processed_frame
+                     self.latest_timestamp = capture_time
++                    self.latest_frame_number += 1
+                 self.new_frame_event.set()
+                 failure_count = 0
+ 
+@@ -514,6 +516,7 @@ class OpenCVCamera(Camera):
+         with self.frame_lock:
+             self.latest_frame = None
+             self.latest_timestamp = None
++            self.latest_frame_number = 0
+             self.new_frame_event.clear()
+ 
+     def _cleanup_resources(self) -> None:
+diff --git a/src/lerobot/cameras/realsense/camera_realsense.py b/src/lerobot/cameras/realsense/camera_realsense.py
+index 0672c992e..c72c16b16 100644
+--- a/src/lerobot/cameras/realsense/camera_realsense.py
++++ b/src/lerobot/cameras/realsense/camera_realsense.py
+@@ -152,6 +152,7 @@ class RealSenseCamera(Camera):
+         self.latest_color_frame: NDArray[Any] | None = None
+         self.latest_depth_frame: NDArray[Any] | None = None
+         self.latest_timestamp: float | None = None
++        self.latest_frame_numbers: tuple[int | None, int | None] = (None, None)
+         self.new_frame_event: Event = Event()
+ 
+         self.rotation: int | None = get_cv2_rotation(config.rotation)
+@@ -451,6 +452,18 @@ class RealSenseCamera(Camera):
+         if "RGB Camera" in sensors:
+             return sensors["RGB Camera"]
+ 
++        if "Stereo Module" in sensors:
++            stereo_sensor = sensors["Stereo Module"]
++            if any(
++                stereo_sensor.supports(option)
++                for option in (rs.option.exposure, rs.option.gain, rs.option.white_balance)
++            ):
++                logger.info(
++                    f"{self}: using Stereo Module for manual color controls "
++                    "because this RealSense device has no dedicated RGB Camera sensor."
++                )
++                return stereo_sensor
++
+         available = list(sensors.keys())
+         raise RuntimeError(
+             f"{self}: manual color controls require a dedicated 'RGB Camera' module, which this camera does not have. ",
+@@ -697,6 +710,10 @@ class RealSenseCamera(Camera):
+                         processed_depth_frame = processed_depth_frame[..., np.newaxis]
+ 
+                 capture_time = time.perf_counter()
++                frame_numbers = (
++                    int(color_frame_raw.get_frame_number()) if self.use_rgb else None,
++                    int(depth_frame_raw.get_frame_number()) if self.use_depth else None,
++                )
+ 
+                 with self.frame_lock:
+                     # Under the lock, so a late frame cannot resurrect the buffer _stop_read_thread() cleared.
+@@ -707,6 +724,7 @@ class RealSenseCamera(Camera):
+                     if self.use_depth:
+                         self.latest_depth_frame = processed_depth_frame
+                     self.latest_timestamp = capture_time
++                    self.latest_frame_numbers = frame_numbers
+                 self.new_frame_event.set()
+                 failure_count = 0
+ 
+@@ -745,6 +763,7 @@ class RealSenseCamera(Camera):
+             self.latest_color_frame = None
+             self.latest_depth_frame = None
+             self.latest_timestamp = None
++            self.latest_frame_numbers = (None, None)
+             self.new_frame_event.clear()
+ 
+     def _cleanup_resources(self) -> None:
+diff --git a/src/lerobot/common/train_utils.py b/src/lerobot/common/train_utils.py
+index a300cc76c..dd7c16140 100644
+--- a/src/lerobot/common/train_utils.py
++++ b/src/lerobot/common/train_utils.py
+@@ -13,6 +13,7 @@
+ # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ # See the License for the specific language governing permissions and
+ # limitations under the License.
++import os
+ from pathlib import Path
+ 
+ from huggingface_hub import HfApi, snapshot_download
+@@ -97,8 +98,20 @@ def update_last_checkpoint(checkpoint_dir: Path) -> Path:
+     last_checkpoint_dir = checkpoint_dir.parent / LAST_CHECKPOINT_LINK
+     if last_checkpoint_dir.is_symlink():
+         last_checkpoint_dir.unlink()
++    elif last_checkpoint_dir.exists():
++        # On Windows, directory junctions are not reported as symlinks by pathlib.
++        last_checkpoint_dir.rmdir()
+     relative_target = checkpoint_dir.relative_to(checkpoint_dir.parent)
+-    last_checkpoint_dir.symlink_to(relative_target)
++    try:
++        last_checkpoint_dir.symlink_to(relative_target, target_is_directory=True)
++    except OSError:
++        if os.name != "nt":
++            raise
++        # Windows requires Developer Mode or elevated privileges for directory
++        # symlinks. Numbered checkpoints are complete and resumable without the
++        # optional `last` alias, so do not abort training after a successful save.
++        return checkpoint_dir
++    return last_checkpoint_dir
+ 
+ 
+ def save_checkpoint(
+diff --git a/src/lerobot/configs/video.py b/src/lerobot/configs/video.py
+index 4b956f30e..788c22c5d 100644
+--- a/src/lerobot/configs/video.py
++++ b/src/lerobot/configs/video.py
+@@ -39,7 +39,7 @@ HW_VIDEO_CODECS = [
+     "h264_qsv",  # Intel Quick Sync
+ ]
+ VALID_VIDEO_CODECS: frozenset[str] = frozenset(
+-    {"h264", "hevc", "libsvtav1", "libaom-av1", "auto", *HW_VIDEO_CODECS}
++    {"h264", "libx264rgb", "hevc", "libsvtav1", "libaom-av1", "auto", *HW_VIDEO_CODECS}
+ )
+ # Aliases for legacy video codec names.
+ VIDEO_CODECS_ALIASES: dict[str, str] = {"av1": "libsvtav1"}
+@@ -132,6 +132,16 @@ class VideoEncoderConfig:
+                 continue
+             kwargs[field_name] = value
+ 
++        # RGB H.264 streams identify as h264/gbrp; reopen with the RGB encoder.
++        if kwargs.get("vcodec") == "h264" and kwargs.get("pix_fmt") in ("gbrp", "rgb24", "bgr24"):
++            if kwargs.get("extra_options", {}).get("tune") == "lossless":
++                kwargs["vcodec"] = "h264_nvenc"
++                kwargs["pix_fmt"] = "gbrp"
++                # A missing CRF must not fall back to a default lossy QP.
++                kwargs["crf"] = None
++            else:
++                kwargs["vcodec"] = "libx264rgb"
++                kwargs["pix_fmt"] = "rgb24"
+         return kwargs
+ 
+     @classmethod
+@@ -227,7 +237,7 @@ class VideoEncoderConfig:
+                 svtav1_parts.append(f"lp={encoder_threads}")
+             if svtav1_parts:
+                 set_if("svtav1-params", ":".join(svtav1_parts))
+-        elif self.vcodec in ("h264", "hevc"):
++        elif self.vcodec in ("h264", "libx264rgb", "hevc"):
+             set_if("crf", self.crf)
+             set_if("preset", self.preset)
+             if self.fast_decode:
+diff --git a/src/lerobot/datasets/dataset_metadata.py b/src/lerobot/datasets/dataset_metadata.py
+index 5b823a9ed..e5d13c4b8 100644
+--- a/src/lerobot/datasets/dataset_metadata.py
++++ b/src/lerobot/datasets/dataset_metadata.py
+@@ -619,11 +619,13 @@ class LeRobotDatasetMetadata:
+ 
+                 av_size_per_frame = latest_size_in_mb / latest_num_frames if latest_num_frames > 0 else 0.0
+ 
+-                if latest_size_in_mb + av_size_per_frame * num_frames >= self.data_files_size_in_mb:
++                if (getattr(self, '_rotate_after_checkpoint', False)
++                        or latest_size_in_mb + av_size_per_frame * num_frames >= self.data_files_size_in_mb):
+                     # Size limit is reached, flush buffer and prepare new parquet file
+                     self._flush_metadata_buffer()
+                     chunk_idx, file_idx = update_chunk_file_indices(chunk_idx, file_idx, self.chunks_size)
+                     self._close_writer()
++                    self._rotate_after_checkpoint = False
+ 
+             # Update the existing pandas dataframe with new row
+             episode_dict["meta/episodes/chunk_index"] = [chunk_idx]
+diff --git a/src/lerobot/datasets/dataset_writer.py b/src/lerobot/datasets/dataset_writer.py
+index 90cbf5f2d..eb7dfd329 100644
+--- a/src/lerobot/datasets/dataset_writer.py
++++ b/src/lerobot/datasets/dataset_writer.py
+@@ -237,7 +237,8 @@ class DatasetWriter:
+                     info["depth_unit"] = infer_depth_unit(np.asarray(frame[depth_key]).dtype)
+ 
+         # Start streaming encoder on first frame of episode
+-        if frame_index == 0 and self._streaming_encoder is not None:
++        if (frame_index == 0 and self._streaming_encoder is not None
++                and not self._streaming_encoder._episode_active):
+             self._streaming_encoder.start_episode(
+                 video_keys=list(self._meta.video_keys),
+                 depth_video_keys=list(self._meta.depth_keys),
+@@ -444,7 +445,9 @@ class DatasetWriter:
+         hf_features = get_hf_features_from_features(self._meta.features)
+         ep_dict = {key: episode_buffer[key] for key in hf_features}
+         ep_dataset = datasets.Dataset.from_dict(ep_dict, features=hf_features, split="train")
+-        ep_dataset = embed_images(ep_dataset)
++        # Video frames live in separate files; only inline images need byte embedding.
++        if any(feature["dtype"] == "image" for feature in self._meta.features.values()):
++            ep_dataset = embed_images(ep_dataset)
+         ep_num_frames = len(ep_dataset)
+ 
+         if self._latest_episode is None:
+@@ -473,10 +476,12 @@ class DatasetWriter:
+                 latest_size_in_mb / frames_in_current_file if frames_in_current_file > 0 else 0
+             )
+ 
+-            if latest_size_in_mb + av_size_per_frame * ep_num_frames >= self._meta.data_files_size_in_mb:
++            if (getattr(self, '_rotate_after_checkpoint', False)
++                    or latest_size_in_mb + av_size_per_frame * ep_num_frames >= self._meta.data_files_size_in_mb):
+                 chunk_idx, file_idx = update_chunk_file_indices(chunk_idx, file_idx, self._meta.chunks_size)
+                 self.close_writer()
+                 self._current_file_start_frame = global_frame_index
++                self._rotate_after_checkpoint = False
+ 
+         ep_dict["data/chunk_index"] = chunk_idx
+         ep_dict["data/file_index"] = file_idx
+@@ -678,6 +683,21 @@ class DatasetWriter:
+                 )
+                 shutil.rmtree(img_dir)
+ 
++    def checkpoint_recording(self) -> None:
++        """Commit readable parquet footers while keeping recording state in memory.
++
++        The next episode uses fresh shards, so a closed parquet is never overwritten.
++        """
++        if self._finalized or self._batch_encoding_size != 1:
++            raise RuntimeError('Checkpoint requires an active, non-batched recorder')
++        if self._streaming_encoder is not None and self._streaming_encoder._episode_active:
++            raise RuntimeError('Save the current episode before checkpointing')
++        self.close_writer()
++        self._meta._close_writer()
++        self._rotate_after_checkpoint = True
++        self._meta._rotate_after_checkpoint = True
++        self._used_checkpoint = True
++
+     def finalize(self) -> None:
+         """Flush all pending work and release all resources.
+ 
+diff --git a/src/lerobot/datasets/lerobot_dataset.py b/src/lerobot/datasets/lerobot_dataset.py
+index 4c44bc543..2befd0bc0 100644
+--- a/src/lerobot/datasets/lerobot_dataset.py
++++ b/src/lerobot/datasets/lerobot_dataset.py
+@@ -471,6 +471,11 @@ class LeRobotDataset(torch.utils.data.Dataset):
+             return False
+         return self.writer.episode_buffer is not None and self.writer.episode_buffer["size"] > 0
+ 
++    def checkpoint_recording(self):
++        """Commit a saved episode without rebuilding the recording dataset."""
++        self._require_writer('checkpoint_recording')
++        self.writer.checkpoint_recording()
++
+     def finalize(self):
+         """Flush all pending work and close writers.
+ 
+@@ -484,6 +489,9 @@ class LeRobotDataset(torch.utils.data.Dataset):
+             return
+         if self.writer is not None:
+             self.writer.finalize()
++            if getattr(self.writer, '_used_checkpoint', False):
++                # Rebuild read metadata once on first read, rather than after every save.
++                self.meta.episodes = None
+         self._is_finalized = True
+ 
+     # ── Core Dataset methods ──────────────────────────────────────────
+diff --git a/src/lerobot/datasets/pyav_utils.py b/src/lerobot/datasets/pyav_utils.py
+index 7b7d1e5de..1265a07d1 100644
+--- a/src/lerobot/datasets/pyav_utils.py
++++ b/src/lerobot/datasets/pyav_utils.py
+@@ -109,6 +109,10 @@ def _check_option_value(vcodec: str, label: str, value: Any, opt: av.option.Opti
+     """Range-check numeric *value* and choice-check string *value* against *opt*."""
+     type_name = opt.type.name
+     if type_name in FFMPEG_NUMERIC_OPTION_TYPES:
++        # FFmpeg integer enums also accept their documented names (e.g. NVENC
++        # preset=p1 and tune=lossless), not just the underlying integer values.
++        if isinstance(value, str) and value in {choice.name for choice in opt.choices or []}:
++            return
+         if isinstance(value, bool):
+             raise ValueError(
+                 f"{label}={value!r} is not numeric; codec {vcodec!r} expects a number for this option."
+diff --git a/src/lerobot/datasets/video_utils.py b/src/lerobot/datasets/video_utils.py
+index ef3005dd8..9228d1d19 100644
+--- a/src/lerobot/datasets/video_utils.py
++++ b/src/lerobot/datasets/video_utils.py
+@@ -766,6 +766,7 @@ class _CameraEncoderThread(threading.Thread):
+         result_queue: queue.Queue,
+         stop_event: threading.Event,
+         encoder_threads: int | None = None,
++        frame_shape: tuple | None = None,
+     ):
+         super().__init__(daemon=True)
+         self.video_path = video_path
+@@ -776,6 +777,8 @@ class _CameraEncoderThread(threading.Thread):
+         self.result_queue = result_queue
+         self.stop_event = stop_event
+         self.encoder_threads = encoder_threads
++        self.frame_shape = frame_shape
++        self.ready_event = threading.Event()
+ 
+     def run(self) -> None:
+         from .compute_stats import RunningQuantileStats, auto_downsample_height_width
+@@ -787,6 +790,19 @@ class _CameraEncoderThread(threading.Thread):
+ 
+         try:
+             logging.getLogger("libav").setLevel(av.logging.WARNING)
++            if self.frame_shape is not None:
++                height, width = self.frame_shape[:2]
++                Path(self.video_path).parent.mkdir(parents=True, exist_ok=True)
++                container = av.open(str(self.video_path), "w")
++                output_stream = container.add_stream(
++                    self.video_encoder.vcodec, self.fps,
++                    options=self.video_encoder.get_codec_options(self.encoder_threads, as_strings=True),
++                )
++                output_stream.pix_fmt = self.video_encoder.pix_fmt
++                output_stream.width, output_stream.height = width, height
++                output_stream.time_base = Fraction(1, self.fps)
++                output_stream.codec_context.open()
++            self.ready_event.set()
+ 
+             while True:
+                 try:
+@@ -876,6 +892,7 @@ class _CameraEncoderThread(threading.Thread):
+                 with contextlib.suppress(Exception):
+                     container.close()
+             self.result_queue.put(("error", str(e)))
++            self.ready_event.set()
+ 
+ 
+ class StreamingVideoEncoder:
+@@ -927,7 +944,8 @@ class StreamingVideoEncoder:
+         self._closed = False
+ 
+     def start_episode(
+-        self, video_keys: list[str], temp_dir: Path, depth_video_keys: list[str] | None = None
++        self, video_keys: list[str], temp_dir: Path, depth_video_keys: list[str] | None = None,
++        frame_shapes: dict | None = None,
+     ) -> None:
+         """Start encoder threads for a new episode.
+ 
+@@ -962,6 +980,7 @@ class StreamingVideoEncoder:
+                 result_queue=result_queue,
+                 stop_event=stop_event,
+                 encoder_threads=self._encoder_threads,
++                frame_shape=frame_shapes.get(video_key) if frame_shapes else None,
+             )
+             encoder_thread.start()
+ 
+@@ -972,6 +991,14 @@ class StreamingVideoEncoder:
+             self._video_paths[video_key] = video_path
+ 
+         self._episode_active = True
++        if frame_shapes:
++            for video_key, worker in self._threads.items():
++                if not worker.ready_event.wait(timeout=30):
++                    raise RuntimeError(f"Encoder initialization timed out: {video_key}")
++                if not self._result_queues[video_key].empty():
++                    status, message = self._result_queues[video_key].get_nowait()
++                    if status == "error":
++                        raise RuntimeError(f"Encoder initialization failed: {video_key}: {message}")
+ 
+     def feed_frame(self, video_key: str, image: np.ndarray) -> None:
+         """Feed a frame to the encoder for a specific camera.
+diff --git a/src/lerobot/motors/feetech/feetech.py b/src/lerobot/motors/feetech/feetech.py
+index 353148b53..0298c5d63 100644
+--- a/src/lerobot/motors/feetech/feetech.py
++++ b/src/lerobot/motors/feetech/feetech.py
+@@ -338,6 +338,44 @@ class FeetechMotorsBus(SerialMotorsBus):
+             ]
+         return data
+ 
++    def sync_read_registers(
++        self, registers: list[str], *, num_retry: int = 0
++    ) -> dict[str, dict[str, Value]]:
++        """Read a contiguous register block once, then decode individual feedback fields."""
++        if not registers:
++            return {}
++        self._assert_protocol_is_compatible("sync_read")
++        motors = list(self.motors)
++        ids = [self.motors[name].id for name in motors]
++        addresses = {}
++        for register in registers:
++            locations = {get_address(self.model_ctrl_table, self.motors[name].model, register)
++                         for name in motors}
++            if len(locations) != 1:
++                raise ValueError(f"Incompatible register addresses for {register}")
++            addresses[register] = locations.pop()
++        start = min(address for address, _ in addresses.values())
++        end = max(address + size for address, size in addresses.values())
++        self._setup_sync_reader(ids, start, end - start)
++        for _ in range(num_retry + 1):
++            comm = self.sync_reader.txRxPacket()
++            if self._is_comm_success(comm) and all(
++                self.sync_reader.isAvailable(id_, start, end - start) for id_ in ids
++            ):
++                break
++        else:
++            raise ConnectionError("Failed to read complete motor feedback block: "
++                                  + self.packet_handler.getTxRxResult(comm))
++        result = {}
++        for register, (address, size) in addresses.items():
++            values = self._decode_sign(register, {
++                id_: self.sync_reader.getData(id_, address, size) for id_ in ids
++            })
++            if register in self.normalized_data:
++                values = self._normalize(values)
++            result[register] = {self._id_to_name(id_): value for id_, value in values.items()}
++        return result
++
+     def _broadcast_ping(self) -> tuple[dict[int, int], int]:
+         data_list: dict[int, int] = {}
+ 
+diff --git a/src/lerobot/robots/so_follower/config_so_follower.py b/src/lerobot/robots/so_follower/config_so_follower.py
+index af4dda782..21f2edc63 100644
+--- a/src/lerobot/robots/so_follower/config_so_follower.py
++++ b/src/lerobot/robots/so_follower/config_so_follower.py
+@@ -52,6 +52,10 @@ class SOFollowerConfig:
+     # failure, so the steady-state read cost is unchanged.
+     num_read_retries: int = 2
+ 
++    # Same idea for writes. This helps flaky Feetech buses survive occasional missing/corrupted status
++    # packets during torque enable, motor configuration, and teleoperation goal writes.
++    num_write_retries: int = 2
++
+ 
+ @RobotConfig.register_subclass("so101_follower")
+ @RobotConfig.register_subclass("so100_follower")
+diff --git a/src/lerobot/robots/so_follower/so_follower.py b/src/lerobot/robots/so_follower/so_follower.py
+index 85dc43dc0..72f6b1084 100644
+--- a/src/lerobot/robots/so_follower/so_follower.py
++++ b/src/lerobot/robots/so_follower/so_follower.py
+@@ -157,18 +157,56 @@ class SOFollower(Robot):
+         print("Calibration saved to", self.calibration_fpath)
+ 
+     def configure(self) -> None:
+-        with self.bus.torque_disabled():
++        self.bus.disable_torque(num_retry=self.config.num_write_retries)
++        try:
+             self.bus.configure_motors()
+             for motor in self.bus.motors:
+-                self.bus.write("Operating_Mode", motor, OperatingMode.POSITION.value)
+-                self.bus.write("P_Coefficient", motor, self.config.position_p_coefficient)
+-                self.bus.write("I_Coefficient", motor, self.config.position_i_coefficient)
+-                self.bus.write("D_Coefficient", motor, self.config.position_d_coefficient)
++                self.bus.write(
++                    "Operating_Mode",
++                    motor,
++                    OperatingMode.POSITION.value,
++                    num_retry=self.config.num_write_retries,
++                )
++                self.bus.write(
++                    "P_Coefficient",
++                    motor,
++                    self.config.position_p_coefficient,
++                    num_retry=self.config.num_write_retries,
++                )
++                self.bus.write(
++                    "I_Coefficient",
++                    motor,
++                    self.config.position_i_coefficient,
++                    num_retry=self.config.num_write_retries,
++                )
++                self.bus.write(
++                    "D_Coefficient",
++                    motor,
++                    self.config.position_d_coefficient,
++                    num_retry=self.config.num_write_retries,
++                )
+ 
+                 if motor == "gripper":
+-                    self.bus.write("Max_Torque_Limit", motor, 500)  # 50% of max torque to avoid burnout
+-                    self.bus.write("Protection_Current", motor, 250)  # 50% of max current to avoid burnout
+-                    self.bus.write("Overload_Torque", motor, 25)  # 25% torque when overloaded
++                    self.bus.write(
++                        "Max_Torque_Limit",
++                        motor,
++                        500,
++                        num_retry=self.config.num_write_retries,
++                    )  # 50% of max torque to avoid burnout
++                    self.bus.write(
++                        "Protection_Current",
++                        motor,
++                        250,
++                        num_retry=self.config.num_write_retries,
++                    )  # 50% of max current to avoid burnout
++                    self.bus.write(
++                        "Overload_Torque",
++                        motor,
++                        25,
++                        num_retry=self.config.num_write_retries,
++                    )  # 25% torque when overloaded
++        finally:
++            self.bus.enable_torque(num_retry=self.config.num_write_retries)
+ 
+     def setup_motors(self) -> None:
+         for motor in reversed(self.bus.motors):
+@@ -226,7 +264,7 @@ class SOFollower(Robot):
+             goal_pos = ensure_safe_goal_position(goal_present_pos, self.config.max_relative_target)
+ 
+         # Send goal position to the arm
+-        self.bus.sync_write("Goal_Position", goal_pos)
++        self.bus.sync_write("Goal_Position", goal_pos, num_retry=self.config.num_write_retries)
+         return {f"{motor}.pos": val for motor, val in goal_pos.items()}
+ 
+     @check_if_not_connected
